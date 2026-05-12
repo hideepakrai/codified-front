@@ -1,0 +1,1263 @@
+{
+  "$schema": "https://kalpbloom.dev/schemas/tenant-snapshot.v2.json",
+  "schemaVersion": "2.0.0",
+  "tenant": {
+    "id": "t_kalpbloom_demo",
+    "name": "KalpBloom Demo",
+    "domain": "demo.kalpbloom.com"
+  },
+
+  "settings": {
+    "_id": "settings_t_kalpbloom_demo",
+    "tenantId": "t_kalpbloom_demo",
+    "siteName": { "en": "KalpBloom Studios", "hi": "कल्पब्लूम स्टूडियोज़" },
+    "tagline":  { "en": "Digital solutions for modern businesses", "hi": "आधुनिक व्यवसायों के लिए डिजिटल समाधान" },
+    "logo":     { "light": "https://cdn.example.com/brand/logo-light.svg", "dark": "https://cdn.example.com/brand/logo-dark.svg" },
+    "favicon":  "https://cdn.example.com/brand/favicon.ico",
+    "locales": ["en", "hi"],
+    "defaultLocale": "en",
+    "fallbackLocale": "en",
+    "theme": {
+      "tokens": {
+        "color.brand": "#1F6FEB",
+        "color.brandFg": "#FFFFFF",
+        "color.bg": "#FFFFFF",
+        "color.fg": "#0F172A",
+        "color.muted": "#64748B",
+        "color.accent": "#F59E0B",
+        "radius.sm": "6px",
+        "radius.md": "12px",
+        "radius.lg": "20px",
+        "font.heading": "Manrope, sans-serif",
+        "font.body": "Inter, sans-serif"
+      }
+    },
+    "contact": {
+      "email": "hello@kalpbloom.example",
+      "phone": "+91 99833 40258",
+      "address": { "en": "1st Floor, Swaraj Enclave, Sector 127, SAS Nagar, Mohali, Punjab 140301" }
+    },
+    "socials": [
+      { "platform": "facebook",  "url": "https://facebook.com/kalpbloom" },
+      { "platform": "instagram", "url": "https://instagram.com/kalpbloom" },
+      { "platform": "x",         "url": "https://x.com/kalpbloom" },
+      { "platform": "linkedin",  "url": "https://linkedin.com/company/kalpbloom" }
+    ],
+    "integrations": {
+      "analytics": { "ga4": "G-XXXXXX", "plausibleDomain": "demo.kalpbloom.com" },
+      "search":    { "provider": "atlas-search" },
+      "captcha":   { "provider": "hcaptcha", "siteKey": "..." }
+    }
+  },
+
+  "menus": [
+    {
+      "_id": "menu_primary",
+      "tenantId": "t_kalpbloom_demo",
+      "key": "primary",
+      "items": [
+        { "label": { "en": "Home", "hi": "होम" }, "href": "/" },
+        { "label": { "en": "About", "hi": "हमारे बारे में" }, "href": "/about" },
+        { "label": { "en": "Services", "hi": "सेवाएँ" }, "href": "/services",
+          "children": [
+            { "label": { "en": "UI/UX Design" },     "href": "/services/ui-ux-design" },
+            { "label": { "en": "Web Development" },  "href": "/services/web-development" },
+            { "label": { "en": "AI/ML Solutions" },  "href": "/services/ai-ml-solutions" },
+            { "label": { "en": "SEO Services" },     "href": "/services/seo-services" }
+          ]
+        },
+        { "label": { "en": "Case Studies", "hi": "केस स्टडीज़" }, "href": "/case-studies" },
+        { "label": { "en": "Blog", "hi": "ब्लॉग" }, "href": "/blog" },
+        { "label": { "en": "Contact", "hi": "संपर्क" }, "href": "/contact" }
+      ]
+    },
+    {
+      "_id": "menu_footer",
+      "tenantId": "t_kalpbloom_demo",
+      "key": "footer",
+      "groups": [
+        { "title": { "en": "Quick Links" },
+          "items": [
+            { "label": { "en": "About us" }, "href": "/about" },
+            { "label": { "en": "Contact" },  "href": "/contact" },
+            { "label": { "en": "Careers" },  "href": "/careers" }
+          ]
+        },
+        { "title": { "en": "Services" },
+          "items": [
+            { "label": { "en": "UI/UX Design" },    "href": "/services/ui-ux-design" },
+            { "label": { "en": "Web Development" }, "href": "/services/web-development" },
+            { "label": { "en": "AI/ML Solutions" }, "href": "/services/ai-ml-solutions" },
+            { "label": { "en": "SEO Services" },    "href": "/services/seo-services" }
+          ]
+        },
+        { "title": { "en": "Legal" },
+          "items": [
+            { "label": { "en": "Privacy Policy" },     "href": "/privacy" },
+            { "label": { "en": "Terms of Service" },   "href": "/terms" }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "pages": [
+    {
+      "_id": "page_home",
+      "tenantId": "t_kalpbloom_demo",
+      "slug": "home",
+      "isPublished": true,
+      "title":           { "en": "Home", "hi": "होम" },
+      "metaTitle":       { "en": "KalpBloom Studios | Digital Solutions for Modern Businesses" },
+      "metaDescription": { "en": "Web design, development, AI/ML and SEO — build fast, scalable, and user-friendly digital experiences." },
+      "metaImage": "https://cdn.example.com/og/home.jpg",
+      "template": null,
+      "content": [
+        {
+          "id": "sec_hero",
+          "type": "section",
+          "adminTitle": "Hero Slider",
+          "layout": "carousel",
+          "theme": "dark",
+          "spacing": "none",
+          "props": {
+            "autoplay":  { "type": "boolean", "value": true },
+            "speed":     { "type": "number",  "value": 6000 },
+            "showDots":  { "type": "boolean", "value": true }
+          },
+          "content": [
+            {
+              "id": "blk_hero_1",
+              "type": "hero-slide",
+              "props": {
+                "eyebrow":     { "type": "text",     "value": { "en": "Build Anything" } },
+                "title":       { "type": "text",     "value": { "en": "Digital Solutions" } },
+                "highlight":   { "type": "text",     "value": { "en": "Built for Growth" } },
+                "description": { "type": "textarea", "value": { "en": "We craft websites, apps, and AI products that move your business forward." } },
+                "image":       { "type": "image",    "value": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1800" },
+                "primaryCta":  { "type": "link",     "value": { "href": "/contact", "target": "_self" } },
+                "primaryCtaLabel":   { "type": "text", "value": { "en": "Let's Talk" } },
+                "secondaryCta":      { "type": "link", "value": { "href": "/case-studies", "target": "_self" } },
+                "secondaryCtaLabel": { "type": "text", "value": { "en": "See Our Work" } }
+              }
+            },
+            {
+              "id": "blk_hero_2",
+              "type": "hero-slide",
+              "props": {
+                "eyebrow":     { "type": "text",     "value": { "en": "Engineered for Scale" } },
+                "title":       { "type": "text",     "value": { "en": "Modern Stacks." } },
+                "highlight":   { "type": "text",     "value": { "en": "Real Results." } },
+                "description": { "type": "textarea", "value": { "en": "Next.js, FastAPI, and AI baked in — shipped fast, measured rigorously." } },
+                "image":       { "type": "image",    "value": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=1800" },
+                "primaryCta":  { "type": "link",     "value": { "href": "/services" } },
+                "primaryCtaLabel": { "type": "text", "value": { "en": "Explore Services" } }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_services_preview",
+          "type": "section",
+          "adminTitle": "Services Preview",
+          "layout": "grid-4",
+          "spacing": "lg",
+          "props": {
+            "eyebrow": { "type": "text", "value": { "en": "What We Do" } },
+            "heading": { "type": "text", "value": { "en": "Our Services" } }
+          },
+          "content": [
+            {
+              "id": "blk_svc_grid",
+              "type": "service-grid",
+              "props": {
+                "source": { "type": "reference", "collection": "services", "multiple": true,
+                            "filter": { "status": "published" }, "sort": { "order": 1 }, "limit": 4 },
+                "cardVariant": { "type": "select", "value": "icon-card" },
+                "showCta":     { "type": "boolean", "value": true }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_logos",
+          "type": "section",
+          "adminTitle": "Trusted By",
+          "layout": "marquee",
+          "spacing": "md",
+          "props": {
+            "heading": { "type": "text", "value": { "en": "Trusted by teams at" } }
+          },
+          "content": [
+            {
+              "id": "blk_logos",
+              "type": "logo-strip",
+              "props": {
+                "items": { "type": "list", "value": [
+                  { "name": "Acme",     "logo": "https://cdn.example.com/logos/acme.svg" },
+                  { "name": "Lumio",    "logo": "https://cdn.example.com/logos/lumio.svg" },
+                  { "name": "Northwind","logo": "https://cdn.example.com/logos/northwind.svg" },
+                  { "name": "Globex",   "logo": "https://cdn.example.com/logos/globex.svg" },
+                  { "name": "Initech",  "logo": "https://cdn.example.com/logos/initech.svg" }
+                ]},
+                "marquee": { "type": "boolean", "value": true }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_why",
+          "type": "section",
+          "adminTitle": "Why Choose Us",
+          "layout": "grid-3",
+          "spacing": "xl",
+          "props": {
+            "eyebrow":     { "type": "text",     "value": { "en": "Why Us" } },
+            "heading":     { "type": "text",     "value": { "en": "Why Choose KalpBloom" } },
+            "description": { "type": "textarea", "value": { "en": "Five reasons teams pick us — and stay with us." } }
+          },
+          "content": [
+            { "id": "feat_1", "type": "feature-card", "props": {
+              "icon":  { "type": "icon", "value": "BadgeCheck" },
+              "title": { "type": "text", "value": { "en": "Expertise & Experience" } },
+              "description": { "type": "textarea", "value": { "en": "Senior engineers and designers, with a track record across industries." } }
+            }},
+            { "id": "feat_2", "type": "feature-card", "props": {
+              "icon":  { "type": "icon", "value": "Sparkles" },
+              "title": { "type": "text", "value": { "en": "Tailored Solutions" } },
+              "description": { "type": "textarea", "value": { "en": "Every engagement is built around your business goals — no boilerplate." } }
+            }},
+            { "id": "feat_3", "type": "feature-card", "props": {
+              "icon":  { "type": "icon", "value": "Users" },
+              "title": { "type": "text", "value": { "en": "Customer-Centric" } },
+              "description": { "type": "textarea", "value": { "en": "Transparent communication, responsive support, true collaboration." } }
+            }},
+            { "id": "feat_4", "type": "feature-card", "props": {
+              "icon":  { "type": "icon", "value": "Scale" },
+              "title": { "type": "text", "value": { "en": "Scalability & Flexibility" } },
+              "description": { "type": "textarea", "value": { "en": "Architectures that grow with you — and adapt when priorities shift." } }
+            }},
+            { "id": "feat_5", "type": "feature-card", "props": {
+              "icon":  { "type": "icon", "value": "Wallet" },
+              "title": { "type": "text", "value": { "en": "Cost-Effective" } },
+              "description": { "type": "textarea", "value": { "en": "Optimized resourcing and tooling to maximize ROI." } }
+            }},
+            { "id": "feat_6", "type": "feature-card", "props": {
+              "icon":  { "type": "icon", "value": "Lock" },
+              "title": { "type": "text", "value": { "en": "Secure by Default" } },
+              "description": { "type": "textarea", "value": { "en": "NDA-protected engagements, hardened infrastructure, GDPR-aligned." } }
+            }}
+          ]
+        },
+        {
+          "id": "sec_integrations",
+          "type": "section",
+          "adminTitle": "Integrations",
+          "layout": "fullwidth",
+          "spacing": "lg",
+          "props": {
+            "eyebrow":     { "type": "text",     "value": { "en": "Plays Well With Others" } },
+            "heading":     { "type": "text",     "value": { "en": "Integrated with leading technologies" } },
+            "description": { "type": "textarea", "value": { "en": "Seamlessly connect your websites and apps with world-class platforms." } }
+          },
+          "content": [
+            {
+              "id": "blk_integ_logos",
+              "type": "logo-strip",
+              "props": {
+                "marquee": { "type": "boolean", "value": true },
+                "items":   { "type": "list", "value": [
+                  { "name": "Next.js",   "logo": "https://cdn.example.com/tech/nextjs.svg" },
+                  { "name": "FastAPI",   "logo": "https://cdn.example.com/tech/fastapi.svg" },
+                  { "name": "MongoDB",   "logo": "https://cdn.example.com/tech/mongodb.svg" },
+                  { "name": "AWS",       "logo": "https://cdn.example.com/tech/aws.svg" },
+                  { "name": "Stripe",    "logo": "https://cdn.example.com/tech/stripe.svg" },
+                  { "name": "OpenAI",    "logo": "https://cdn.example.com/tech/openai.svg" }
+                ]}
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_case_studies_featured",
+          "type": "section",
+          "adminTitle": "Featured Case Studies",
+          "layout": "grid-3",
+          "spacing": "xl",
+          "props": {
+            "eyebrow":     { "type": "text",     "value": { "en": "Recent Work" } },
+            "heading":     { "type": "text",     "value": { "en": "Selected Case Studies" } },
+            "viewAllLabel":{ "type": "text",     "value": { "en": "View all case studies" } },
+            "viewAllLink": { "type": "link",     "value": { "href": "/case-studies" } }
+          },
+          "content": [
+            {
+              "id": "blk_cs_grid",
+              "type": "case-study-grid",
+              "props": {
+                "source": { "type": "reference", "collection": "case-studies", "multiple": true,
+                            "filter": { "featured": true, "status": "published" },
+                            "sort":   { "year": -1 }, "limit": 3 }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_testimonials",
+          "type": "section",
+          "adminTitle": "Testimonials",
+          "layout": "carousel",
+          "spacing": "xl",
+          "props": {
+            "eyebrow":     { "type": "text",     "value": { "en": "Reviews" } },
+            "heading":     { "type": "text",     "value": { "en": "What our clients say" } },
+            "description": { "type": "textarea", "value": { "en": "Trusted by businesses and entrepreneurs around the world." } }
+          },
+          "content": [
+            {
+              "id": "blk_test_carousel",
+              "type": "testimonial-carousel",
+              "props": {
+                "source": { "type": "reference", "collection": "testimonials", "multiple": true,
+                            "filter": { "status": "published" }, "sort": { "order": 1 }, "limit": 8 }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_faq",
+          "type": "section",
+          "adminTitle": "Homepage FAQs",
+          "layout": "accordion",
+          "spacing": "xl",
+          "props": {
+            "heading":      { "type": "text",     "value": { "en": "Frequently Asked Questions" } },
+            "description":  { "type": "textarea", "value": { "en": "Can't find what you're looking for? Get in touch." } },
+            "contactLink":  { "type": "link",     "value": { "href": "/contact" } },
+            "contactLabel": { "type": "text",     "value": { "en": "Contact us" } }
+          },
+          "content": [
+            {
+              "id": "blk_faq_accordion",
+              "type": "faq-accordion",
+              "props": {
+                "source": { "type": "reference", "collection": "faqs", "multiple": true,
+                            "filter": { "tag": "general", "status": "published" }, "sort": { "order": 1 } }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_cta_final",
+          "type": "section",
+          "adminTitle": "Final CTA",
+          "layout": "fullwidth",
+          "theme": "brand",
+          "spacing": "xl",
+          "props": {},
+          "content": [
+            {
+              "id": "blk_cta",
+              "type": "cta-banner",
+              "props": {
+                "eyebrow":     { "type": "text",     "value": { "en": "Ready to start?" } },
+                "title":       { "type": "text",     "value": { "en": "Let's build your next product together." } },
+                "description": { "type": "textarea", "value": { "en": "Tell us about your project — we'll get back within one business day." } },
+                "primaryCta":      { "type": "link", "value": { "href": "/contact" } },
+                "primaryCtaLabel": { "type": "text", "value": { "en": "Get Started Now" } },
+                "background":      { "type": "image","value": "https://cdn.example.com/bg/cta-pattern.jpg" }
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "_id": "page_services_list",
+      "tenantId": "t_kalpbloom_demo",
+      "slug": "services",
+      "isPublished": true,
+      "title":           { "en": "Services" },
+      "metaTitle":       { "en": "Services | KalpBloom Studios" },
+      "metaDescription": { "en": "Full-stack digital services: design, development, AI/ML, and SEO." },
+      "template": null,
+      "content": [
+        {
+          "id": "sec_svc_hero",
+          "type": "section",
+          "adminTitle": "Services Hero",
+          "layout": "contained",
+          "spacing": "lg",
+          "props": {},
+          "content": [
+            { "id": "blk_h", "type": "heading",   "props": {
+              "text":    { "type": "text",   "value": { "en": "Our Services" } },
+              "eyebrow": { "type": "text",   "value": { "en": "What we do" } },
+              "level":   { "type": "select", "value": "h1" }
+            }},
+            { "id": "blk_p", "type": "paragraph", "props": {
+              "text": { "type": "textarea", "value": { "en": "From discovery to deployment — and everything in between." } }
+            }}
+          ]
+        },
+        {
+          "id": "sec_svc_full",
+          "type": "section",
+          "adminTitle": "All Services",
+          "layout": "grid-2",
+          "spacing": "xl",
+          "props": {},
+          "content": [
+            {
+              "id": "blk_svc_grid_full",
+              "type": "service-grid",
+              "props": {
+                "source": { "type": "reference", "collection": "services", "multiple": true,
+                            "filter": { "status": "published" }, "sort": { "order": 1 } },
+                "cardVariant": { "type": "select", "value": "detailed" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_svc_cta",
+          "type": "section",
+          "adminTitle": "Services CTA",
+          "layout": "fullwidth",
+          "theme": "brand",
+          "spacing": "xl",
+          "props": {},
+          "content": [
+            { "id": "blk_cta", "type": "cta-banner", "props": {
+              "title":       { "type": "text",     "value": { "en": "Not sure which service you need?" } },
+              "description": { "type": "textarea", "value": { "en": "Book a 30-minute discovery call and we'll help you scope it." } },
+              "primaryCta":      { "type": "link", "value": { "href": "/contact" } },
+              "primaryCtaLabel": { "type": "text", "value": { "en": "Book a Call" } }
+            }}
+          ]
+        }
+      ]
+    },
+
+    {
+      "_id": "tpl_service_detail",
+      "tenantId": "t_kalpbloom_demo",
+      "slug": "__template__service-detail",
+      "isPublished": true,
+      "title":     { "en": "Service Detail Template" },
+      "template":  "service-detail",
+      "boundCollection": "services",
+      "content": [
+        {
+          "id": "sec_sd_hero",
+          "type": "section",
+          "adminTitle": "Service Hero",
+          "layout": "split",
+          "theme": "light",
+          "spacing": "xl",
+          "props": {
+            "imageSide": { "type": "select", "value": "right" },
+            "ratio":     { "type": "select", "value": "1:1" }
+          },
+          "columns": [
+            [
+              { "id": "blk_eyebrow", "type": "heading", "props": {
+                "text":    { "type": "text",   "value": "$item.title" },
+                "eyebrow": { "type": "text",   "value": { "en": "Service" } },
+                "level":   { "type": "select", "value": "h1" }
+              }},
+              { "id": "blk_sub", "type": "paragraph", "props": {
+                "text": { "type": "textarea", "value": "$item.summary" }
+              }},
+              { "id": "blk_cta", "type": "cta-banner", "props": {
+                "title":           { "type": "text", "value": { "en": "Let's talk" } },
+                "primaryCta":      { "type": "link", "value": "$item.ctaButton" },
+                "primaryCtaLabel": { "type": "text", "value": "$item.ctaButton.label" }
+              }}
+            ],
+            [
+              { "id": "blk_cover", "type": "image", "props": {
+                "image": { "type": "image", "value": "$item.coverImage" }
+              }}
+            ]
+          ]
+        },
+        {
+          "id": "sec_sd_approach",
+          "type": "section",
+          "adminTitle": "Our Approach",
+          "layout": "split",
+          "spacing": "xl",
+          "props": {
+            "imageSide": { "type": "select", "value": "left" }
+          },
+          "columns": [
+            [
+              { "id": "blk_appr_media", "type": "image", "props": {
+                "image": { "type": "image", "value": "$item.approachImage" }
+              }}
+            ],
+            [
+              { "id": "blk_appr_h", "type": "heading", "props": {
+                "text":  { "type": "text",   "value": { "en": "Our Approach" } },
+                "level": { "type": "select", "value": "h2" }
+              }},
+              { "id": "blk_appr_list", "type": "checklist-block", "props": {
+                "items": { "type": "list", "value": "$item.approach" }
+              }}
+            ]
+          ]
+        },
+        {
+          "id": "sec_sd_capabilities",
+          "type": "section",
+          "adminTitle": "Capabilities",
+          "layout": "contained",
+          "spacing": "xl",
+          "props": {},
+          "content": [
+            { "id": "blk_caps_h", "type": "heading", "props": {
+              "text":  { "type": "text",   "value": { "en": "What's Included" } },
+              "level": { "type": "select", "value": "h2" }
+            }},
+            { "id": "blk_caps_list", "type": "checklist-block", "props": {
+              "items": { "type": "list", "value": "$item.highlights" }
+            }}
+          ]
+        },
+        {
+          "id": "sec_sd_why",
+          "type": "section",
+          "adminTitle": "Why Us (per service)",
+          "layout": "grid-4",
+          "spacing": "xl",
+          "props": {
+            "eyebrow": { "type": "text", "value": { "en": "Why Us" } },
+            "heading": { "type": "text", "value": "$item.title" }
+          },
+          "content": "$item.whyUs"
+        },
+        {
+          "id": "sec_sd_faq",
+          "type": "section",
+          "adminTitle": "Service FAQs",
+          "layout": "accordion",
+          "spacing": "xl",
+          "props": {
+            "heading": { "type": "text", "value": { "en": "FAQs" } }
+          },
+          "content": [
+            {
+              "id": "blk_sd_faqs",
+              "type": "faq-accordion",
+              "props": {
+                "source": { "type": "reference", "collection": "faqs", "multiple": true,
+                            "filter": { "linkedService": "$item._id", "status": "published" },
+                            "sort":   { "order": 1 } }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_sd_cta_final",
+          "type": "section",
+          "adminTitle": "Final CTA",
+          "layout": "fullwidth",
+          "theme": "brand",
+          "spacing": "xl",
+          "props": {},
+          "content": [
+            { "id": "blk_cta", "type": "cta-banner", "props": {
+              "title":       { "type": "text",     "value": "$item.ctaTitle" },
+              "primaryCta":      { "type": "link", "value": "$item.ctaButton" },
+              "primaryCtaLabel": { "type": "text", "value": "$item.ctaButton.label" }
+            }}
+          ]
+        }
+      ]
+    },
+
+    {
+      "_id": "page_case_studies_list",
+      "tenantId": "t_kalpbloom_demo",
+      "slug": "case-studies",
+      "isPublished": true,
+      "title":           { "en": "Case Studies" },
+      "metaTitle":       { "en": "Case Studies | KalpBloom Studios" },
+      "metaDescription": { "en": "Selected client work across industries — what we shipped, how it performed." },
+      "template": null,
+      "content": [
+        {
+          "id": "sec_cs_hero",
+          "type": "section",
+          "adminTitle": "Case Studies Hero",
+          "layout": "contained",
+          "spacing": "lg",
+          "props": {},
+          "content": [
+            { "id": "blk_h", "type": "heading", "props": {
+              "text":    { "type": "text",   "value": { "en": "Case Studies" } },
+              "eyebrow": { "type": "text",   "value": { "en": "Our work" } },
+              "level":   { "type": "select", "value": "h1" }
+            }},
+            { "id": "blk_p", "type": "paragraph", "props": {
+              "text": { "type": "textarea", "value": { "en": "Real projects, real outcomes — explore the work behind the numbers." } }
+            }}
+          ]
+        },
+        {
+          "id": "sec_cs_filters",
+          "type": "section",
+          "adminTitle": "Case Study Grid",
+          "layout": "grid-3",
+          "spacing": "xl",
+          "props": {
+            "enableFilters": { "type": "boolean", "value": true },
+            "filterFields":  { "type": "multiselect", "value": ["industry", "services", "tags"] }
+          },
+          "content": [
+            {
+              "id": "blk_cs_grid_full",
+              "type": "case-study-grid",
+              "props": {
+                "source": { "type": "reference", "collection": "case-studies", "multiple": true,
+                            "filter": { "status": "published" },
+                            "sort":   { "year": -1 } },
+                "pagination": { "type": "boolean", "value": true },
+                "pageSize":   { "type": "number",  "value": 9 }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_cs_cta",
+          "type": "section",
+          "adminTitle": "CTA",
+          "layout": "fullwidth",
+          "theme": "brand",
+          "spacing": "xl",
+          "props": {},
+          "content": [
+            { "id": "blk_cta", "type": "cta-banner", "props": {
+              "title":       { "type": "text",     "value": { "en": "Have a project in mind?" } },
+              "primaryCta":      { "type": "link", "value": { "href": "/contact" } },
+              "primaryCtaLabel": { "type": "text", "value": { "en": "Start a Conversation" } }
+            }}
+          ]
+        }
+      ]
+    },
+
+    {
+      "_id": "tpl_case_study_detail",
+      "tenantId": "t_kalpbloom_demo",
+      "slug": "__template__case-study-detail",
+      "isPublished": true,
+      "title":     { "en": "Case Study Detail Template" },
+      "template":  "case-study-detail",
+      "boundCollection": "case-studies",
+      "content": [
+        {
+          "id": "sec_proj_hero",
+          "type": "section",
+          "adminTitle": "Project Hero",
+          "layout": "fullwidth",
+          "theme": "dark",
+          "spacing": "xl",
+          "props": {},
+          "content": [
+            {
+              "id": "blk_proj_hero",
+              "type": "project-hero",
+              "props": {
+                "client":     { "type": "text",  "value": "$item.client" },
+                "industry":   { "type": "text",  "value": "$item.industry" },
+                "year":       { "type": "number","value": "$item.year" },
+                "services":   { "type": "list",  "value": "$item.services" },
+                "title":      { "type": "text",  "value": "$item.title" },
+                "summary":    { "type": "textarea","value": "$item.summary" },
+                "coverImage": { "type": "image", "value": "$item.coverImage" },
+                "liveUrl":    { "type": "link",  "value": "$item.liveUrl" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_csr",
+          "type": "section",
+          "adminTitle": "Challenge / Solution / Result",
+          "layout": "grid-3",
+          "spacing": "xl",
+          "props": {},
+          "content": [
+            {
+              "id": "blk_csr",
+              "type": "challenge-solution-result",
+              "props": {
+                "challenge": { "type": "richtext", "value": "$item.challenge" },
+                "solution":  { "type": "richtext", "value": "$item.solution" },
+                "result":    { "type": "richtext", "value": "$item.result" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_metrics",
+          "type": "section",
+          "adminTitle": "Metrics",
+          "layout": "grid-4",
+          "spacing": "xl",
+          "props": {
+            "heading": { "type": "text", "value": { "en": "Impact" } }
+          },
+          "content": [
+            {
+              "id": "blk_metrics",
+              "type": "metrics-block",
+              "props": {
+                "items": { "type": "list", "value": "$item.metrics" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_gallery",
+          "type": "section",
+          "adminTitle": "Gallery",
+          "layout": "fullwidth",
+          "spacing": "xl",
+          "props": {},
+          "content": [
+            {
+              "id": "blk_gallery",
+              "type": "gallery-block",
+              "props": {
+                "images":  { "type": "list",   "value": "$item.gallery" },
+                "variant": { "type": "select", "value": "masonry" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_tech",
+          "type": "section",
+          "adminTitle": "Tech Stack",
+          "layout": "marquee",
+          "spacing": "lg",
+          "props": {
+            "heading": { "type": "text", "value": { "en": "Tech we used" } }
+          },
+          "content": [
+            {
+              "id": "blk_tech",
+              "type": "tech-stack-strip",
+              "props": {
+                "items": { "type": "list", "value": "$item.techStack" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_test",
+          "type": "section",
+          "adminTitle": "Client Testimonial",
+          "layout": "contained",
+          "spacing": "xl",
+          "props": {},
+          "content": [
+            {
+              "id": "blk_test",
+              "type": "testimonial-item",
+              "props": {
+                "source": { "type": "reference", "collection": "testimonials", "multiple": false, "value": "$item.testimonial" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_related",
+          "type": "section",
+          "adminTitle": "Related Case Studies",
+          "layout": "grid-3",
+          "spacing": "xl",
+          "props": {
+            "heading": { "type": "text", "value": { "en": "More work" } }
+          },
+          "content": [
+            {
+              "id": "blk_related",
+              "type": "case-study-grid",
+              "props": {
+                "source": { "type": "reference", "collection": "case-studies", "multiple": true,
+                            "filter": { "status": "published", "_id": { "$ne": "$item._id" } },
+                            "sort":   { "year": -1 }, "limit": 3 }
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_cs_cta",
+          "type": "section",
+          "adminTitle": "Final CTA",
+          "layout": "fullwidth",
+          "theme": "brand",
+          "spacing": "xl",
+          "props": {},
+          "content": [
+            { "id": "blk_cta", "type": "cta-banner", "props": {
+              "title":       { "type": "text",     "value": { "en": "Like what you see?" } },
+              "description": { "type": "textarea", "value": { "en": "Let's design and ship your next project." } },
+              "primaryCta":      { "type": "link", "value": { "href": "/contact" } },
+              "primaryCtaLabel": { "type": "text", "value": { "en": "Start a Project" } }
+            }}
+          ]
+        }
+      ]
+    },
+
+    {
+      "_id": "page_about",
+      "tenantId": "t_kalpbloom_demo",
+      "slug": "about",
+      "isPublished": true,
+      "title":           { "en": "About" },
+      "metaTitle":       { "en": "About | KalpBloom Studios" },
+      "metaDescription": { "en": "Who we are, what we do, and why teams partner with us." },
+      "template": null,
+      "content": [
+        {
+          "id": "sec_about_hero",
+          "type": "section",
+          "adminTitle": "About Hero",
+          "layout": "contained",
+          "spacing": "lg",
+          "props": {},
+          "content": [
+            { "id": "blk_h", "type": "heading", "props": {
+              "text":    { "type": "text", "value": { "en": "Empowering businesses with innovative digital solutions" } },
+              "eyebrow": { "type": "text", "value": { "en": "About us" } },
+              "level":   { "type": "select", "value": "h1" }
+            }},
+            { "id": "blk_p", "type": "paragraph", "props": {
+              "text": { "type": "textarea", "value": { "en": "We help brands build a strong digital presence, enhance user experiences, and unlock new opportunities." } }
+            }}
+          ]
+        },
+        {
+          "id": "sec_who",
+          "type": "section",
+          "adminTitle": "Who We Are",
+          "layout": "split",
+          "spacing": "xl",
+          "props": { "imageSide": { "type": "select", "value": "right" } },
+          "columns": [
+            [
+              { "id": "blk_h", "type": "heading", "props": {
+                "text":  { "type": "text",   "value": { "en": "Who We Are" } },
+                "level": { "type": "select", "value": "h2" }
+              }},
+              { "id": "blk_p", "type": "paragraph", "props": {
+                "text": { "type": "textarea", "value": { "en": "Tailored digital solutions that integrate technology, innovation, and business objectives." } }
+              }}
+            ],
+            [
+              { "id": "blk_i", "type": "image", "props": {
+                "image": { "type": "image", "value": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1400" }
+              }}
+            ]
+          ]
+        },
+        {
+          "id": "sec_what",
+          "type": "section",
+          "adminTitle": "What We Do",
+          "layout": "contained",
+          "spacing": "xl",
+          "props": {
+            "heading": { "type": "text", "value": { "en": "What We Do" } }
+          },
+          "content": [
+            {
+              "id": "blk_what_list",
+              "type": "checklist-block",
+              "props": {
+                "items": { "type": "list", "value": [
+                  { "label": { "en": "UI/UX Design" },     "description": { "en": "Visually stunning, intuitive, user-friendly interfaces." } },
+                  { "label": { "en": "Website Development" }, "description": { "en": "High-performing, responsive, scalable websites." } },
+                  { "label": { "en": "AI/ML Solutions" },   "description": { "en": "Intelligent automation and data-driven insights." } },
+                  { "label": { "en": "SEO Services" },      "description": { "en": "Improved rankings and sustainable organic growth." } }
+                ]}
+              }
+            }
+          ]
+        },
+        {
+          "id": "sec_values",
+          "type": "section",
+          "adminTitle": "Vision & Values",
+          "layout": "grid-4",
+          "spacing": "xl",
+          "props": {
+            "heading": { "type": "text", "value": { "en": "Vision & Values" } }
+          },
+          "content": [
+            { "id": "v1", "type": "feature-card", "props": {
+              "icon":  { "type": "icon", "value": "Lightbulb" },
+              "title": { "type": "text", "value": { "en": "Innovation" } },
+              "description": { "type": "textarea", "value": { "en": "Continuously evolving to provide state-of-the-art solutions." } }
+            }},
+            { "id": "v2", "type": "feature-card", "props": {
+              "icon":  { "type": "icon", "value": "ShieldCheck" },
+              "title": { "type": "text", "value": { "en": "Reliability" } },
+              "description": { "type": "textarea", "value": { "en": "Security, stability, and efficiency built in by default." } }
+            }},
+            { "id": "v3", "type": "feature-card", "props": {
+              "icon":  { "type": "icon", "value": "HeartHandshake" },
+              "title": { "type": "text", "value": { "en": "Customer-Centric" } },
+              "description": { "type": "textarea", "value": { "en": "We prioritize client satisfaction at every step." } }
+            }},
+            { "id": "v4", "type": "feature-card", "props": {
+              "icon":  { "type": "icon", "value": "Eye" },
+              "title": { "type": "text", "value": { "en": "Transparency" } },
+              "description": { "type": "textarea", "value": { "en": "No hidden fees, no complicated contracts — just honest service." } }
+            }}
+          ]
+        }
+      ]
+    },
+
+    {
+      "_id": "page_contact",
+      "tenantId": "t_kalpbloom_demo",
+      "slug": "contact",
+      "isPublished": true,
+      "title":           { "en": "Contact" },
+      "metaTitle":       { "en": "Contact | KalpBloom Studios" },
+      "metaDescription": { "en": "Talk to our team about your next project." },
+      "template": null,
+      "content": [
+        {
+          "id": "sec_contact_hero",
+          "type": "section",
+          "adminTitle": "Contact Hero",
+          "layout": "contained",
+          "spacing": "lg",
+          "props": {},
+          "content": [
+            { "id": "blk_h", "type": "heading", "props": {
+              "text":    { "type": "text",   "value": { "en": "Get in Touch" } },
+              "eyebrow": { "type": "text",   "value": { "en": "Contact" } },
+              "level":   { "type": "select", "value": "h1" }
+            }},
+            { "id": "blk_p", "type": "paragraph", "props": {
+              "text": { "type": "textarea", "value": { "en": "We'd love to hear from you. Tell us about your project and we'll get back within one business day." } }
+            }}
+          ]
+        },
+        {
+          "id": "sec_contact_split",
+          "type": "section",
+          "adminTitle": "Form + Info",
+          "layout": "split",
+          "spacing": "xl",
+          "props": { "imageSide": { "type": "select", "value": "right" } },
+          "columns": [
+            [
+              {
+                "id": "blk_form",
+                "type": "form-block",
+                "props": {
+                  "title":       { "type": "text",     "value": { "en": "Send inquiry" } },
+                  "submitLabel": { "type": "text",     "value": { "en": "Send" } },
+                  "successMessage": { "type": "text",  "value": { "en": "Thanks — we'll be in touch within 24 hours." } },
+                  "webhookUrl":  { "type": "link",     "value": { "href": "/api/forms/contact" } },
+                  "fields": { "type": "list", "value": [
+                    { "name": "fullName", "label": { "en": "Full Name" },        "type": "text",     "required": true },
+                    { "name": "email",    "label": { "en": "Email Address" },    "type": "email",    "required": true },
+                    { "name": "phone",    "label": { "en": "Phone Number" },     "type": "tel",      "required": false },
+                    { "name": "message",  "label": { "en": "Message" },          "type": "textarea", "required": true }
+                  ]}
+                }
+              }
+            ],
+            [
+              {
+                "id": "blk_info",
+                "type": "contact-info",
+                "props": {
+                  "address": { "type": "text", "value": { "en": "1st Floor, Swaraj Enclave, Sector 127, SAS Nagar, Mohali, Punjab 140301" } },
+                  "phone":   { "type": "text", "value": "+91 99833 40258" },
+                  "email":   { "type": "text", "value": "hello@kalpbloom.example" },
+                  "socials": { "type": "list", "value": [
+                    { "platform": "facebook",  "url": "https://facebook.com/kalpbloom" },
+                    { "platform": "instagram", "url": "https://instagram.com/kalpbloom" },
+                    { "platform": "linkedin",  "url": "https://linkedin.com/company/kalpbloom" }
+                  ]}
+                }
+              },
+              {
+                "id": "blk_map",
+                "type": "map-block",
+                "props": {
+                  "embedUrl": { "type": "text",   "value": "https://www.google.com/maps/embed?pb=..." },
+                  "height":   { "type": "number", "value": 360 }
+                }
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+
+  "collections": {
+    "services": [
+      {
+        "_id": "svc_uiux_design",
+        "tenantId": "t_kalpbloom_demo",
+        "slug": "ui-ux-design",
+        "status": "published",
+        "order": 1,
+        "title":   { "en": "UI/UX Design", "hi": "यूआई/यूएक्स डिज़ाइन" },
+        "summary": { "en": "Engaging, user-centric designs that provide seamless experiences and boost customer satisfaction." },
+        "icon": "Palette",
+        "coverImage":    "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80&w=1600",
+        "approachImage": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&q=80&w=1600",
+        "tags": ["design", "ux"],
+        "highlights": [
+          { "label": { "en": "User Research & Strategy" },      "description": { "en": "Understand audiences, behaviors, and goals before we touch a pixel." } },
+          { "label": { "en": "Wireframing & Prototyping" },     "description": { "en": "Validate flows and screens with interactive prototypes." } },
+          { "label": { "en": "Visual Design & Interaction" },   "description": { "en": "Brand-aligned visuals with delightful micro-interactions." } },
+          { "label": { "en": "Usability Testing & Optimization" }, "description": { "en": "Continuous testing and refinement based on real user data." } }
+        ],
+        "approach": [
+          { "label": { "en": "Discover" }, "description": { "en": "Research audience needs, behaviors, and business goals." } },
+          { "label": { "en": "Design" },   "description": { "en": "Wireframes and prototypes that visualize the final product early." } },
+          { "label": { "en": "Validate" }, "description": { "en": "Usability test, iterate, and align designs to the brand." } },
+          { "label": { "en": "Ship" },     "description": { "en": "Hand off pixel-perfect assets and a design system." } }
+        ],
+        "whyUs": [
+          { "id": "w1", "type": "feature-card", "props": {
+            "icon":  { "type": "icon", "value": "Building2" },
+            "title": { "type": "text", "value": { "en": "Cross-Industry Expertise" } },
+            "description": { "type": "textarea", "value": { "en": "From e-commerce to enterprise, we've designed across sectors." } }
+          }},
+          { "id": "w2", "type": "feature-card", "props": {
+            "icon":  { "type": "icon", "value": "Smartphone" },
+            "title": { "type": "text", "value": { "en": "Responsive & Adaptive" } },
+            "description": { "type": "textarea", "value": { "en": "Designs that work flawlessly on every device." } }
+          }},
+          { "id": "w3", "type": "feature-card", "props": {
+            "icon":  { "type": "icon", "value": "Users" },
+            "title": { "type": "text", "value": { "en": "User-Centered" } },
+            "description": { "type": "textarea", "value": { "en": "Every decision is made with the end user in mind." } }
+          }},
+          { "id": "w4", "type": "feature-card", "props": {
+            "icon":  { "type": "icon", "value": "TrendingUp" },
+            "title": { "type": "text", "value": { "en": "Conversion-Oriented" } },
+            "description": { "type": "textarea", "value": { "en": "Designs aimed at retention and conversion lift." } }
+          }}
+        ],
+        "ctaTitle":  { "en": "Let's create something exceptional." },
+        "ctaButton": { "label": { "en": "Get Started" }, "href": "/contact" },
+        "seo": {
+          "metaTitle":       { "en": "UI/UX Design Services | KalpBloom" },
+          "metaDescription": { "en": "User-centric design that blends functionality and style." }
+        }
+      },
+      {
+        "_id": "svc_web_development",
+        "tenantId": "t_kalpbloom_demo",
+        "slug": "web-development",
+        "status": "published",
+        "order": 2,
+        "title":   { "en": "Web Development" },
+        "summary": { "en": "Modern, responsive, high-performance websites and web apps tailored to your business." },
+        "icon": "Code2",
+        "coverImage":    "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=1600",
+        "approachImage": "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1600",
+        "tags": ["development", "web", "performance"],
+        "highlights": [
+          { "label": { "en": "Custom Website & App Development" } },
+          { "label": { "en": "E-commerce Solutions" } },
+          { "label": { "en": "Full-Stack Development (MERN, Python, PHP)" } },
+          { "label": { "en": "API Development & Integration" } }
+        ],
+        "approach": [
+          { "label": { "en": "Discovery" }, "description": { "en": "Define scope, success metrics, and architecture." } },
+          { "label": { "en": "Build" },     "description": { "en": "Iterative sprints with weekly demos." } },
+          { "label": { "en": "Harden" },    "description": { "en": "Performance, accessibility, security audits." } },
+          { "label": { "en": "Launch & Iterate" }, "description": { "en": "Observability and continuous improvement." } }
+        ],
+        "whyUs": [
+          { "id": "w1", "type": "feature-card", "props": {
+            "icon":  { "type": "icon", "value": "Zap" },
+            "title": { "type": "text", "value": { "en": "Fast by Default" } },
+            "description": { "type": "textarea", "value": { "en": "Edge rendering, image optimization, and Core Web Vitals as a baseline." } }
+          }},
+          { "id": "w2", "type": "feature-card", "props": {
+            "icon":  { "type": "icon", "value": "Layers" },
+            "title": { "type": "text", "value": { "en": "Scalable Architecture" } },
+            "description": { "type": "textarea", "value": { "en": "Designed for traffic spikes and product growth." } }
+          }},
+          { "id": "w3", "type": "feature-card", "props": {
+            "icon":  { "type": "icon", "value": "Accessibility" },
+            "title": { "type": "text", "value": { "en": "Accessible to All" } },
+            "description": { "type": "textarea", "value": { "en": "WCAG 2.2 AA across every page we ship." } }
+          }},
+          { "id": "w4", "type": "feature-card", "props": {
+            "icon":  { "type": "icon", "value": "Workflow" },
+            "title": { "type": "text", "value": { "en": "CMS-First" } },
+            "description": { "type": "textarea", "value": { "en": "Your team controls every page, image, and word." } }
+          }}
+        ],
+        "ctaTitle":  { "en": "Ready to build?" },
+        "ctaButton": { "label": { "en": "Get in Touch" }, "href": "/contact" },
+        "seo": {
+          "metaTitle":       { "en": "Web Development Services | KalpBloom" },
+          "metaDescription": { "en": "Custom websites and applications built for performance." }
+        }
+      }
+    ],
+
+    "case-studies": [
+      {
+        "_id": "cs_acme_rebrand",
+        "tenantId": "t_kalpbloom_demo",
+        "slug": "acme-storefront-rebuild",
+        "status": "published",
+        "featured": true,
+        "client": "Acme Co.",
+        "industry": "E-commerce",
+        "year": 2026,
+        "services": ["svc_uiux_design", "svc_web_development"],
+        "title":   { "en": "Rebuilding Acme's storefront for scale" },
+        "summary": { "en": "How we replatformed Acme's 50k-SKU storefront on Next.js + headless commerce, cutting page weight in half and tripling mobile conversion." },
+        "coverImage": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1800",
+        "gallery": [
+          "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80&w=1600",
+          "https://images.unsplash.com/photo-1559028006-448665bd7c7f?auto=format&fit=crop&q=80&w=1600",
+          "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1600"
+        ],
+        "challenge": { "en": "<p>Legacy Magento storefront with 4-second LCP, brittle inventory sync, and a checkout abandonment rate above industry average.</p>" },
+        "solution":  { "en": "<p>Replatformed onto Next.js App Router with headless commerce, edge-cached PDPs, and a new design system. Inventory sync moved to event-driven streaming.</p>" },
+        "result":    { "en": "<p>LCP under 1.2s on mobile, 3× mobile conversion lift, and a 28% reduction in checkout abandonment in the first quarter post-launch.</p>" },
+        "metrics": [
+          { "value": "1.2s", "label": { "en": "Mobile LCP (was 4.1s)" } },
+          { "value": "3×",   "label": { "en": "Mobile conversion lift" } },
+          { "value": "-28%", "label": { "en": "Checkout abandonment" } },
+          { "value": "+62%", "label": { "en": "Organic traffic in 90 days" } }
+        ],
+        "techStack": [
+          { "name": "Next.js",   "logo": "https://cdn.example.com/tech/nextjs.svg" },
+          { "name": "FastAPI",   "logo": "https://cdn.example.com/tech/fastapi.svg" },
+          { "name": "MongoDB",   "logo": "https://cdn.example.com/tech/mongodb.svg" },
+          { "name": "Stripe",    "logo": "https://cdn.example.com/tech/stripe.svg" },
+          { "name": "Algolia",   "logo": "https://cdn.example.com/tech/algolia.svg" }
+        ],
+        "testimonial": "tst_acme_emma",
+        "liveUrl": { "href": "https://acme.example.com", "target": "_blank" },
+        "tags": ["rebrand", "ecommerce", "performance"],
+        "seo": {
+          "metaTitle":       { "en": "Acme Storefront Rebuild — Case Study | KalpBloom" },
+          "metaDescription": { "en": "How we tripled mobile conversion for Acme by replatforming on Next.js." }
+        }
+      }
+    ],
+
+    "testimonials": [
+      {
+        "_id": "tst_acme_emma",
+        "tenantId": "t_kalpbloom_demo",
+        "status": "published",
+        "order": 1,
+        "quote": { "en": "KalpBloom transformed our storefront. The new site is faster, easier to manage, and our team can ship campaigns without engineering help." },
+        "authorName": "Emma L.",
+        "authorRole": { "en": "Marketing Director, Acme Co." },
+        "authorAvatar": "https://i.pravatar.cc/120?img=47",
+        "rating": 5,
+        "linkedCaseStudy": "cs_acme_rebrand"
+      },
+      {
+        "_id": "tst_david",
+        "tenantId": "t_kalpbloom_demo",
+        "status": "published",
+        "order": 2,
+        "quote": { "en": "Seamless, intuitive, feature-rich — their expertise in mobile development is unmatched." },
+        "authorName": "David M.",
+        "authorRole": { "en": "CEO, Lumio" },
+        "authorAvatar": "https://i.pravatar.cc/120?img=12",
+        "rating": 5
+      }
+    ],
+
+    "faqs": [
+      {
+        "_id": "faq_general_1",
+        "tenantId": "t_kalpbloom_demo",
+        "status": "published",
+        "tag": "general",
+        "order": 1,
+        "question": { "en": "Where is your company based, and who do you serve?" },
+        "answer":   { "en": "We are based in India and provide digital services to clients globally, with delivery aligned to your time zone." }
+      },
+      {
+        "_id": "faq_general_2",
+        "tenantId": "t_kalpbloom_demo",
+        "status": "published",
+        "tag": "general",
+        "order": 2,
+        "question": { "en": "Do you sign NDAs and ensure data security?" },
+        "answer":   { "en": "Yes — we sign NDAs by default and follow strict security protocols to protect client data and IP." }
+      },
+      {
+        "_id": "faq_uiux_1",
+        "tenantId": "t_kalpbloom_demo",
+        "status": "published",
+        "tag": "ui-ux-design",
+        "linkedService": "svc_uiux_design",
+        "order": 1,
+        "question": { "en": "Why is UI/UX design important for my business?" },
+        "answer":   { "en": "Good design improves user experience, increases engagement, and boosts conversions." }
+      }
+    ],
+
+    "team-members": [
+      {
+        "_id": "team_van",
+        "tenantId": "t_kalpbloom_demo",
+        "status": "published",
+        "slug": "van",
+        "name": "Van",
+        "role": { "en": "Founder & Principal Architect" },
+        "bio":  { "en": "Architect of KalpTree and KalpBloom. 15+ years building multi-tenant SaaS." },
+        "photo": "https://i.pravatar.cc/240?img=11",
+        "socials": [
+          { "platform": "linkedin", "url": "https://linkedin.com/in/van" },
+          { "platform": "x",        "url": "https://x.com/van" }
+        ]
+      }
+    ],
+
+    "blog-posts": [
+      {
+        "_id": "blog_intro",
+        "tenantId": "t_kalpbloom_demo",
+        "status": "published",
+        "slug": "introducing-kalpbloom",
+        "publishedAt": "2026-05-11T10:00:00Z",
+        "title":   { "en": "Introducing KalpBloom" },
+        "excerpt": { "en": "Why we built a generic, multi-tenant CMS for modern business websites." },
+        "coverImage": "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&q=80&w=1600",
+        "author": "team_van",
+        "tags": ["product", "announcement"],
+        "body":  { "en": "<p>Today we're announcing KalpBloom — the page-composition layer of the KalpTree platform...</p>" },
+        "seo": {
+          "metaTitle":       { "en": "Introducing KalpBloom" },
+          "metaDescription": { "en": "Why we built a generic, multi-tenant CMS for modern business websites." }
+        }
+      }
+    ]
+  }
+}

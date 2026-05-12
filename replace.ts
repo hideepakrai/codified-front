@@ -1,0 +1,41 @@
+import fs from 'fs';
+
+let css = fs.readFileSync('src/index.css', 'utf-8');
+css = css.replace(/rgba\(95,216,255/g, 'rgba(29,195,243');
+css = css.replace(/rgba\(154,123,255/g, 'rgba(243,0,166');
+css = css.replace(/#5fd8ff/g, '#1DC3F3');
+css = css.replace(/#c97bff/g, '#F300A6');
+css = css.replace(/#8ee9ff/g, '#9adcff');
+css = css.replace(/radial-gradient\(1200px 800px at 70% -10%, rgba\(80,120,200,0.10\), transparent 60%\), radial-gradient\(900px 600px at 0% 30%, rgba\(100,80,200,0.07\), transparent 60%\)/g, 'radial-gradient(1200px 700px at 70% 0%, rgba(29,195,243,0.06), transparent 60%), radial-gradient(900px 600px at 0% 60%, rgba(243,0,166,0.05), transparent 60%)');
+css = css.replace(/var\(--cyan\), var\(--violet\)/g, 'var(--cyan), var(--magenta)');
+css = css.replace(/--cyan:#1DC3F3;\s*--cyan-soft:#9adcff;\s*--blue:#5b8cff;\s*--violet:#9a7bff;\s*--indigo:#6a6cff;\s*--amber:#f1c27a;\s*--magenta:#F300A6;/g, '--cyan:#1DC3F3;\n  --cyan-soft:#9adcff;\n  --magenta:#F300A6;\n  --violet:#9a7bff;\n  --blue:#5b8cff;\n  --indigo:#6a6cff;\n  --amber:#f1c27a;');
+fs.writeFileSync('src/index.css', css);
+
+let ts = fs.readFileSync('src/lib/cinematic.ts', 'utf-8');
+ts = ts.replace(/0x9ed8ff/g, '0x1DC3F3');
+ts = ts.replace(/0x5fd8ff/g, '0x1DC3F3');
+ts = ts.replace(/#040712/g, '#04060d');
+ts = ts.replace(/#5fd8ff/g, '#1DC3F3');
+ts = ts.replace(/#1d3a82/g, '#F300A6');
+ts = ts.replace(/#06091a/g, '#0a1224');
+ts = ts.replace(/#7aa6ff/g, '#1DC3F3');
+ts = ts.replace(/#5b3df5/g, '#9a7bff');
+ts = ts.replace(/#070a18/g, '#04060d');
+ts = ts.replace(/#6a82c8/g, '#1DC3F3');
+ts = ts.replace(/#3a3f7a/g, '#F300A6');
+ts = ts.replace(/#040a18/g, '#0a1224');
+ts = ts.replace(/#3360c8/g, '#9a7bff');
+ts = ts.replace(/#0c0a16/g, '#04060d');
+ts = ts.replace(/#f1c27a/g, '#F300A6');
+ts = ts.replace(/#5d2c80/g, '#1DC3F3');
+ts = ts.replace(/#0d0820/g, '#0a1224');
+ts = ts.replace(/#c97bff/g, '#1DC3F3');
+ts = ts.replace(/#6438c0/g, '#F300A6');
+ts = ts.replace(/#1c4a8a/g, '#F300A6');
+fs.writeFileSync('src/lib/cinematic.ts', ts);
+
+let app = fs.readFileSync('src/App.tsx', 'utf-8');
+app = app.split('stopColor=\"#5fd8ff\"').join('stopColor=\"#1DC3F3\"');
+app = app.split('stopColor=\"#9a7bff\"').join('stopColor=\"#F300A6\"');
+app = app.split('rgba(95,216,255').join('rgba(29,195,243');
+fs.writeFileSync('src/App.tsx', app);
