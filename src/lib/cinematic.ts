@@ -3,46 +3,71 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
-let initialized = false;
+let threeInitialized = false;
+let lenis: any;
+let scrollProgress = 0;
+let signalConverge = 0;
+let coreOpen = 0;
+let dataReveal = 0;
+let apiReveal = 0;
+let pulseAmt = 0;
+
+const MOODS: Record<string, { bg: any, a: any, b: any }> = {
+  signal:       { bg: new (THREE as any).Color('#04060d'), a: new (THREE as any).Color('#1DC3F3'), b: new (THREE as any).Color('#F300A6') },
+  core:         { bg: new (THREE as any).Color('#0a1224'), a: new (THREE as any).Color('#1DC3F3'), b: new (THREE as any).Color('#9a7bff') },
+  data:         { bg: new (THREE as any).Color('#04060d'), a: new (THREE as any).Color('#1DC3F3'), b: new (THREE as any).Color('#F300A6') },
+  api:          { bg: new (THREE as any).Color('#0a1224'), a: new (THREE as any).Color('#1DC3F3'), b: new (THREE as any).Color('#9a7bff') },
+  engine:       { bg: new (THREE as any).Color('#04060d'), a: new (THREE as any).Color('#F300A6'), b: new (THREE as any).Color('#1DC3F3') },
+  ai:           { bg: new (THREE as any).Color('#0a1224'), a: new (THREE as any).Color('#1DC3F3'), b: new (THREE as any).Color('#F300A6') },
+  command:      { bg: new (THREE as any).Color('#0a1224'), a: new (THREE as any).Color('#1DC3F3'), b: new (THREE as any).Color('#F300A6') },
+  why:          { bg: new (THREE as any).Color('#050b14'), a: new (THREE as any).Color('#1DC3F3'), b: new (THREE as any).Color('#9a7bff') },
+  services:     { bg: new (THREE as any).Color('#080d1a'), a: new (THREE as any).Color('#F300A6'), b: new (THREE as any).Color('#1DC3F3') },
+  industries:   { bg: new (THREE as any).Color('#04060d'), a: new (THREE as any).Color('#9a7bff'), b: new (THREE as any).Color('#F300A6') },
+  technologies: { bg: new (THREE as any).Color('#0a1224'), a: new (THREE as any).Color('#1DC3F3'), b: new (THREE as any).Color('#9a7bff') },
+  contact:      { bg: new (THREE as any).Color('#05080f'), a: new (THREE as any).Color('#F300A6'), b: new (THREE as any).Color('#1DC3F3') },
+  about:        { bg: new (THREE as any).Color('#0a0518'), a: new (THREE as any).Color('#F300A6'), b: new (THREE as any).Color('#9a7bff') },
+};
+const mood = { current: 'signal', a: MOODS.signal.a.clone(), b: MOODS.signal.b.clone(), bg: MOODS.signal.bg.clone() };
 
 export function initCinematic() {
-  if (initialized) return;
-  initialized = true;
-
   const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const IS_MOBILE = window.innerWidth < 720;
 
-  /* ----------------------------------------------------------
-     SMOOTH SCROLL (Lenis)
-  ---------------------------------------------------------- */
-  let lenis: any;
-  if (!REDUCED) {
-    lenis = new Lenis({
-      duration: 1.15,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
-    function raf(time: number) { 
-      lenis.raf(time); 
-      requestAnimationFrame(raf); 
-    }
-    requestAnimationFrame(raf);
-    // Bridge Lenis scroll to GSAP ScrollTrigger
-    lenis.on('scroll', () => ScrollTrigger.update());
-    gsap.ticker.add((t) => lenis.raf(t * 1000));
-    gsap.ticker.lagSmoothing(0);
-  }
-
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.getAll().forEach((t: any) => t.kill());
+  ScrollTrigger.refresh();
 
-  /* ----------------------------------------------------------
-     THREE.JS — fixed background scene
-  ---------------------------------------------------------- */
-  const canvas = document.getElementById('webgl') as HTMLCanvasElement;
-  if (!canvas) return; // safety
-  
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  if (!threeInitialized) {
+    const canvas = document.getElementById('webgl') as HTMLCanvasElement;
+    if (!canvas) return; // safety
+
+    threeInitialized = true;
+
+    /* ----------------------------------------------------------
+       SMOOTH SCROLL (Lenis)
+    ---------------------------------------------------------- */
+    if (!REDUCED) {
+      lenis = new Lenis({
+        duration: 1.15,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+      });
+      function raf(time: number) { 
+        lenis.raf(time); 
+        requestAnimationFrame(raf); 
+      }
+      requestAnimationFrame(raf);
+      // Bridge Lenis scroll to GSAP ScrollTrigger
+      lenis.on('scroll', () => ScrollTrigger.update());
+      gsap.ticker.add((t) => lenis.raf(t * 1000));
+      gsap.ticker.lagSmoothing(0);
+    }
+
+    /* ----------------------------------------------------------
+       THREE.JS — fixed background scene
+    ---------------------------------------------------------- */
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setClearColor(0x000000, 0);
@@ -53,17 +78,7 @@ export function initCinematic() {
   const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 200);
   camera.position.set(0, 0, 14);
 
-  // MOOD palette per section
-  const MOODS: Record<string, { bg: any, a: any, b: any }> = {
-    signal:  { bg: new THREE.Color('#04060d'), a: new THREE.Color('#1DC3F3'), b: new THREE.Color('#F300A6') },
-    core:    { bg: new THREE.Color('#0a1224'), a: new THREE.Color('#1DC3F3'), b: new THREE.Color('#9a7bff') },
-    data:    { bg: new THREE.Color('#04060d'), a: new THREE.Color('#1DC3F3'), b: new THREE.Color('#F300A6') },
-    api:     { bg: new THREE.Color('#0a1224'), a: new THREE.Color('#1DC3F3'), b: new THREE.Color('#9a7bff') },
-    engine:  { bg: new THREE.Color('#04060d'), a: new THREE.Color('#F300A6'), b: new THREE.Color('#1DC3F3') },
-    ai:      { bg: new THREE.Color('#0a1224'), a: new THREE.Color('#1DC3F3'), b: new THREE.Color('#F300A6') },
-    command: { bg: new THREE.Color('#0a1224'), a: new THREE.Color('#1DC3F3'), b: new THREE.Color('#F300A6') },
-  };
-  const mood = { current: 'signal', a: MOODS.signal.a.clone(), b: MOODS.signal.b.clone(), bg: MOODS.signal.bg.clone() };
+  // Mood initialized at top level
 
   /* ---- 1. Starfield ---- */
   function makeStarfield() {
@@ -185,13 +200,6 @@ export function initCinematic() {
     mouse.ty = (e.clientY / window.innerHeight - 0.5) * 2;
   });
 
-  let scrollProgress = 0;
-  let signalConverge = 0;
-  let coreOpen = 0;
-  let dataReveal = 0;
-  let apiReveal = 0;
-  let pulseAmt = 0;
-
   function animate() {
     const t = clock.getElapsedTime();
     const dt = Math.min(0.05, clock.getDelta());
@@ -276,6 +284,7 @@ export function initCinematic() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
   });
+} // close if (!threeInitialized)
 
   /* ----------------------------------------------------------
      GLOBAL SCROLL
@@ -289,10 +298,7 @@ export function initCinematic() {
     }
   });
 
-  const sections = ['signal', 'core', 'data-grid', 'api', 'engine', 'ai', 'command'];
-  sections.forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
+  document.querySelectorAll('.section').forEach((el: any) => {
     const moodKey = el.dataset.mood;
     ScrollTrigger.create({
       trigger: el,
@@ -303,7 +309,7 @@ export function initCinematic() {
           gsap.to(mood.bg, { r: m.bg.r, g: m.bg.g, b: m.bg.b, duration: 1.2, ease: 'power2.out' });
           gsap.to(mood.a, { r: m.a.r, g: m.a.g, b: m.a.b, duration: 1.2 });
           gsap.to(mood.b, { r: m.b.r, g: m.b.g, b: m.b.b, duration: 1.2 });
-          document.querySelectorAll('#rail .item').forEach((i: any) => i.classList.toggle('active', i.dataset.target === id));
+          document.querySelectorAll('#rail .item').forEach((i: any) => i.classList.toggle('active', i.dataset.target === el.id));
         }
       }
     });
@@ -317,9 +323,9 @@ export function initCinematic() {
     });
   });
 
-  /* 1. SIGNAL */
-  gsap.utils.toArray('#signal .reveal').forEach((el: any, i) => {
-    gsap.to(el, { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out', delay: i * 0.08, scrollTrigger: { trigger: '#signal', start: 'top 70%' } });
+  /* 1. SIGNAL & REVEAL */
+  gsap.utils.toArray('.reveal').forEach((el: any, i) => {
+    gsap.to(el, { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out', delay: (i % 8) * 0.08, scrollTrigger: { trigger: el, start: 'top 95%' } });
   });
 
   ScrollTrigger.create({

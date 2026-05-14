@@ -28,6 +28,7 @@ import IndustryMarquee    from '@/components/blocks/industry-marquee';
 import AIWorkflow         from '@/components/blocks/ai-workflow';
 import TestimonialCarousel from '@/components/blocks/testimonial-carousel';
 import CommandCenter      from '@/components/blocks/command-center';
+import FAQAccordion       from '@/components/blocks/faq-accordion';
 
 // ── Block type registry ─────────────────────────────────────
 export const blockRegistry: Record<string, ComponentType<any>> = {
@@ -44,6 +45,7 @@ export const blockRegistry: Record<string, ComponentType<any>> = {
   'industry-marquee':       IndustryMarquee,
   'ai-workflow':            AIWorkflow,
   'command-center':         CommandCenter,
+  'faq-accordion':          FAQAccordion,
 
   // adminTitle aliases (for legacy CMS data compatibility)
   'Hero':                   Hero,
@@ -56,6 +58,7 @@ export const blockRegistry: Record<string, ComponentType<any>> = {
   'AI Workflow':            AIWorkflow,
   'Testimonials':           TestimonialCarousel,
   'Results':                CommandCenter,
+  'FAQ':                    FAQAccordion,
 };
 
 export type BlockType = keyof typeof blockRegistry;

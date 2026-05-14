@@ -1,8 +1,14 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { initCinematic } from '@/lib/cinematic';
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    initCinematic();
+  }, []);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -15,26 +21,21 @@ export default function Navigation() {
       <div className="progress" id="progress"></div>
 
       <nav className="nav">
-        {/* <div className="brand">
-          <span className="brand-mark"></span>
-          <span>codified.</span>
-          <span className="nav-sub">Web Solutions</span>
-        </div> */}
-
-        <img src="https://www.codifiedweb.com/Image/codified-white-logo.webp" alt="Logo" className="h-[55px]" />
-
+        <Link href="/">
+          <img src="https://www.codifiedweb.com/Image/codified-white-logo.webp" alt="Logo" className="h-[55px]" />
+        </Link>
 
         {/* Desktop menu */}
         <div className="menu">
-          <a href="#core">About</a>
-          <a href="#data-grid">Services</a>
-          <a href="#engine">Industries</a>
-          <a href="#ai">Technologies</a>
-          <a href="#command">Contact</a>
+          <Link href="/about">About</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/industries">Industries</Link>
+          <Link href="/technologies">Technologies</Link>
+          <Link href="/contact">Contact</Link>
         </div>
 
         <div className="nav-right">
-          <a className="cta" href="#command">Free Consultation</a>
+          <Link className="cta" href="/contact">Free Consultation</Link>
 
           {/* Hamburger — mobile only */}
           <button
@@ -52,12 +53,12 @@ export default function Navigation() {
 
       {/* Mobile drawer */}
       <div className={`mobile-drawer ${menuOpen ? 'open' : ''}`}>
-        <a href="#core"    onClick={closeMenu}>About</a>
-        <a href="#data-grid" onClick={closeMenu}>Services</a>
-        <a href="#engine"  onClick={closeMenu}>Industries</a>
-        <a href="#ai"      onClick={closeMenu}>Technologies</a>
-        <a href="#command" onClick={closeMenu}>Contact</a>
-        <a href="#command" className="drawer-cta" onClick={closeMenu}>Free Consultation →</a>
+        <Link href="/about"        onClick={closeMenu}>About</Link>
+        <Link href="/services"     onClick={closeMenu}>Services</Link>
+        <Link href="/industries"   onClick={closeMenu}>Industries</Link>
+        <Link href="/technologies" onClick={closeMenu}>Technologies</Link>
+        <Link href="/contact"      onClick={closeMenu}>Contact</Link>
+        <Link href="/contact" className="drawer-cta" onClick={closeMenu}>Free Consultation →</Link>
       </div>
 
       {/* Overlay */}
