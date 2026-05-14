@@ -259,9 +259,7 @@ export default function CodifiedLogo() {
 
       // ── Scanning line ────────────────────────────
       const scanAngle = t * 0.8;
-      const scanGrd = ctx.createConicalGradient
-        ? null
-        : null;
+      const scanGrd = (ctx as any).createConicGradient ? null : null;
       ctx.save();
       ctx.translate(cx, cy);
       ctx.rotate(scanAngle);

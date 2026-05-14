@@ -54,7 +54,7 @@ export function initCinematic() {
   camera.position.set(0, 0, 14);
 
   // MOOD palette per section
-  const MOODS: Record<string, { bg: THREE.Color, a: THREE.Color, b: THREE.Color }> = {
+  const MOODS: Record<string, { bg: any, a: any, b: any }> = {
     signal:  { bg: new THREE.Color('#04060d'), a: new THREE.Color('#1DC3F3'), b: new THREE.Color('#F300A6') },
     core:    { bg: new THREE.Color('#0a1224'), a: new THREE.Color('#1DC3F3'), b: new THREE.Color('#9a7bff') },
     data:    { bg: new THREE.Color('#04060d'), a: new THREE.Color('#1DC3F3'), b: new THREE.Color('#F300A6') },

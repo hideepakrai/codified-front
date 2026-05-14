@@ -1,10 +1,11 @@
 'use client';
+import React from 'react';
 import { t, type LocaleMap } from '@/lib/i18n';
 
 interface LocalizedTextProps {
   field: LocaleMap | string | undefined | null;
   locale?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   className?: string;
   html?: boolean;
 }
