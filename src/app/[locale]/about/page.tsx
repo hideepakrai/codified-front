@@ -9,4 +9,5 @@ export const metadata: Metadata = {
 export default async function AppAboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   return <AboutPage locale={locale} />;
+  
 }
