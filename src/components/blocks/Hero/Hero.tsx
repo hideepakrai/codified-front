@@ -1,7 +1,7 @@
 'use client';
 import { useMemo } from 'react';
 import { useAppSelector } from '@/lib/store/hooks';
-import { defaultHeroData } from './HeroData';
+import { defaultHeroData } from '@/components/blocks/Hero/HeroData';
 
 export default function Hero() {
   const currentPages = useAppSelector((state) => state.app.currentPages);
