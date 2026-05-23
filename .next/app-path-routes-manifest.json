@@ -1,9 +1,11 @@
 {
   "/_not-found/page": "/_not-found",
-  "/page": "/",
-  "/industries/page": "/industries",
-  "/technologies/page": "/technologies",
-  "/services/page": "/services",
-  "/about/page": "/about",
-  "/contact/page": "/contact"
+  "/[locale]/industries/[slug]/page": "/[locale]/industries/[slug]",
+  "/[locale]/industries/page": "/[locale]/industries",
+  "/[locale]/technologies/page": "/[locale]/technologies",
+  "/[locale]/services/[slug]/page": "/[locale]/services/[slug]",
+  "/[locale]/about/page": "/[locale]/about",
+  "/[locale]/page": "/[locale]",
+  "/[locale]/contact/page": "/[locale]/contact",
+  "/[locale]/services/page": "/[locale]/services"
 }
