@@ -1,6 +1,6 @@
 "use client";
 import React, { useMemo } from 'react';
-import { useAppSelector } from '@/lib/store/hooks';
+import { useAppSelector } from '@/redux/hooks';
 import { defaultAIWorkflowData } from './AIWorkflowData';
 
 export default function AIWorkflow() {

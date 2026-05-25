@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import '../../styles/globals.css';
-import StoreProvider from '@/components/shared/StoreProvider/StoreProvider';
+import ReduxProvider from '@/providers/ReduxProvider';
 import { SupportedLocale } from '@/lib/i18n';
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export default async function LocaleLayout({
         />
       </head>
       <body>
-        <StoreProvider>{children}</StoreProvider>
+        <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>
   );

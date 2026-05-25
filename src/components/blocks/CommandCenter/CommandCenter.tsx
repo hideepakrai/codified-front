@@ -1,7 +1,7 @@
 "use client";
 import React, { useMemo } from 'react';
 import Accordion from '@/components/blocks/FAQAccordion/FAQAccordion';
-import { useAppSelector } from '@/lib/store/hooks';
+import { useAppSelector } from '@/redux/hooks';
 import { defaultResultsData } from './ResultsData';
 
 export default function Results() {
