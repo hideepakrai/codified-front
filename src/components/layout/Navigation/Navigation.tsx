@@ -66,7 +66,7 @@ export default function Navigation() {
         { title: "E-Commerce", desc: "Scalable retail platforms.", icon: "EC", slug: "e-commerce" },
         { title: "Education", desc: "LMS and interactive learning.", icon: "ED", slug: "edtech" },
         { title: "Real Estate", desc: "Property portals and PropTech.", icon: "RE", slug: "realestate" },
-     
+
       ]
     },
     about: {
@@ -86,7 +86,7 @@ export default function Navigation() {
           featured: {
             title: "Scale Your Team",
             desc: "Expert developers ready to integrate with your existing workflow.",
-            link: "/contact"
+            link: "/hire-developers"
           }
         }
       ]
@@ -100,6 +100,8 @@ export default function Navigation() {
       <div className="grain"></div>
 
       <div className="progress" id="progress"></div>
+
+      {/* Mega Menu Overlay removed to keep background visible */}
 
       <nav className="nav" onMouseLeave={() => setActiveMega(null)}>
         <Link href="/" onClick={closeMenu}>
@@ -136,13 +138,6 @@ export default function Navigation() {
             <span className={`ham-line ${menuOpen ? 'open' : ''}`}></span>
           </button>
         </div>
-
-        {/* Mega Menu Overlay */}
-        {activeMega && (
-          <div 
-            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 90, backdropFilter: 'blur(4px)', pointerEvents: 'none' }} 
-          />
-        )}
 
         {/* ── Mega Menus ── */}
         <div className={`mega-menu ${activeMega ? 'show' : ''}`} onMouseEnter={() => setActiveMega(activeMega)}>
@@ -233,11 +228,11 @@ export default function Navigation() {
       {/* Mobile drawer */}
 
       <div className={`mobile-drawer ${menuOpen ? 'open' : ''}`}>
-        <Link href="/about"        onClick={closeMenu}>About</Link>
-        <Link href="/services"     onClick={closeMenu}>Services</Link>
-        <Link href="/industries"   onClick={closeMenu}>Industries</Link>
+        <Link href="/about" onClick={closeMenu}>About</Link>
+        <Link href="/services" onClick={closeMenu}>Services</Link>
+        <Link href="/industries" onClick={closeMenu}>Industries</Link>
         <Link href="/technologies" onClick={closeMenu}>Technologies</Link>
-        <Link href="/contact"      onClick={closeMenu}>Contact</Link>
+        <Link href="/contact" onClick={closeMenu}>Contact</Link>
         <Link href="/contact" className="drawer-cta" onClick={closeMenu}>Free Consultation →</Link>
       </div>
 

@@ -3,7 +3,7 @@ import AboutConstellation from '@/components/blocks/AboutVisual/AboutVisual';
 
 export default function AboutHeroSection() {
   return (
-    <section className="section" id="about-hero" data-mood="about">
+    <section className="section" id="about-hero" data-mood="about" style={{ minHeight: 'auto', paddingTop: '120px', paddingBottom: '80px' }}>
       <div className="inner">
         <div className="grid lg:!grid-cols-[6fr_4fr] gap-12 items-center">
           <div>

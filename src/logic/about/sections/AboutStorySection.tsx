@@ -2,7 +2,7 @@
 
 export default function AboutStorySection() {
   return (
-    <section className="section" style={{ borderTop: '1px solid var(--line)' }}>
+    <section className="section" style={{ borderTop: '1px solid var(--line)', minHeight: 'auto', paddingTop: '80px', paddingBottom: '120px' }}>
       <div className="inner">
         <div className="reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
           <div className="card" style={{ padding: '32px' }}>
