@@ -1,6 +1,6 @@
 "use client";
 import React, { useMemo } from 'react';
-import { useAppSelector } from '@/lib/store/hooks';
+import { useAppSelector } from '@/redux/hooks';
 import { defaultTechnologiesData } from './TechnologiesData';
 
 export default function Technologies() {

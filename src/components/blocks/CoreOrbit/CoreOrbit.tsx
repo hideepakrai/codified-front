@@ -308,7 +308,7 @@ function CodifiedLogo() {
 }
 
 import React, { useMemo } from 'react';
-import { useAppSelector } from '@/lib/store/hooks';
+import { useAppSelector } from '@/redux/hooks';
 import { defaultCoreData } from './CoreData';
 
 export default function CoreOrbit() {

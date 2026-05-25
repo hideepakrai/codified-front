@@ -21,6 +21,7 @@ export default function HireDevelopersPage({ locale }: { locale: string }) {
         <div style={{ 
           position: 'fixed', inset: 0, zIndex: -1,
           background: 'radial-gradient(circle at 30% 70%, rgba(29,195,243,0.05) 0%, transparent 70%)'
+          
         }} />
 
         {/* Hero Section */}

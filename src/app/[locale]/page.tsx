@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import HomePage from '@/logic/home/page';
+import HomePage from '@/views/home/page';
 
 export const metadata: Metadata = {
   title: 'Codified Web Solutions | AI · Web · Mobile Development',

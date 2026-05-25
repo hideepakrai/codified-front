@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ContactPage from '@/logic/contact/page';
+import ContactPage from '@/views/contact/page';
 
 export const metadata: Metadata = {
   title: 'Contact Us | Codified Web Solutions',

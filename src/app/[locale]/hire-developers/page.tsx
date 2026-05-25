@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import HireDevelopersPage from '@/logic/hire-developers/page';
+import HireDevelopersPage from '@/views/hire-developers/page';
 
 export const metadata: Metadata = {
   title: 'Hire Developers | Codified Web Solutions',
