@@ -1,9 +1,62 @@
-node_modules/
-build/
-dist/
-coverage/
+
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
 .DS_Store
-*.log
-.env*
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env*.local
+.env
+
 !.env.example
- 
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# turbo
+.turbo
+
+# caches
+.cache/
+.eslintcache
+
+# editor
+.vscode/
+.idea/
+
+# logs
+*.log
+
+/packages
+
+actions-runner/
+
+.next-current
+.next-releases/
+.deploy/
+
+versions/
