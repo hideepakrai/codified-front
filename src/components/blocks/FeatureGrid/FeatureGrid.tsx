@@ -10,15 +10,15 @@ export default function WhyChooseUs() {
               We go beyond coding. We provide a comprehensive approach to product development, ensuring your infrastructure is built for long-term scalability and security.
             </p>
             <div className="core-spec" style={{ gridTemplateColumns: '1fr' }}>
-              <div className="spec-cell">
+              <div className="spec-cell" style={{ opacity: "10" }}>
                 <div className="k">Agile Delivery</div>
-                <div className="v" style={{ fontSize: '15px', color: 'var(--text-soft)', fontFamily: 'var(--font-body)', marginTop: '6px' }}>Rapid iterations and transparent milestones to keep you involved at every stage.</div>
+                <div className="v" style={{ fontSize: '15px', color: 'var(--text-soft)', fontFamily: 'var(--font-body)', marginTop: '6px', }}>Rapid iterations and transparent milestones to keep you involved at every stage.</div>
               </div>
-              <div className="spec-cell">
+              <div className="spec-cell" style={{ opacity: "10" }}>
                 <div className="k">Secure by Design</div>
                 <div className="v" style={{ fontSize: '15px', color: 'var(--text-soft)', fontFamily: 'var(--font-body)', marginTop: '6px' }}>Enterprise-grade security standards embedded into our CI/CD pipelines.</div>
               </div>
-              <div className="spec-cell">
+              <div className="spec-cell" style={{ opacity: "10", marginBottom: "15px" }}>
                 <div className="k">Scalable Architecture</div>
                 <div className="v" style={{ fontSize: '15px', color: 'var(--text-soft)', fontFamily: 'var(--font-body)', marginTop: '6px' }}>Microservices and serverless solutions that grow seamlessly with your user base.</div>
               </div>

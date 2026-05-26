@@ -361,6 +361,20 @@ export function initCinematic() {
     onUpdate: self => { coreOpen = self.progress; }
   });
 
+  /* 2b. WHY — "Built on trust and quality" section */
+  gsap.fromTo('#why h2.display, #why .lede, #why .label',
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, stagger: 0.1, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#why', start: 'top 70%' } }
+  );
+  gsap.fromTo('#why .core-spec .spec-cell',
+    { opacity: 0, y: 18 },
+    { opacity: 1, y: 0, stagger: 0.1, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '#why', start: 'top 60%' } }
+  );
+  gsap.fromTo('#why .card',
+    { opacity: 0, y: 24 },
+    { opacity: 1, y: 0, stagger: 0.12, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#why', start: 'top 60%' } }
+  );
+
   /* 3. DATA GRID */
   gsap.from('#moduleGrid .module', {
     opacity: 0, y: 30, scale: 0.96, stagger: { each: 0.05, grid: [3, 4], from: 'random' },

@@ -2,6 +2,15 @@
 import React, { useMemo } from 'react';
 import { useAppSelector } from '@/redux/hooks';
 import { defaultAIWorkflowData } from './AIWorkflowData';
+import { Brain, Bot, TrendingUp, RefreshCw, MessageSquare } from 'lucide-react';
+
+const AI_ICONS: Record<string, React.ReactNode> = {
+  s1: <Brain     size={22} strokeWidth={1.5} />,   // Cognitive AI
+  s2: <Bot       size={22} strokeWidth={1.5} />,   // Autonomous
+  s3: <TrendingUp size={22} strokeWidth={1.5} />,  // Predictive
+  s4: <RefreshCw  size={22} strokeWidth={1.5} />,  // Self-Learning
+  s5: <MessageSquare size={22} strokeWidth={1.5} />, // Conversational
+};
 
 export default function AIWorkflow() {
   const currentPages = useAppSelector((state) => state.app.currentPages);
@@ -46,9 +55,27 @@ export default function AIWorkflow() {
 
           {content.map((step: any, i: number) => (
             <div className="pipe-step" data-step={i} key={step.id}>
-              <div className="top"><span className="num">S · {String(i + 1).padStart(2, '0')}</span><span className="badge">Active</span></div>
+              <div className="top">
+                <span className="num">S · {String(i + 1).padStart(2, '0')}</span>
+                <span className="badge">Active</span>
+              </div>
               <div>
-                <div className="ico">{step.props?.icon}</div>
+                {/* Lucide icon inside the existing .ico container */}
+                <div className="ico" style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '12px',
+                  background: 'rgba(29,195,243,0.08)',
+                  border: '1px solid rgba(29,195,243,0.2)',
+                  color: 'var(--cyan)',
+                  marginBottom: '16px',
+                  transition: 'all 0.3s ease',
+                }}>
+                  {AI_ICONS[step.id] ?? <Brain size={22} strokeWidth={1.5} />}
+                </div>
                 <h4>{step.props?.title?.en}</h4>
                 <p>{step.props?.desc?.en}</p>
               </div>

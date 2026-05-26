@@ -3,6 +3,29 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { initCinematic } from '@/lib/cinematic';
 
+import { Brain, Bot, Network, Sparkles, PenTool, Code, FileText, LayoutTemplate, Smartphone, Apple, Cpu, TrendingUp, DollarSign, PieChart, Activity } from 'lucide-react';
+
+const getServiceIcon = (code: string) => {
+  const props = { size: 24, strokeWidth: 1.5 };
+  switch (code) {
+    case 'AI': return <Brain {...props} />;
+    case 'CB': return <Bot {...props} />;
+    case 'AG': return <Network {...props} />;
+    case 'GA': return <Sparkles {...props} />;
+    case 'UX': return <PenTool {...props} />;
+    case 'FS': return <Code {...props} />;
+    case 'CM': return <FileText {...props} />;
+    case 'ER': return <LayoutTemplate {...props} />;
+    case 'MB': return <Smartphone {...props} />;
+    case 'AP': return <Apple {...props} />;
+    case 'AD': return <Cpu {...props} />;
+    case 'GR': return <TrendingUp {...props} />;
+    case 'PD': return <DollarSign {...props} />;
+    case 'AN': return <PieChart {...props} />;
+    default: return <Activity {...props} />;
+  }
+};
+
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
@@ -160,7 +183,7 @@ export default function Navigation() {
                 <div className="mega-links-grid">
                   {megaData.services.categories.find((c: any) => c.name === activeCategory)?.items.map((item: any) => (
                     <Link href={`/services/${item.slug}`} key={item.title} className="mega-item" onClick={closeMenu}>
-                      <div className="ico">{item.icon}</div>
+                      <div className="ico">{getServiceIcon(item.icon)}</div>
                       <div className="info">
                         <h4>{item.title}</h4>
                         <p>{item.desc}</p>
