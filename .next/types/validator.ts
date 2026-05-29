@@ -117,6 +117,87 @@ type LayoutConfig<Route extends LayoutRoutes = LayoutRoutes> = {
   type __Unused = __Check
 }
 
+// Validate ../../src/app/[locale]/who-we-create-for/acadivate/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/[locale]/who-we-create-for/acadivate">> = Specific
+  const handler = {} as typeof import("../../src/app/[locale]/who-we-create-for/acadivate/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/[locale]/who-we-create-for/allied-surplus/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/[locale]/who-we-create-for/allied-surplus">> = Specific
+  const handler = {} as typeof import("../../src/app/[locale]/who-we-create-for/allied-surplus/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/[locale]/who-we-create-for/castania/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/[locale]/who-we-create-for/castania">> = Specific
+  const handler = {} as typeof import("../../src/app/[locale]/who-we-create-for/castania/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/[locale]/who-we-create-for/expo-life-far-beyond/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/[locale]/who-we-create-for/expo-life-far-beyond">> = Specific
+  const handler = {} as typeof import("../../src/app/[locale]/who-we-create-for/expo-life-far-beyond/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/[locale]/who-we-create-for/karlo-ban/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/[locale]/who-we-create-for/karlo-ban">> = Specific
+  const handler = {} as typeof import("../../src/app/[locale]/who-we-create-for/karlo-ban/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/[locale]/who-we-create-for/myrent/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/[locale]/who-we-create-for/myrent">> = Specific
+  const handler = {} as typeof import("../../src/app/[locale]/who-we-create-for/myrent/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/[locale]/who-we-create-for/nestcraft-living/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/[locale]/who-we-create-for/nestcraft-living">> = Specific
+  const handler = {} as typeof import("../../src/app/[locale]/who-we-create-for/nestcraft-living/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/[locale]/who-we-create-for/peekeeper/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/[locale]/who-we-create-for/peekeeper">> = Specific
+  const handler = {} as typeof import("../../src/app/[locale]/who-we-create-for/peekeeper/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/[locale]/who-we-create-for/sabl/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/[locale]/who-we-create-for/sabl">> = Specific
+  const handler = {} as typeof import("../../src/app/[locale]/who-we-create-for/sabl/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 
 
 

@@ -516,6 +516,16 @@ export function initCinematic() {
   const pipeProgress = document.getElementById('pipeProgress');
 
   if (!IS_MOBILE) {
+    // Entrance animations for desktop
+    gsap.fromTo('#ai .pipe-step', 
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, stagger: 0.1, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '#ai', start: 'top 75%' } }
+    );
+    gsap.fromTo('#ai .read-cell', 
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, stagger: 0.1, duration: 0.8, ease: 'power2.out', scrollTrigger: { trigger: '#ai', start: 'top 60%' } }
+    );
+
     ScrollTrigger.create({
       trigger: '#ai', start: 'top top', end: '+=2200', pin: true, scrub: 0.6,
       onUpdate: self => {
@@ -592,6 +602,20 @@ export function initCinematic() {
       }
     });
   });
+
+  /* 8. TESTIMONIALS */
+  gsap.fromTo('#testimonials .status-bar > *', 
+    { opacity: 0, y: 16 },
+    { opacity: 1, y: 0, stagger: 0.1, duration: 0.8, ease: 'power3.out',
+      scrollTrigger: { trigger: '#testimonials .head', start: 'top 85%' }
+    }
+  );
+  gsap.fromTo('#testimonials .card', 
+    { opacity: 0, x: 40, scale: 0.95 },
+    { opacity: 1, x: 0, scale: 1, stagger: 0.15, duration: 1.2, ease: 'power3.out',
+      scrollTrigger: { trigger: '#testimonials', start: 'top 70%' }
+    }
+  );
 
   gsap.utils.toArray('.section h2.display, .section .lede, .section .label').forEach((el: any) => {
     if (el.closest('#signal')) return;

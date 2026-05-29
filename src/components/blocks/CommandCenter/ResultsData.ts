@@ -23,7 +23,7 @@ export const defaultResultsData = {
     { id: "r2", props: { title: { en: "Global Clients", hi: "वैश्विक ग्राहक" }, target: "25", suffix: "+", sub: { en: "Brands & Collaborators", hi: "ब्रांड और सहयोगी" } } },
     { id: "r3", props: { title: { en: "Years of Experience", hi: "अनुभव के वर्ष" }, target: "15", suffix: "+", sub: { en: "Decades of combined knowledge", hi: "संयुक्त ज्ञान के दशक" } } },
     { id: "r4", props: { title: { en: "Average User Growth per Client", hi: "प्रति ग्राहक औसत उपयोगकर्ता वृद्धि" }, target: "120", prefix: "+", suffix: "%", sub: { en: "Across all platforms in 12 months", hi: "12 महीनों में सभी प्लेटफार्मों पर" } } },
-    { id: "r5", props: { title: { en: "Code Stability Score", hi: "कोड स्थिरता स्कोर" }, target: "99.9", suffix: "%", sub: { en: "Passed automated test suites regularly", hi: "नियमित रूप से परीक्षण पास किए" } } },
+    { id: "r5", props: { title: { en: "Code Stability Score", hi: "कोड स्थिरता स्कोर" }, target: "100", suffix: "%", sub: { en: "Passed automated test suites regularly", hi: "नियमित रूप से परीक्षण पास किए" } } },
     { id: "r6", props: { title: { en: "Quality Assurance", hi: "गुणवत्ता आश्वासन" }, sub: { en: "Security & compliance audits consistently met.", hi: "सुरक्षा और अनुपालन ऑडिट लगातार।" }, metaItems: [
       { text: { en: "CyberSec · ok", hi: "साइबर सुरक्षा · ठीक है" } },
       { text: { en: "Data Privacy · ok", hi: "डेटा गोपनीयता · ठीक है" } },
