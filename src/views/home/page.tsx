@@ -11,6 +11,7 @@ import TechNetworkSection      from './sections/TechNetworkSection';
 import IndustryMarqueeSection  from './sections/IndustryMarqueeSection';
 import AIWorkflowSection       from './sections/AIWorkflowSection';
 import TestimonialCarouselSection from './sections/TestimonialCarouselSection';
+import CaseStudiesSection      from './sections/CaseStudiesSection';
 import CommandCenterSection    from './sections/CommandCenterSection';
 
 /**
@@ -33,6 +34,7 @@ export default function HomePage({ locale }: { locale: string }) {
         <IndustryMarqueeSection />
         <AIWorkflowSection />
         <TestimonialCarouselSection />
+        <CaseStudiesSection />
         <CommandCenterSection />
       </main>
       <Footer />

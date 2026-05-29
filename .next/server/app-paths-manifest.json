@@ -1,6 +1,21 @@
 {
-  "/[locale]/page": "app/[locale]/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/[locale]/industries/page": "app/[locale]/industries/page.js",
+  "/[locale]/technologies/page": "app/[locale]/technologies/page.js",
   "/[locale]/industries/[slug]/page": "app/[locale]/industries/[slug]/page.js",
   "/[locale]/services/[slug]/page": "app/[locale]/services/[slug]/page.js",
-  "/[locale]/contact/page": "app/[locale]/contact/page.js"
+  "/[locale]/services/page": "app/[locale]/services/page.js",
+  "/[locale]/page": "app/[locale]/page.js",
+  "/[locale]/about/page": "app/[locale]/about/page.js",
+  "/[locale]/who-we-create-for/acadivate/page": "app/[locale]/who-we-create-for/acadivate/page.js",
+  "/[locale]/contact/page": "app/[locale]/contact/page.js",
+  "/[locale]/who-we-create-for/myrent/page": "app/[locale]/who-we-create-for/myrent/page.js",
+  "/[locale]/who-we-create-for/karlo-ban/page": "app/[locale]/who-we-create-for/karlo-ban/page.js",
+  "/[locale]/who-we-create-for/allied-surplus/page": "app/[locale]/who-we-create-for/allied-surplus/page.js",
+  "/[locale]/who-we-create-for/expo-life-far-beyond/page": "app/[locale]/who-we-create-for/expo-life-far-beyond/page.js",
+  "/[locale]/who-we-create-for/sabl/page": "app/[locale]/who-we-create-for/sabl/page.js",
+  "/[locale]/who-we-create-for/castania/page": "app/[locale]/who-we-create-for/castania/page.js",
+  "/[locale]/who-we-create-for/nestcraft-living/page": "app/[locale]/who-we-create-for/nestcraft-living/page.js",
+  "/[locale]/hire-developers/page": "app/[locale]/hire-developers/page.js",
+  "/[locale]/who-we-create-for/peekeeper/page": "app/[locale]/who-we-create-for/peekeeper/page.js"
 }

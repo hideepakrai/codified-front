@@ -1,5 +1,9 @@
 "use client";
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 import { useAppSelector } from '@/redux/hooks';
 import { defaultAIWorkflowData } from './AIWorkflowData';
 import { Brain, Bot, TrendingUp, RefreshCw, MessageSquare } from 'lucide-react';
@@ -28,8 +32,31 @@ export default function AIWorkflow() {
     };
   }, [section]);
 
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // 1. Pipeline Progress Bar (Scrubbed with Scroll)
+      gsap.fromTo('#pipeProgress', 
+        { width: '0%' },
+        {
+          width: '100%',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#pipeline',
+            start: 'top 75%',
+            end: 'bottom 25%',
+            scrub: 1
+          }
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [content]);
+
   return (
-    <section className="section" id="ai" data-mood="ai" style={{ padding: 0 }} data-annotate-id={`${currentPages?.slug || 'home'}-aiworkflow-section`}>
+    <section ref={sectionRef} className="section" id="ai" data-mood="ai" style={{ padding: 0 }} data-annotate-id={`${currentPages?.slug || 'home'}-aiworkflow-section`}>
       <div className="ai-stage">
         <div className="head">
           <div style={{ maxWidth: '800px' }}>
@@ -54,10 +81,10 @@ export default function AIWorkflow() {
           <div className="pipe-progress" id="pipeProgress"></div>
 
           {content.map((step: any, i: number) => (
-            <div className="pipe-step" data-step={i} key={step.id}>
+            <div className="pipe-step reveal" data-step={i} key={step.id}>
               <div className="top">
                 <span className="num">S · {String(i + 1).padStart(2, '0')}</span>
-                <span className="badge">Active</span>
+                <span className="badge">{step.props?.badge || 'Active'}</span>
               </div>
               <div>
                 {/* Lucide icon inside the existing .ico container */}
@@ -85,7 +112,7 @@ export default function AIWorkflow() {
 
         <div className="ai-readout">
           {metrics?.map((m: any, i: number) => (
-            <div className="read-cell" key={i}>
+            <div className="read-cell reveal" key={i}>
               <span>{m.label?.en}</span>
               <span className="v" id={m.id}>{m.value?.en}</span>
             </div>
