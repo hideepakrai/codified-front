@@ -1,7 +1,20 @@
 "use client";
-import React, { useMemo } from 'react';
-import { useAppSelector } from '@/lib/store/hooks';
+import React, { useMemo, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+import { useAppSelector } from '@/redux/hooks';
 import { defaultAIWorkflowData } from './AIWorkflowData';
+import { Brain, Bot, TrendingUp, RefreshCw, MessageSquare } from 'lucide-react';
+
+const AI_ICONS: Record<string, React.ReactNode> = {
+  s1: <Brain     size={22} strokeWidth={1.5} />,   // Cognitive AI
+  s2: <Bot       size={22} strokeWidth={1.5} />,   // Autonomous
+  s3: <TrendingUp size={22} strokeWidth={1.5} />,  // Predictive
+  s4: <RefreshCw  size={22} strokeWidth={1.5} />,  // Self-Learning
+  s5: <MessageSquare size={22} strokeWidth={1.5} />, // Conversational
+};
 
 export default function AIWorkflow() {
   const currentPages = useAppSelector((state) => state.app.currentPages);
@@ -19,8 +32,31 @@ export default function AIWorkflow() {
     };
   }, [section]);
 
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // 1. Pipeline Progress Bar (Scrubbed with Scroll)
+      gsap.fromTo('#pipeProgress', 
+        { width: '0%' },
+        {
+          width: '100%',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#pipeline',
+            start: 'top 75%',
+            end: 'bottom 25%',
+            scrub: 1
+          }
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [content]);
+
   return (
-    <section className="section" id="ai" data-mood="ai" style={{ padding: 0 }} data-annotate-id={`${currentPages?.slug || 'home'}-aiworkflow-section`}>
+    <section ref={sectionRef} className="section" id="ai" data-mood="ai" style={{ padding: 0 }} data-annotate-id={`${currentPages?.slug || 'home'}-aiworkflow-section`}>
       <div className="ai-stage">
         <div className="head">
           <div style={{ maxWidth: '800px' }}>
@@ -45,10 +81,28 @@ export default function AIWorkflow() {
           <div className="pipe-progress" id="pipeProgress"></div>
 
           {content.map((step: any, i: number) => (
-            <div className="pipe-step" data-step={i} key={step.id}>
-              <div className="top"><span className="num">S · {String(i + 1).padStart(2, '0')}</span><span className="badge">Active</span></div>
+            <div className="pipe-step reveal" data-step={i} key={step.id}>
+              <div className="top">
+                <span className="num">S · {String(i + 1).padStart(2, '0')}</span>
+                <span className="badge">{step.props?.badge || 'Active'}</span>
+              </div>
               <div>
-                <div className="ico">{step.props?.icon}</div>
+                {/* Lucide icon inside the existing .ico container */}
+                <div className="ico" style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '12px',
+                  background: 'rgba(29,195,243,0.08)',
+                  border: '1px solid rgba(29,195,243,0.2)',
+                  color: 'var(--cyan)',
+                  marginBottom: '16px',
+                  transition: 'all 0.3s ease',
+                }}>
+                  {AI_ICONS[step.id] ?? <Brain size={22} strokeWidth={1.5} />}
+                </div>
                 <h4>{step.props?.title?.en}</h4>
                 <p>{step.props?.desc?.en}</p>
               </div>
@@ -58,7 +112,7 @@ export default function AIWorkflow() {
 
         <div className="ai-readout">
           {metrics?.map((m: any, i: number) => (
-            <div className="read-cell" key={i}>
+            <div className="read-cell reveal" key={i}>
               <span>{m.label?.en}</span>
               <span className="v" id={m.id}>{m.value?.en}</span>
             </div>

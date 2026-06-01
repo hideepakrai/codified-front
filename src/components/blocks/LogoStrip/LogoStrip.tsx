@@ -1,6 +1,6 @@
 "use client";
 import { useMemo } from 'react';
-import { useAppSelector } from '@/lib/store/hooks';
+import { useAppSelector } from '@/redux/hooks';
 import { defaultClientLogosData } from './ClientLogosData';
 import { motion } from 'motion/react';
 

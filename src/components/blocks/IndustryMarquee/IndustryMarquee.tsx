@@ -1,37 +1,107 @@
 'use client';
 import React, { useMemo } from 'react';
-import { useAppSelector } from '@/lib/store/hooks';
+import { useAppSelector } from '@/redux/hooks';
 import { defaultIndustriesData } from './IndustriesData';
 
-const renderVis = (i: number) => {
-  // Use deterministic values based on index to avoid hydration mismatches
-  const bars = Array.from({ length: 14 }, (_, k) => ({
-    y1: 20 + ((i * 7 + k * 3) % 40),
-    y2: 100 + ((i * 5 + k * 7) % 30),
-  }));
-  const wave = Array.from({ length: 18 }, (_, k) =>
-    `L${k * 16},${60 + Math.sin(k * 0.6 + i) * 22}`
-  ).join(' ');
+const IndustryCard = ({ c }: { c: any }) => (
+  <div
+    className="engine-card"
+    style={{
+      position: 'relative',
+      overflow: 'hidden',
+      padding: 0,
+      background: '#08121e',
+      border: '1px solid rgba(140,180,240,0.18)',
+    }}
+  >
+    {/* Full-bleed image — top 55% of card */}
+    <div style={{ position: 'relative', width: '100%', height: '170px', overflow: 'hidden', flexShrink: 0 }}>
+      <img
+        src={c.props?.image}
+        alt={c.props?.title?.en}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          objectPosition: 'center center',
+          display: 'block',
+          filter: 'brightness(0.85) saturate(1.1)',
+        }}
+      />
+      {/* Gradient fade from image into card body */}
+      <div style={{
+        position: 'absolute',
+        bottom: 0, left: 0, right: 0,
+        height: '60px',
+        background: 'linear-gradient(to bottom, transparent 0%, #08121e 100%)',
+        pointerEvents: 'none',
+      }} />
+      {/* Tag badge top-right */}
+      <div style={{
+        position: 'absolute',
+        top: '12px', right: '12px',
+        fontFamily: 'var(--font-mono)',
+        fontSize: '10px',
+        letterSpacing: '0.14em',
+        color: '#9adcff',
+        background: 'rgba(4,6,13,0.75)',
+        backdropFilter: 'blur(8px)',
+        border: '1px solid rgba(29,195,243,0.2)',
+        borderRadius: '6px',
+        padding: '4px 8px',
+        textTransform: 'uppercase',
+      }}>
+        {c.props?.tag}
+      </div>
+      {/* ACTIVE pill top-left */}
+      <div style={{
+        position: 'absolute',
+        top: '12px', left: '12px',
+        fontFamily: 'var(--font-mono)',
+        fontSize: '10px',
+        letterSpacing: '0.12em',
+        color: '#27c93f',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '5px',
+      }}>
+        <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#27c93f', display: 'inline-block', boxShadow: '0 0 6px #27c93f' }} />
+        ACTIVE
+      </div>
+    </div>
 
-  return (
-    <svg className="vis" viewBox="0 0 280 140" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id={`eg${i}`} x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stopColor="#1DC3F3" stopOpacity="0"/>
-          <stop offset="0.5" stopColor="#1DC3F3" stopOpacity="0.6"/>
-          <stop offset="1" stopColor="#F300A6" stopOpacity="0"/>
-        </linearGradient>
-      </defs>
-      <g stroke={`url(#eg${i})`} strokeWidth="0.6" fill="none" opacity="0.9">
-        {bars.map((b, k) => (
-          <line key={k} x1={20 + k * 18} y1={b.y1} x2={20 + k * 18} y2={b.y2} />
-        ))}
-      </g>
-      <path d={`M0,120 ${wave} L280,140 L0,140 Z`} fill="rgba(29,195,243,0.08)" stroke="rgba(29,195,243,0.6)" strokeWidth="0.8" />
-    </svg>
-  );
-};
+    {/* Text content below image */}
+    <div style={{ padding: '18px 20px 20px' }}>
+      <h4 style={{
+        fontFamily: 'var(--font-display)',
+        fontSize: '18px',
+        fontWeight: 600,
+        color: '#e9eefb',
+        margin: '0 0 8px',
+        lineHeight: 1.2,
+      }}>
+        {c.props?.title?.en}
+      </h4>
+      <p style={{
+        fontFamily: 'var(--font-body)',
+        fontSize: '12.5px',
+        color: '#6e7c9a',
+        margin: 0,
+        lineHeight: 1.55,
+      }}>
+        {c.props?.desc?.en}
+      </p>
+    </div>
 
+    {/* Bottom cyan accent line */}
+    <div style={{
+      position: 'absolute',
+      bottom: 0, left: 0, right: 0,
+      height: '1px',
+      background: 'linear-gradient(90deg, transparent, rgba(29,195,243,0.4), transparent)',
+    }} />
+  </div>
+);
 
 export default function Industries() {
   const currentPages = useAppSelector((state) => state.app.currentPages);
@@ -57,7 +127,7 @@ export default function Industries() {
         <div className="head" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '40px' }}>
           <div style={{ maxWidth: '560px' }}>
             <span className="label"><span className="num">{p.label?.en?.split('·')[0]}·</span> {p.label?.en?.split('·')[1]}</span>
-            <h2 
+            <h2
               className="display"
               dangerouslySetInnerHTML={{ __html: p.heading?.en || "" }}
             />
@@ -75,24 +145,12 @@ export default function Industries() {
         <div className="engine-track-wrap">
           <div className="engine-track" id="engineTrack1">
             {sequence1.map((c: any, i) => (
-              <div key={`s1-${i}`} className="engine-card">
-                <div className="num">{c.props?.tag}</div>
-                <div className="tag">Active</div>
-                <h4>{c.props?.title?.en}</h4>
-                <p>{c.props?.desc?.en}</p>
-                {renderVis(i)}
-              </div>
+              <IndustryCard key={`s1-${i}`} c={c} />
             ))}
           </div>
           <div className="engine-track row2" id="engineTrack2">
             {sequence2.map((c: any, i) => (
-              <div key={`s2-${i}`} className="engine-card">
-                <div className="num">{c.props?.tag}</div>
-                <div className="tag">Active</div>
-                <h4>{c.props?.title?.en}</h4>
-                <p>{c.props?.desc?.en}</p>
-                {renderVis(i + 100)}
-              </div>
+              <IndustryCard key={`s2-${i}`} c={c} />
             ))}
           </div>
         </div>

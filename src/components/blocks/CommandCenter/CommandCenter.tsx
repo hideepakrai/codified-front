@@ -1,7 +1,11 @@
 "use client";
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 import Accordion from '@/components/blocks/FAQAccordion/FAQAccordion';
-import { useAppSelector } from '@/lib/store/hooks';
+import { useAppSelector } from '@/redux/hooks';
 import { defaultResultsData } from './ResultsData';
 
 export default function Results() {
@@ -19,6 +23,95 @@ export default function Results() {
       cta: (section as any)?.cta || defaultResultsData.cta,
     };
   }, [section]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // 0. Smooth Tile Stagger Reveal
+      gsap.fromTo('.cc-tile', 
+        { y: 60, opacity: 0 }, 
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: 1.2, 
+          stagger: 0.15, 
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#ccGrid',
+            start: 'top 85%',
+            once: true
+          }
+        }
+      );
+
+      // 1. Number Counters
+      const nums = gsap.utils.toArray<HTMLElement>('#ccGrid [data-target]');
+      nums.forEach(el => {
+        const endValue = parseFloat(el.getAttribute('data-target') || '0');
+        const isFloat = endValue % 1 !== 0;
+        
+        const counter = { val: 0 };
+        gsap.to(counter, {
+          val: endValue,
+          duration: 3,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            once: true
+          },
+          onUpdate: () => {
+            el.innerHTML = isFloat ? counter.val.toFixed(1) : Math.round(counter.val).toString();
+          }
+        });
+      });
+
+      // 2. SVG Sparklines
+      const sparks = gsap.utils.toArray<SVGElement>('#ccGrid .spark');
+      sparks.forEach(svg => {
+        const path = svg.querySelector('.l') as SVGPathElement;
+        const fill = svg.querySelector('.f') as SVGPathElement;
+        
+        if (path) {
+          const length = path.getTotalLength() || 1000;
+          gsap.set(path, { 
+            strokeDasharray: length, 
+            strokeDashoffset: length, 
+            stroke: 'url(#sg)', 
+            strokeWidth: 2, 
+            fill: 'none' 
+          });
+          
+          gsap.to(path, {
+            scrollTrigger: {
+              trigger: svg,
+              start: "top 85%",
+              once: true
+            },
+            strokeDashoffset: 0,
+            duration: 2.5,
+            ease: "power3.inOut"
+          });
+        }
+        
+        if (fill) {
+          gsap.set(fill, { fill: 'url(#sg)', opacity: 0 });
+          gsap.to(fill, {
+            scrollTrigger: {
+              trigger: svg,
+              start: "top 85%",
+              once: true
+            },
+            opacity: 1,
+            duration: 2,
+            delay: 0.8,
+            ease: "power2.out"
+          });
+        }
+      });
+    });
+
+    return () => ctx.revert();
+  }, [content]);
 
   return (
     <section className="section" id="command" data-mood="command" data-annotate-id={`${currentPages?.slug || 'home'}-results-section`}>
@@ -47,7 +140,7 @@ export default function Results() {
               return (
                 <div className={`cc-tile t${i + 1} reveal`} key={item.id}>
                   <div className="ttl">{item.props?.title?.en}</div>
-                  <div className="num" data-target={item.props?.target}>0<small>{item.props?.suffix}</small></div>
+                  <div className="num"><span data-target={item.props?.target}>0</span><small>{item.props?.suffix}</small></div>
                   <div className="sub">{item.props?.sub?.en}</div>
                 </div>
               );

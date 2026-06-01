@@ -19,17 +19,19 @@ export const defaultServicesData = {
     ]
   },
   content: [
-    { id: "s1", props: { code: "AI", name: { en: "AI/ML Development", hi: "AI/ML विकास" }, desc: { en: "Predictive analytics, intelligent automation, custom models.", hi: "भविष्य कहनेवाला विश्लेषिकी, बुद्धिमान स्वचालन।" } } },
-    { id: "s2", props: { code: "SD", name: { en: "Software Dev", hi: "सॉफ़्टवेयर विकास" }, desc: { en: "Robust bespoke platforms and ERP systems.", hi: "मजबूत कस्टम प्लेटफार्म और ईआरपी सिस्टम।" } } },
-    { id: "s3", props: { code: "MB", name: { en: "Mobile Apps", hi: "मोबाइल ऐप्स" }, desc: { en: "Seamless iOS & Android native experiences.", hi: "सहज आईओएस और एंड्रॉइड नेटिव अनुभव।" } } },
-    { id: "s4", props: { code: "GR", name: { en: "SEO & Growth", hi: "एसईओ और विकास" }, desc: { en: "Data-driven rankings, high quality conversions.", hi: "डेटा-संचालित रैंकिंग, उच्च गुणवत्ता रूपांतरण।" } } },
-    { id: "s5", props: { code: "EC", name: { en: "E-Commerce", hi: "ई-कॉमर्स" }, desc: { en: "Scalable storefronts and complex catalogs.", hi: "स्केलेबल स्टोरफ्रंट और जटिल कैटलॉग।" } } },
-    { id: "s6", props: { code: "UX", name: { en: "UI/UX Design", hi: "UI/UX डिज़ाइन" }, desc: { en: "Aesthetic, user-centric product strategies.", hi: "सौंदर्यपूर्ण, उपयोगकर्ता-केंद्रित उत्पाद रणनीतियाँ।" } } },
-    { id: "s7", props: { code: "CL", name: { en: "Cloud Hosting", hi: "क्लाउड होस्टिंग" }, desc: { en: "Secure, high-availability infrastructure deployments.", hi: "सुरक्षित, उच्च-उपलब्धता बुनियादी ढांचे की तैनाती।" } } },
-    { id: "s8", props: { code: "BC", name: { en: "Blockchain", hi: "ब्लॉकचेन" }, desc: { en: "Smart contracts and decentralized apps.", hi: "स्मार्ट कॉन्ट्रैक्ट और विकेंद्रीकृत ऐप्स।" } } },
-    { id: "s9", props: { code: "IO", name: { en: "IoT Solutions", hi: "IoT समाधान" }, desc: { en: "Connecting devices for smart environments.", hi: "स्मार्ट वातावरण के लिए कनेक्टिंग डिवाइस।" } } },
-    { id: "s10", props: { code: "FN", name: { en: "Fintech", hi: "फिनटेक" }, desc: { en: "Compliance-ready secure transaction engines.", hi: "अनुपालन-तैयार सुरक्षित लेनदेन इंजन।" } } },
-    { id: "s11", props: { code: "HT", name: { en: "Healthcare", hi: "हेल्थकेयर" }, desc: { en: "HIPAA compliant healthtech platforms.", hi: "HIPAA अनुरूप हेल्थटेक प्लेटफॉर्म।" } } },
-    { id: "s12", props: { code: "ED", name: { en: "EdTech", hi: "एडटेक" }, desc: { en: "Interactive remote learning infrastructure.", hi: "इंटरैक्टिव रिमोट लर्निंग इंफ्रास्ट्रक्चर।" } } }
+    { id: "s1", props: { code: "AI", name: { en: "AI Consulting", hi: "AI परामर्श" }, desc: { en: "Expert guidance on AI strategy.", hi: "एआई रणनीति पर विशेषज्ञ मार्गदर्शन।" } } },
+    { id: "s2", props: { code: "CB", name: { en: "AI Chatbot", hi: "एआई चैटबॉट" }, desc: { en: "Intelligent conversational agents.", hi: "बुद्धिमान संवादी एजेंट।" } } },
+    { id: "s3", props: { code: "AG", name: { en: "AI Agent", hi: "एआई एजेंट" }, desc: { en: "Autonomous workflow automation.", hi: "स्वायत्त वर्कफ़्लो स्वचालन।" } } },
+    { id: "s4", props: { code: "GA", name: { en: "Generative AI", hi: "जेनरेटिव एआई" }, desc: { en: "Custom LLMs and creative AI.", hi: "कस्टम LLM और रचनात्मक AI।" } } },
+    { id: "s5", props: { code: "UX", name: { en: "UI/UX Design", hi: "UI/UX डिज़ाइन" }, desc: { en: "Aesthetic, user-centric product strategies.", hi: "सौंदर्यपूर्ण, उपयोगकर्ता-केंद्रित उत्पाद रणनीतियाँ।" } } },
+    { id: "s6", props: { code: "FS", name: { en: "Full Stack Dev", hi: "फुल स्टैक देव" }, desc: { en: "Robust bespoke platforms.", hi: "मजबूत कस्टम प्लेटफॉर्म।" } } },
+    { id: "s7", props: { code: "CM", name: { en: "CMS Development", hi: "CMS विकास" }, desc: { en: "Tailored content management.", hi: "अनुकूलित सामग्री प्रबंधन।" } } },
+    { id: "s8", props: { code: "ER", name: { en: "ERP & CRM", hi: "ERP और CRM" }, desc: { en: "Enterprise business tools.", hi: "एंटरप्राइज बिजनेस टूल्स।" } } },
+    { id: "s9", props: { code: "MB", name: { en: "Mobile App Dev", hi: "मोबाइल ऐप विकास" }, desc: { en: "iOS & Android solutions.", hi: "आईओएस और एंड्रॉइड समाधान।" } } },
+    { id: "s10", props: { code: "AP", name: { en: "iOS Development", hi: "iOS विकास" }, desc: { en: "Native Apple experiences.", hi: "मूल एप्पल अनुभव।" } } },
+    { id: "s11", props: { code: "AD", name: { en: "Android Development", hi: "Android विकास" }, desc: { en: "Native Google experiences.", hi: "मूल गूगल अनुभव।" } } },
+    { id: "s12", props: { code: "GR", name: { en: "SEO / SMM / AMO / PPC", hi: "एसईओ / एसएमएम / एएमओ / पीपीसी" }, desc: { en: "Complete growth engine.", hi: "संपूर्ण विकास इंजन।" } } },
+    { id: "s13", props: { code: "PD", name: { en: "Paid Marketing", hi: "सशुल्क मार्केटिंग" }, desc: { en: "Targeted PPC & Social Ads.", hi: "लक्षित पीपीसी और सामाजिक विज्ञापन।" } } },
+    { id: "s14", props: { code: "AN", name: { en: "Analytics & Reporting", hi: "एनालिटिक्स और रिपोर्टिंग" }, desc: { en: "Data-driven ROI insights.", hi: "डेटा-संचालित आरओआई अंतर्दृष्टि।" } } }
   ]
 };

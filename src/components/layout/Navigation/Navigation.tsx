@@ -3,6 +3,29 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { initCinematic } from '@/lib/cinematic';
 
+import { Brain, Bot, Network, Sparkles, PenTool, Code, FileText, LayoutTemplate, Smartphone, Apple, Cpu, TrendingUp, DollarSign, PieChart, Activity } from 'lucide-react';
+
+const getServiceIcon = (code: string) => {
+  const props = { size: 24, strokeWidth: 1.5 };
+  switch (code) {
+    case 'AI': return <Brain {...props} />;
+    case 'CB': return <Bot {...props} />;
+    case 'AG': return <Network {...props} />;
+    case 'GA': return <Sparkles {...props} />;
+    case 'UX': return <PenTool {...props} />;
+    case 'FS': return <Code {...props} />;
+    case 'CM': return <FileText {...props} />;
+    case 'ER': return <LayoutTemplate {...props} />;
+    case 'MB': return <Smartphone {...props} />;
+    case 'AP': return <Apple {...props} />;
+    case 'AD': return <Cpu {...props} />;
+    case 'GR': return <TrendingUp {...props} />;
+    case 'PD': return <DollarSign {...props} />;
+    case 'AN': return <PieChart {...props} />;
+    default: return <Activity {...props} />;
+  }
+};
+
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
@@ -66,7 +89,7 @@ export default function Navigation() {
         { title: "E-Commerce", desc: "Scalable retail platforms.", icon: "EC", slug: "e-commerce" },
         { title: "Education", desc: "LMS and interactive learning.", icon: "ED", slug: "edtech" },
         { title: "Real Estate", desc: "Property portals and PropTech.", icon: "RE", slug: "realestate" },
-     
+
       ]
     },
     about: {
@@ -86,7 +109,7 @@ export default function Navigation() {
           featured: {
             title: "Scale Your Team",
             desc: "Expert developers ready to integrate with your existing workflow.",
-            link: "/contact"
+            link: "/hire-developers"
           }
         }
       ]
@@ -100,6 +123,8 @@ export default function Navigation() {
       <div className="grain"></div>
 
       <div className="progress" id="progress"></div>
+
+      {/* Mega Menu Overlay removed to keep background visible */}
 
       <nav className="nav" onMouseLeave={() => setActiveMega(null)}>
         <Link href="/" onClick={closeMenu}>
@@ -137,13 +162,6 @@ export default function Navigation() {
           </button>
         </div>
 
-        {/* Mega Menu Overlay */}
-        {activeMega && (
-          <div 
-            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 90, backdropFilter: 'blur(4px)', pointerEvents: 'none' }} 
-          />
-        )}
-
         {/* ── Mega Menus ── */}
         <div className={`mega-menu ${activeMega ? 'show' : ''}`} onMouseEnter={() => setActiveMega(activeMega)}>
           {activeMega === 'services' && (
@@ -165,7 +183,7 @@ export default function Navigation() {
                 <div className="mega-links-grid">
                   {megaData.services.categories.find((c: any) => c.name === activeCategory)?.items.map((item: any) => (
                     <Link href={`/services/${item.slug}`} key={item.title} className="mega-item" onClick={closeMenu}>
-                      <div className="ico">{item.icon}</div>
+                      <div className="ico">{getServiceIcon(item.icon)}</div>
                       <div className="info">
                         <h4>{item.title}</h4>
                         <p>{item.desc}</p>
@@ -233,11 +251,11 @@ export default function Navigation() {
       {/* Mobile drawer */}
 
       <div className={`mobile-drawer ${menuOpen ? 'open' : ''}`}>
-        <Link href="/about"        onClick={closeMenu}>About</Link>
-        <Link href="/services"     onClick={closeMenu}>Services</Link>
-        <Link href="/industries"   onClick={closeMenu}>Industries</Link>
+        <Link href="/about" onClick={closeMenu}>About</Link>
+        <Link href="/services" onClick={closeMenu}>Services</Link>
+        <Link href="/industries" onClick={closeMenu}>Industries</Link>
         <Link href="/technologies" onClick={closeMenu}>Technologies</Link>
-        <Link href="/contact"      onClick={closeMenu}>Contact</Link>
+        <Link href="/contact" onClick={closeMenu}>Contact</Link>
         <Link href="/contact" className="drawer-cta" onClick={closeMenu}>Free Consultation →</Link>
       </div>
 

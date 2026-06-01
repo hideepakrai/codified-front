@@ -361,6 +361,20 @@ export function initCinematic() {
     onUpdate: self => { coreOpen = self.progress; }
   });
 
+  /* 2b. WHY — "Built on trust and quality" section */
+  gsap.fromTo('#why h2.display, #why .lede, #why .label',
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, stagger: 0.1, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#why', start: 'top 70%' } }
+  );
+  gsap.fromTo('#why .core-spec .spec-cell',
+    { opacity: 0, y: 18 },
+    { opacity: 1, y: 0, stagger: 0.1, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '#why', start: 'top 60%' } }
+  );
+  gsap.fromTo('#why .card',
+    { opacity: 0, y: 24 },
+    { opacity: 1, y: 0, stagger: 0.12, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#why', start: 'top 60%' } }
+  );
+
   /* 3. DATA GRID */
   gsap.from('#moduleGrid .module', {
     opacity: 0, y: 30, scale: 0.96, stagger: { each: 0.05, grid: [3, 4], from: 'random' },
@@ -502,6 +516,16 @@ export function initCinematic() {
   const pipeProgress = document.getElementById('pipeProgress');
 
   if (!IS_MOBILE) {
+    // Entrance animations for desktop
+    gsap.fromTo('#ai .pipe-step', 
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, stagger: 0.1, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '#ai', start: 'top 75%' } }
+    );
+    gsap.fromTo('#ai .read-cell', 
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, stagger: 0.1, duration: 0.8, ease: 'power2.out', scrollTrigger: { trigger: '#ai', start: 'top 60%' } }
+    );
+
     ScrollTrigger.create({
       trigger: '#ai', start: 'top top', end: '+=2200', pin: true, scrub: 0.6,
       onUpdate: self => {
@@ -578,6 +602,20 @@ export function initCinematic() {
       }
     });
   });
+
+  /* 8. TESTIMONIALS */
+  gsap.fromTo('#testimonials .status-bar > *', 
+    { opacity: 0, y: 16 },
+    { opacity: 1, y: 0, stagger: 0.1, duration: 0.8, ease: 'power3.out',
+      scrollTrigger: { trigger: '#testimonials .head', start: 'top 85%' }
+    }
+  );
+  gsap.fromTo('#testimonials .card', 
+    { opacity: 0, x: 40, scale: 0.95 },
+    { opacity: 1, x: 0, scale: 1, stagger: 0.15, duration: 1.2, ease: 'power3.out',
+      scrollTrigger: { trigger: '#testimonials', start: 'top 70%' }
+    }
+  );
 
   gsap.utils.toArray('.section h2.display, .section .lede, .section .label').forEach((el: any) => {
     if (el.closest('#signal')) return;

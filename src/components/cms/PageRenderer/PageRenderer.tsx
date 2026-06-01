@@ -15,7 +15,7 @@
  */
 
 'use client';
-import { useAppSelector } from '@/lib/store/hooks';
+import { useAppSelector } from '@/redux/hooks';
 import CinematicInit         from '@/components/providers/CinematicInit/CinematicInit';
 import Navigation            from '@/components/layout/Navigation/Navigation';
 import Footer                from '@/components/layout/Footer/Footer';

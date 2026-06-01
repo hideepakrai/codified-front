@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { servicesData } from '@/data/servicesData';
-import ServiceDetailPage from '@/logic/services/detail-page';
+import ServiceDetailPage from '@/views/services/detail-page';
 
 interface Props {
   params: Promise<{ slug: string, locale: string }>;
