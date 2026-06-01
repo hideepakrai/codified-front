@@ -29,34 +29,4 @@ yarn-error.log*
 .env
 
 !.env.example
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-
-# turbo
-.turbo
-
-# caches
-.cache/
-.eslintcache
-
-# editor
-.vscode/
-.idea/
-
-# logs
-*.log
-
-/packages
-
-actions-runner/
-
-.next-current
-.next-releases/
-.deploy/
-
-versions/
+ 

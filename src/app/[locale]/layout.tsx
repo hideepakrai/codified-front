@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import '../../styles/globals.css';
 import ReduxProvider from '@/providers/ReduxProvider';
 import { SupportedLocale } from '@/lib/i18n';
+import UpdateCurrentPage from '@/components/getallData/pageData/UpdateCurrentPage';
 
 export const metadata: Metadata = {
   title: 'Codified Web Solutions — Digital Infrastructure for Modern Businesses',
@@ -17,7 +18,7 @@ export default async function LocaleLayout({
   params: Promise<{ locale: SupportedLocale }>;
 }) {
   const { locale } = await params;
-  
+    
   return (
     <html lang={locale || 'en'}>
       <head>
@@ -29,7 +30,10 @@ export default async function LocaleLayout({
         />
       </head>
       <body>
-        <ReduxProvider>{children}</ReduxProvider>
+        <ReduxProvider>
+          <UpdateCurrentPage />
+          {children}
+        </ReduxProvider>
       </body>
     </html>
   );

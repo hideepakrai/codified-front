@@ -1,0 +1,25 @@
+{
+  "title": { "en": "Industries" },
+  "slug": "industries",
+  "isPublished": true,
+  "metaTitle": { "en": "Industries | Codified Web Solutions" },
+  "metaDescription": { "en": "Explore industries where we deploy custom software and AI-driven digital products." },
+  "content": [
+    {
+      "id": "industries-section",
+      "type": "section",
+      "layout": "marquee",
+      "adminTitle": "Industries",
+      "props": {
+        "label": { "en": "01 · Industry Expertise" },
+        "heading": { "en": "Tailored for <span class=\"grad-text\">every sector.</span>" },
+        "description": { "en": "We serve diverse sectors with intelligent, scalable, and user-first solutions." }
+      },
+      "content": [
+        { "id": "i1", "type": "item", "props": { "tag": "F-01", "title": { "en": "Food and Restaurant" }, "desc": { "en": "Delivery apps, QR menus, POS systems, and kitchen tools." } } },
+        { "id": "i2", "type": "item", "props": { "tag": "E-02", "title": { "en": "Education and E-Learning" }, "desc": { "en": "Interactive learning platforms, live classes, and LMS." } } },
+        { "id": "i3", "type": "item", "props": { "tag": "G-03", "title": { "en": "Gaming and Sports" }, "desc": { "en": "Game development, fantasy leagues, and real-time stats." } } }
+      ]
+    }
+  ]
+}
