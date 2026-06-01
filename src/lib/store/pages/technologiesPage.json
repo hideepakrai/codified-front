@@ -1,0 +1,26 @@
+{
+  "title": { "en": "Technologies" },
+  "slug": "technologies",
+  "isPublished": true,
+  "metaTitle": { "en": "Technologies | Codified Web Solutions" },
+  "metaDescription": { "en": "Discover the modern tech stacks and architecture patterns we use to build scalable systems." },
+  "content": [
+    {
+      "id": "technologies-section",
+      "type": "section",
+      "layout": "network",
+      "adminTitle": "Technologies",
+      "props": {
+        "label": { "en": "01 · Technologies" },
+        "heading": { "en": "One <span class=\"grad-text\">unified stack</span> across every system." },
+        "description": { "en": "We connect frontend, backend, cloud, and AI layers into one efficient platform." }
+      },
+      "content": [
+        { "id": "t1", "type": "item", "props": { "key": { "en": "Uptime SLA" }, "value": { "en": "99.99%" } } },
+        { "id": "t2", "type": "item", "props": { "key": { "en": "Integrations" }, "value": { "en": "2,860+" } } },
+        { "id": "t3", "type": "item", "props": { "key": { "en": "Stacks" }, "value": { "en": "MERN · JAM · LAMP" } } },
+        { "id": "core", "type": "node", "props": { "left": "50%", "top": "50%", "isCenter": true, "endpoint": "APP CORE", "label": { "en": "Operations Core" } } }
+      ]
+    }
+  ]
+}

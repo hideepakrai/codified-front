@@ -1,13 +1,24 @@
 'use client';
+import { useEffect } from 'react';
 import CinematicInit from '@/components/providers/CinematicInit/CinematicInit';
 import Navigation from '@/components/layout/Navigation/Navigation';
 import Footer from '@/components/layout/Footer/Footer';
+import { useAppDispatch } from '@/lib/store/hooks';
+import { setCurrentPages } from '@/lib/store/pages/pagesSlice';
+import type { Page } from '@/lib/store/pages/pageType';
+import contactPageData from '@/lib/store/pages/contactPage.json';
 import ContactHeroSection from './sections/ContactHeroSection';
 import TechnicalCapabilitiesSection from './sections/TechnicalCapabilitiesSection';
 import DeploymentSequenceSection from './sections/DeploymentSequenceSection';
 import TechnicalFAQSection from './sections/TechnicalFAQSection';
 
 export default function ContactPage({ locale }: { locale: string }) {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setCurrentPages(contactPageData as Page));
+  }, [dispatch]);
+
   return (
     <>
       <CinematicInit />

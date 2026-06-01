@@ -1,0 +1,80 @@
+{
+  "title": { "en": "Contact" },
+  "slug": "contact",
+  "isPublished": true,
+  "metaTitle": { "en": "Contact Us | Codified Web Solutions" },
+  "metaDescription": { "en": "Speak with our core team for AI integration, architecture consulting, and full-stack scaling." },
+  "content": [
+    {
+      "id": "contact-hero-section",
+      "type": "section",
+      "layout": "split",
+      "adminTitle": "Contact Hero",
+      "props": {
+        "label": { "en": "SIGNAL_01 / ESTABLISH_LINK" },
+        "heading": { "en": "Connect with the <span class=\"grad-text\">Core Team.</span>" },
+        "description": { "en": "Skip the sales cycle. Speak directly with our lead architects about system design, AI integration, or complex full-stack scaling." },
+        "secureTitle": { "en": "Secure Communication" },
+        "secureDesc": { "en": "All technical discussions are covered by our standard Mutual NDA." },
+        "formTitle": { "en": "Initiate Deep-Dive" },
+        "formSub": { "en": "Estimated response time: < 2 hours" },
+        "submitText": { "en": "TRANSMIT_REQUEST" }
+      },
+      "content": [
+        { "id": "contact-1", "type": "item", "props": { "label": { "en": "Email" }, "value": { "en": "info@codifiedweb.com" } } },
+        { "id": "contact-2", "type": "item", "props": { "label": { "en": "Phone" }, "value": { "en": "+91 99 820 001 05" } } },
+        { "id": "contact-3", "type": "item", "props": { "label": { "en": "Address" }, "value": { "en": "Jagatpura, Jaipur. Near SKIT College." } } }
+      ]
+    },
+    {
+      "id": "technical-capabilities-section",
+      "type": "section",
+      "layout": "grid",
+      "adminTitle": "Technical Capabilities",
+      "props": {
+        "label": { "en": "TECHNICAL CAPABILITIES" },
+        "heading": { "en": "Engineered for <span class=\"grad-text\">Scale.</span>" }
+      },
+      "content": [
+        { "id": "cap-1", "type": "item", "props": { "icon": "01", "title": { "en": "Enterprise Architecture" }, "desc": { "en": "Building resilient, high-availability systems that grow with your business." } } },
+        { "id": "cap-2", "type": "item", "props": { "icon": "02", "title": { "en": "AI-First Integration" }, "desc": { "en": "Seamless deployment of LLMs and machine learning models into production." } } },
+        { "id": "cap-3", "type": "item", "props": { "icon": "03", "title": { "en": "Security by Design" }, "desc": { "en": "End-to-end encryption and compliance protocols baked into the core." } } },
+        { "id": "cap-4", "type": "item", "props": { "icon": "04", "title": { "en": "Rapid Prototyping" }, "desc": { "en": "Turning complex concepts into functional MVPs in record time." } } }
+      ]
+    },
+    {
+      "id": "deployment-sequence-section",
+      "type": "section",
+      "layout": "timeline",
+      "adminTitle": "Deployment Sequence",
+      "props": {
+        "label": { "en": "DEPLOYMENT SEQUENCE" },
+        "heading": { "en": "Path to <span class=\"grad-text\">Kickoff.</span>" }
+      },
+      "content": [
+        { "id": "step-1", "type": "item", "props": { "step": "01", "title": { "en": "Technical Brief" }, "desc": { "en": "Submit your requirements via the secure form." } } },
+        { "id": "step-2", "type": "item", "props": { "step": "02", "title": { "en": "Expert Review" }, "desc": { "en": "Our lead architects audit your current tech stack." } } },
+        { "id": "step-3", "type": "item", "props": { "step": "03", "title": { "en": "Strategy Session" }, "desc": { "en": "60-minute deep dive into solution architecture." } } },
+        { "id": "step-4", "type": "item", "props": { "step": "04", "title": { "en": "Project Start" }, "desc": { "en": "Legal onboarding and dedicated team assignment." } } }
+      ]
+    },
+    {
+      "id": "technical-faq-section",
+      "type": "section",
+      "layout": "faq",
+      "adminTitle": "Technical FAQ",
+      "props": {
+        "label": { "en": "TECHNICAL_FAQ" },
+        "heading": { "en": "Common <span class=\"grad-text\">Queries.</span>" },
+        "description": { "en": "Quick answers to standard operational questions." },
+        "ctaText": { "en": "Email Support Directly" },
+        "ctaHref": "mailto:info@codifiedweb.com"
+      },
+      "content": [
+        { "id": "faq-1", "type": "item", "props": { "q": { "en": "How long does the initial audit take?" }, "a": { "en": "Typically, our team provides a technical feedback loop within 24-48 hours." } } },
+        { "id": "faq-2", "type": "item", "props": { "q": { "en": "Do you sign Mutual NDAs?" }, "a": { "en": "Yes. All technical consultations are covered under a strictly enforced NDA." } } },
+        { "id": "faq-3", "type": "item", "props": { "q": { "en": "Can we hire for dedicated long-term teams?" }, "a": { "en": "Absolutely. We specialize in building dedicated pods for scaling enterprises and startups." } } }
+      ]
+    }
+  ]
+}

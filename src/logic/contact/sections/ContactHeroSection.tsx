@@ -1,7 +1,31 @@
 'use client';
-import { Mail, MessageSquare, MapPin, Globe, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Mail, MessageSquare, Globe, ArrowRight, ShieldCheck } from 'lucide-react';
+import { useMemo } from 'react';
+import { useAppSelector } from '@/lib/store/hooks';
+import type { ReactNode } from 'react';
+
+const getText = (value: any, fallback = '') => {
+  if (!value) return fallback;
+  if (typeof value === 'string') return value;
+  return value.en || fallback;
+};
 
 export default function ContactHeroSection() {
+  const currentPages = useAppSelector((state) => state.app.currentPages);
+  const section = useMemo(() => currentPages?.content?.find((s: any) => s?.adminTitle === 'Contact Hero'), [currentPages]);
+
+  const contacts: { icon: ReactNode; label: string; val: string }[] = Array.isArray(section?.content) && section.content.length
+    ? section.content.map((item: any, idx: number) => ({
+        icon: idx === 0 ? <Mail size={20} /> : idx === 1 ? <MessageSquare size={20} /> : <Globe size={20} />,
+        label: getText(item?.props?.label, ''),
+        val: getText(item?.props?.value, '')
+      }))
+    : [
+        { icon: <Mail size={20} />, label: 'Email', val: 'info@codifiedweb.com' },
+        { icon: <MessageSquare size={20} />, label: 'Phone', val: '+91 99 820 001 05' },
+        { icon: <Globe size={20} />, label: 'Address', val: 'Jagatpura, Jaipur. Near SKIT College.' }
+      ];
+
   return (
     <section className="section" id="contact-hero" data-mood="signal">
       <div className="inner">
@@ -10,25 +34,20 @@ export default function ContactHeroSection() {
           {/* LEFT COLUMN: Signal Status & Info */}
           <div className="reveal">
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '32px' }}>
-              <span className="label">SIGNAL_01 / ESTABLISH_LINK</span>
+              <span className="label">{getText(section?.props?.label, 'SIGNAL_01 / ESTABLISH_LINK')}</span>
               <div className="pulse" style={{ width: '8px', height: '8px', background: 'var(--cyan)', borderRadius: '50%' }}></div>
             </div>
             
             <h1 className="display" style={{ fontSize: 'clamp(48px, 6vw, 84px)', lineHeight: 0.9 }}>
-              Connect with the <span className="grad-text">Core Team.</span>
+              <span dangerouslySetInnerHTML={{ __html: getText(section?.props?.heading, 'Connect with the <span class="grad-text">Core Team.</span>') }} />
             </h1>
             
             <p className="lede" style={{ marginTop: '32px', marginBottom: '56px', maxWidth: '500px' }}>
-              Skip the sales cycle. Speak directly with our lead architects about system design, AI integration, or complex full-stack scaling.
+              {getText(section?.props?.description, 'Skip the sales cycle. Speak directly with our lead architects about system design, AI integration, or complex full-stack scaling.')}
             </p>
 
             <div className="grid gap-8">
-              {[
-                { icon: <Mail size={20} />, label: "Email", val: "info@codifiedweb.com" },
-                { icon: <MessageSquare size={20} />, label: "Phone", val: "+91 99 820 001 05" },
-              
-                { icon: <Globe size={20} />, label: "Address", val: "Jagatpura, Jaipur. Near SKIT College." }
-              ].map((item, i) => (
+              {contacts.map((item: { icon: ReactNode; label: string; val: string }, i: number) => (
                 <div key={i} style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                   <div style={{ 
                     width: '44px', height: '44px', borderRadius: '12px', border: '1px solid var(--line-strong)',
@@ -49,10 +68,10 @@ export default function ContactHeroSection() {
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
                 <ShieldCheck size={18} className="text-cyan-400" />
-                <span style={{ fontWeight: 600, fontSize: '14px' }}>Secure Communication</span>
+                <span style={{ fontWeight: 600, fontSize: '14px' }}>{getText(section?.props?.secureTitle, 'Secure Communication')}</span>
               </div>
               <p style={{ fontSize: '13px', opacity: 0.6, lineHeight: 1.6 }}>
-                All technical discussions are covered by our standard Mutual NDA. Your system architecture and data privacy are our highest priority.
+                {getText(section?.props?.secureDesc, 'All technical discussions are covered by our standard Mutual NDA. Your system architecture and data privacy are our highest priority.')}
               </p>
             </div>
           </div>
@@ -64,8 +83,8 @@ export default function ContactHeroSection() {
               <div className="corner bl"></div><div className="corner br"></div>
               
               <div style={{ marginBottom: '40px' }}>
-                <h3 className="display" style={{ fontSize: '32px', margin: 0 }}>Initiate Deep-Dive</h3>
-                <p style={{ fontSize: '14px', opacity: 0.5, marginTop: '8px' }}>Estimated response time: &lt; 2 hours</p>
+                <h3 className="display" style={{ fontSize: '32px', margin: 0 }}>{getText(section?.props?.formTitle, 'Initiate Deep-Dive')}</h3>
+                <p style={{ fontSize: '14px', opacity: 0.5, marginTop: '8px' }}>{getText(section?.props?.formSub, 'Estimated response time: < 2 hours')}</p>
               </div>
 
               <form className="grid gap-6">
@@ -114,7 +133,7 @@ export default function ContactHeroSection() {
                   background: 'var(--cyan)', color: '#04060d', fontWeight: 600,
                   marginTop: '12px', fontSize: '15px'
                 }}>
-                  TRANSMIT_REQUEST <ArrowRight size={18} style={{ marginLeft: '10px' }} />
+                  {getText(section?.props?.submitText, 'TRANSMIT_REQUEST')} <ArrowRight size={18} style={{ marginLeft: '10px' }} />
                 </button>
                 
                 <div style={{ textAlign: 'center', fontSize: '11px', opacity: 0.3, fontFamily: 'var(--font-mono)', marginTop: '16px' }}>
