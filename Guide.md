@@ -4,6 +4,7 @@ This document is the **single source of truth** for building high-fidelity, mult
 
 ---
 
+
 ## 1. Technology Stack
 
 - **Frontend Framework**: Next.js (Latest Version, App Router)
