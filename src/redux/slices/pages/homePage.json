@@ -18,7 +18,7 @@
       "adminTitle": "Hero",
       "props": {
         "label": { "en": "01 · Signal" },
-        "heading": { "en": "We develop tech<br />that helps your<br /><span class=\"grad-text\">business grow.</span>" },
+        "heading": { "en": "We develop tech Manish<br />that helps your<br /><span class=\"grad-text\">business grow.</span>" },
         "description": { "en": "We build scalable digital products and AI-driven systems that prepare your business for tomorrow." },
         "primaryButton": { "en": "Get Started" },
         "primaryButtonLink": "#core",
@@ -58,8 +58,8 @@
       "adminTitle": "Core",
       "props": {
         "label": { "en": "02 · Core" },
-        "heading": { "en": "Tech partner for <span class=\"grad-text\">scalable innovation.</span>" },
-        "description": { "en": "We develop secure, cloud-ready software to streamline operations and drive growth." },
+        "heading": { "en": "Tech partner  for <span class=\"grad-text\">scalable innovation.</span>" },
+        "description": { "en": "We develop mnaish secure, cloud-ready software to streamline operations and drive growth." },
         "tags": [
           { "text": { "en": "Mobile" } },
           { "text": { "en": "Cloud" } },

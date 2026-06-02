@@ -1,13 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Page } from './pageType';
-import { createPageThunk, deletePageThunk, fetchFastApiPagesThunk, fetchPageBySlugThunk, fetchPagesThunk, updatePageThunk } from './pageThunk';
-import homePageData from './homePage.json';
-import aboutPageData from './aboutPage.json';
-import servicesPageData from './servicesPage.json';
-import technologiesPageData from './technologiesPage.json';
-import industriesPageData from './industriesPage.json';
-import contactPageData from './contactPage.json';
-
+import { createPageThunk, deletePageThunk, fetchFastApiPagesThunk, fetchPageBySlugThunk, fetchPagesThunk, savePageContentThunk, updatePageThunk } from './pageThunk';
 
 interface PageState {
   allPages: Page[];
@@ -15,25 +8,17 @@ interface PageState {
   isAllPageFetched: boolean;
   isError: boolean;
   isLoading: boolean;
+  isEditablePage:boolean
 }
 
-const localPagesData: Page[] = [
-  homePageData as Page,
-  aboutPageData as Page,
-  servicesPageData as Page,
-  technologiesPageData as Page,
-  industriesPageData as Page,
-  contactPageData as Page,
-];
-
-const homeLocalPage = localPagesData.find((page: Page) => page.slug === 'home') || null;
-
 const initialState: PageState = {
-  allPages: localPagesData,
-  currentPages: homeLocalPage,
-  isAllPageFetched: true,
+  allPages: [],
+  currentPages: null,
+  isAllPageFetched: false,
   isError: false,
   isLoading: false,
+  isEditablePage:false,
+
 };
 
 const pagesSlice = createSlice({
@@ -53,6 +38,21 @@ const pagesSlice = createSlice({
     },
     setError: (state, action: PayloadAction<boolean>) => {
       state.isError = action.payload;
+    },
+    setEditMode: (state, action: PayloadAction<boolean>) => {
+      state.isEditablePage = action.payload;
+    },
+    updateContentField: (state, action: PayloadAction<{ sectionId: string; fieldPath: string; value: string }>) => {
+      if (!state.currentPages?.content) return;
+      const idx = state.currentPages.content.findIndex((s: any) => s.id === action.payload.sectionId);
+      if (idx === -1) return;
+      const parts = action.payload.fieldPath.split('.');
+      let obj: any = state.currentPages.content[idx];
+      for (let i = 0; i < parts.length - 1; i++) {
+        if (!obj[parts[i]]) obj[parts[i]] = {};
+        obj = obj[parts[i]];
+      }
+      obj[parts[parts.length - 1]] = action.payload.value;
     },
   },
   extraReducers: (builder) => {
@@ -155,9 +155,23 @@ const pagesSlice = createSlice({
       .addCase(deletePageThunk.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
+      })
+      .addCase(savePageContentThunk.pending, (state) => {
+        state.isError = false;
+      })
+      .addCase(savePageContentThunk.fulfilled, (state, action) => {
+        if (action.payload) {
+          const id = (action.payload as any).id || (action.payload as any)._id;
+          const idx = state.allPages.findIndex((p: any) => (p.id || p._id) === id);
+          if (idx !== -1) state.allPages[idx] = action.payload;
+          state.currentPages = action.payload;
+        }
+      })
+      .addCase(savePageContentThunk.rejected, (state) => {
+        state.isError = true;
       });
   },
 });
 
-export const { setAllPages, setCurrentPages, setLoading, setError } = pagesSlice.actions;
+export const { setAllPages, setCurrentPages, setLoading, setError, setEditMode, updateContentField } = pagesSlice.actions;
 export default pagesSlice.reducer;

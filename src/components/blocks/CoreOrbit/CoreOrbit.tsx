@@ -308,23 +308,25 @@ function CodifiedLogo() {
 }
 
 import React, { useMemo } from 'react';
-import { useAppSelector } from '@/redux/hooks';
-import { defaultCoreData } from './CoreData';
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import EditableText from '@/components/shared/EditableText';
+import { saveField } from '@/lib/editorUtils';
 
 export default function CoreOrbit() {
-  const currentPages = useAppSelector((state) => state.app.currentPages);
+  const dispatch = useAppDispatch();
+  const currentPages = useAppSelector((state) => state.pages.currentPages);
+  const isEditable = useAppSelector((state) => state.pages.isEditablePage);
 
   const section = useMemo(() => {
     if (!currentPages) return null;
     return currentPages.content?.find((s: any) => s?.adminTitle === 'Core');
   }, [currentPages]);
 
-  const { p, content } = useMemo(() => {
-    return {
-      p: (section as any)?.props || defaultCoreData.props,
-      content: (section as any)?.content || defaultCoreData.content,
-    };
-  }, [section]);
+  if (!section) return null;
+
+  const p = section.props;
+  const content = section.content;
+  const handle = (fieldPath: string) => (value: string) => saveField(dispatch, currentPages, section.id, fieldPath, value);
 
   return (
     <section className="section" id="core" data-mood="core" data-annotate-id={`${currentPages?.slug || 'home'}-core-section`}>
@@ -333,23 +335,31 @@ export default function CoreOrbit() {
           <div className="core-stage" id="coreStage">
             <CodifiedLogo />
             {p.tags?.map((tag: any, i: number) => (
-              <span key={i} className={`core-tag t${i + 1}`}><i /> {tag.text?.en}</span>
+              <span key={i} className={`core-tag t${i + 1}`}><i /> <EditableText value={tag.text?.en || ''} isEditable={isEditable} onSave={handle(`props.tags.${i}.text.en`)} tag="span" /></span>
             ))}
           </div>
           <div>
-            <span className="label"><span className="num">{p.label?.en?.split('·')[0]}·</span> {p.label?.en?.split('·')[1]}</span>
-            <h2
+            <span className="label"><span className="num">{p.label?.en?.split('·')[0]}·</span> <EditableText value={(p.label?.en?.split('·')[1] || '').trim()} isEditable={isEditable} onSave={(val) => handle('props.label.en')(`${(p.label?.en?.split('·')[0] || '').trim()} · ${val}`)} tag="span" /></span>
+            <EditableText
+              value={p.heading?.en || ""}
+              isEditable={isEditable}
+              onSave={handle('props.heading.en')}
               className="display"
-              dangerouslySetInnerHTML={{ __html: p.heading?.en || "" }}
+              tag="h2"
+              dangerouslySetInnerHTML
             />
-            <p className="lede">
-              {p.description?.en || ""}
-            </p>
+            <EditableText
+              value={p.description?.en || ""}
+              isEditable={isEditable}
+              onSave={handle('props.description.en')}
+              className="lede"
+              tag="p"
+            />
             <div className="core-spec">
-              {content.map((item: any) => (
+              {content.map((item: any, idx: number) => (
                 <div className="spec-cell" key={item.id}>
-                  <div className="k">{item.props?.key?.en}</div>
-                  <div className="v">{item.props?.value?.en}</div>
+                  <EditableText value={item.props?.key?.en || ''} isEditable={isEditable} onSave={handle(`content.${idx}.props.key.en`)} className="k" tag="div" />
+                  <EditableText value={item.props?.value?.en || ''} isEditable={isEditable} onSave={handle(`content.${idx}.props.value.en`)} className="v" tag="div" />
                 </div>
               ))}
             </div>

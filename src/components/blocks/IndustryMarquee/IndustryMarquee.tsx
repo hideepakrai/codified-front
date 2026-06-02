@@ -1,9 +1,10 @@
 'use client';
 import React, { useMemo } from 'react';
-import { useAppSelector } from '@/redux/hooks';
-import { defaultIndustriesData } from './IndustriesData';
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import EditableText from '@/components/shared/EditableText';
+import { saveField } from '@/lib/editorUtils';
 
-const IndustryCard = ({ c }: { c: any }) => (
+const IndustryCard = ({ c, isEditable, onSave, contentIdx }: { c: any; isEditable: boolean; onSave: (fieldPath: string) => (value: string) => void; contentIdx: number }) => (
   <div
     className="engine-card"
     style={{
@@ -51,7 +52,7 @@ const IndustryCard = ({ c }: { c: any }) => (
         padding: '4px 8px',
         textTransform: 'uppercase',
       }}>
-        {c.props?.tag}
+        <EditableText value={c.props?.tag || ''} isEditable={isEditable} onSave={onSave(`content.${contentIdx}.props.tag`)} tag="span" />
       </div>
       {/* ACTIVE pill top-left */}
       <div style={{
@@ -72,25 +73,21 @@ const IndustryCard = ({ c }: { c: any }) => (
 
     {/* Text content below image */}
     <div style={{ padding: '18px 20px 20px' }}>
-      <h4 style={{
+      <EditableText value={c.props?.title?.en || ''} isEditable={isEditable} onSave={onSave(`content.${contentIdx}.props.title.en`)} tag="h4" style={{
         fontFamily: 'var(--font-display)',
         fontSize: '18px',
         fontWeight: 600,
         color: '#e9eefb',
         margin: '0 0 8px',
         lineHeight: 1.2,
-      }}>
-        {c.props?.title?.en}
-      </h4>
-      <p style={{
+      }} />
+      <EditableText value={c.props?.desc?.en || ''} isEditable={isEditable} onSave={onSave(`content.${contentIdx}.props.desc.en`)} tag="p" style={{
         fontFamily: 'var(--font-body)',
         fontSize: '12.5px',
         color: '#6e7c9a',
         margin: 0,
         lineHeight: 1.55,
-      }}>
-        {c.props?.desc?.en}
-      </p>
+      }} />
     </div>
 
     {/* Bottom cyan accent line */}
@@ -104,19 +101,20 @@ const IndustryCard = ({ c }: { c: any }) => (
 );
 
 export default function Industries() {
-  const currentPages = useAppSelector((state) => state.app.currentPages);
+  const dispatch = useAppDispatch();
+  const currentPages = useAppSelector((state) => state.pages.currentPages);
+  const isEditable = useAppSelector((state) => state.pages.isEditablePage);
 
   const section = useMemo(() => {
     if (!currentPages) return null;
     return currentPages.content?.find((s: any) => s?.adminTitle === 'Industries');
   }, [currentPages]);
 
-  const { p, content } = useMemo(() => {
-    return {
-      p: (section as any)?.props || defaultIndustriesData.props,
-      content: (section as any)?.content || defaultIndustriesData.content,
-    };
-  }, [section]);
+  if (!section) return null;
+
+  const p = section.props;
+  const content = section.content;
+  const handle = (fieldPath: string) => (value: string) => saveField(dispatch, currentPages, section.id, fieldPath, value);
 
   const sequence1 = [...content, ...content];
   const sequence2 = [...content.slice().reverse(), ...content.slice().reverse()];
@@ -126,17 +124,27 @@ export default function Industries() {
       <div className="inner" style={{ maxWidth: 'none' }}>
         <div className="head" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '40px' }}>
           <div style={{ maxWidth: '560px' }}>
-            <span className="label"><span className="num">{p.label?.en?.split('·')[0]}·</span> {p.label?.en?.split('·')[1]}</span>
-            <h2
+            <span className="label"><span className="num">{p.label?.en?.split('·')[0]}·</span> <EditableText value={(p.label?.en?.split('·')[1] || '').trim()} isEditable={isEditable} onSave={(val) => handle('props.label.en')(`${(p.label?.en?.split('·')[0] || '').trim()} · ${val}`)} tag="span" /></span>
+            <EditableText
+              value={p.heading?.en || ""}
+              isEditable={isEditable}
+              onSave={handle('props.heading.en')}
               className="display"
-              dangerouslySetInnerHTML={{ __html: p.heading?.en || "" }}
+              tag="h2"
+              dangerouslySetInnerHTML
             />
-            <p className="lede">{p.description?.en}</p>
+            <EditableText
+              value={p.description?.en || ""}
+              isEditable={isEditable}
+              onSave={handle('props.description.en')}
+              className="lede"
+              tag="p"
+            />
           </div>
           <div className="status-bar">
             {p.metaItems?.map((item: any, i: number) => (
               <span key={i} className={`pill ${item.type !== 'default' ? item.type : ''}`}>
-                <i /> {item.text?.en}
+                <i /> <EditableText value={item.text?.en || ''} isEditable={isEditable} onSave={handle(`props.metaItems.${i}.text.en`)} tag="span" />
               </span>
             ))}
           </div>
@@ -145,12 +153,12 @@ export default function Industries() {
         <div className="engine-track-wrap">
           <div className="engine-track" id="engineTrack1">
             {sequence1.map((c: any, i) => (
-              <IndustryCard key={`s1-${i}`} c={c} />
+              <IndustryCard key={`s1-${i}`} c={c} isEditable={isEditable} onSave={handle} contentIdx={content.indexOf(c)} />
             ))}
           </div>
           <div className="engine-track row2" id="engineTrack2">
             {sequence2.map((c: any, i) => (
-              <IndustryCard key={`s2-${i}`} c={c} />
+              <IndustryCard key={`s2-${i}`} c={c} isEditable={isEditable} onSave={handle} contentIdx={content.indexOf(c)} />
             ))}
           </div>
         </div>

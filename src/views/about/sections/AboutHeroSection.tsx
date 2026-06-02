@@ -1,7 +1,9 @@
 'use client';
 import AboutConstellation from '@/components/blocks/AboutVisual/AboutVisual';
+import { useAppSelector } from '@/redux/hooks';
+import { RootState } from '@/redux/store';
 import { useMemo } from 'react';
-import { useAppSelector } from '@/lib/store/hooks';
+
 
 const getText = (value: any, fallback: string) => {
   if (!value) return fallback;
@@ -10,7 +12,7 @@ const getText = (value: any, fallback: string) => {
 };
 
 export default function AboutHeroSection() {
-  const currentPages = useAppSelector((state) => state.app.currentPages);
+  const currentPages = useAppSelector((state:RootState) => state.pages.currentPages);
   const section = useMemo(() => {
     return currentPages?.content?.find((s: any) => s?.adminTitle === 'About Hero');
   }, [currentPages]);
