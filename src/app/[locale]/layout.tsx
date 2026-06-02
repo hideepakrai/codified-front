@@ -30,7 +30,7 @@ export default async function LocaleLayout({
         />
       </head>
       <body>
-        <ReduxProvider>
+         <ReduxProvider>
           <UpdateCurrentPage />
           {children}
         </ReduxProvider>

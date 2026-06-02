@@ -1,7 +1,8 @@
 'use client';
+import { useAppSelector } from '@/redux/hooks';
 import { Mail, MessageSquare, Globe, ArrowRight, ShieldCheck } from 'lucide-react';
 import { useMemo } from 'react';
-import { useAppSelector } from '@/lib/store/hooks';
+
 import type { ReactNode } from 'react';
 
 const getText = (value: any, fallback = '') => {
@@ -11,7 +12,7 @@ const getText = (value: any, fallback = '') => {
 };
 
 export default function ContactHeroSection() {
-  const currentPages = useAppSelector((state) => state.app.currentPages);
+  const currentPages = useAppSelector((state) => state.pages.currentPages);
   const section = useMemo(() => currentPages?.content?.find((s: any) => s?.adminTitle === 'Contact Hero'), [currentPages]);
 
   const contacts: { icon: ReactNode; label: string; val: string }[] = Array.isArray(section?.content) && section.content.length

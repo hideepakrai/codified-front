@@ -1,6 +1,7 @@
 'use client';
+import { useAppSelector } from '@/redux/hooks';
 import { useMemo } from 'react';
-import { useAppSelector } from '@/lib/store/hooks';
+
 
 const getText = (value: any, fallback = '') => {
   if (!value) return fallback;
@@ -9,7 +10,7 @@ const getText = (value: any, fallback = '') => {
 };
 
 export default function TechnicalFAQSection() {
-  const currentPages = useAppSelector((state) => state.app.currentPages);
+  const currentPages = useAppSelector((state) => state.pages.currentPages);
   const section = useMemo(() => currentPages?.content?.find((s: any) => s?.adminTitle === 'Technical FAQ'), [currentPages]);
 
   return (

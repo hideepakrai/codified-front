@@ -35,7 +35,7 @@ export const fetchFastApiPagesThunk = createAsyncThunk(
         method:"GET",
         headers: {
           'Content-Type': 'application/json',
-          "x-tenant-db": "kp_nestcraft"
+          "x-tenant-db": tenantHeader || "kp_codified_web_solution"
         },
        
       });
@@ -104,13 +104,15 @@ export const updatePageThunk = createAsyncThunk(
   'pages/update',
   async ({ id, pageData }: { id: string; pageData: Partial<Page> }, { rejectWithValue }) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/pages/${id}`, {
+      const response = await fetch(`/api/cms/pages/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          "x-tenant-db": tenantHeader || "",
+          "x-tenant-db": tenantHeader || "kp_codified_web_solution",
         },
         credentials: "include",
+
+
         body: JSON.stringify(pageData),
       });
       if (!response.ok) {
@@ -118,7 +120,37 @@ export const updatePageThunk = createAsyncThunk(
         throw new Error(errorData.message || 'Failed to update page');
       }
       const data = await response.json();
+      console.log("page updated ", data)
       return { _id: id, ...pageData } as Page; 
+    } catch (error: any) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+// Save current page content to API
+export const savePageContentThunk = createAsyncThunk(
+  'pages/saveContent',
+  async (_, { getState, rejectWithValue }) => {
+    try {
+      const state = getState() as any;
+      const page = state.pages.currentPages as Page;
+      if (!page) return rejectWithValue('No current page');
+      const id = (page as any).id || (page as any)._id;
+      const response = await fetch(`${API_BASE_URL}/pages/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          "x-tenant-db": tenantHeader || "",
+        },
+        credentials: "include",
+        body: JSON.stringify(page),
+      });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to save page');
+      }
+      return page;
     } catch (error: any) {
       return rejectWithValue(error.message);
     }

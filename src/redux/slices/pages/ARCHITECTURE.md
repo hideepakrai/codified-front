@@ -30,7 +30,7 @@ src/
 4. `pageThunk.ts` gets API JSON and returns `data.data` (Fast API) or `data.pages` (main API).
 5. `pagesSlice.ts` updates `allPages` with API result and re-selects `home` for `currentPages`.
 6. Route/page components (home/about/services/...) set `currentPages` by slug or direct local JSON.
-7. UI section components read `state.app.currentPages.content` and map blocks by `adminTitle`.
+7. UI section components read `state.pages.currentPages.content` and map blocks by `adminTitle`.
 
 ## Main state shape (`state.app`)
 
@@ -63,7 +63,9 @@ Each section block normally uses:
 Most components use this pattern:
 
 ```ts
-const section = currentPages?.content?.find((s: any) => s?.adminTitle === 'Hero');
+const section = currentPages?.content?.find(
+  (s: any) => s?.adminTitle === "Hero",
+);
 ```
 
 That means your JSON must keep stable `adminTitle` values for each section.

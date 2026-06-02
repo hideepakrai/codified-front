@@ -1,40 +1,52 @@
 "use client";
 import React, { useMemo } from 'react';
-import { useAppSelector } from '@/redux/hooks';
-import { defaultTechnologiesData } from './TechnologiesData';
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import EditableText from '@/components/shared/EditableText';
+import { saveField } from '@/lib/editorUtils';
 
 export default function Technologies() {
-  const currentPages = useAppSelector((state) => state.app.currentPages);
+  const dispatch = useAppDispatch();
+  const currentPages = useAppSelector((state) => state.pages.currentPages);
+  const isEditable = useAppSelector((state) => state.pages.isEditablePage);
 
   const section = useMemo(() => {
     if (!currentPages) return null;
     return currentPages.content?.find((s: any) => s?.adminTitle === 'Technologies');
   }, [currentPages]);
 
-  const { p, content, nodes } = useMemo(() => {
-    return {
-      p: (section as any)?.props || defaultTechnologiesData.props,
-      content: (section as any)?.content || defaultTechnologiesData.content,
-      nodes: (section as any)?.nodes || defaultTechnologiesData.nodes,
-    };
-  }, [section]);
+  if (!section) return null;
+
+  const p = section.props;
+  const content = section.content;
+  const nodes = section.nodes;
+  const handle = (fieldPath: string) => (value: string) => saveField(dispatch, currentPages, section.id, fieldPath, value);
 
   return (
     <section className="section" id="api" data-mood="api" data-annotate-id={`${currentPages?.slug || 'home'}-technologies-section`}>
       <div className="inner">
         <div className="layout">
           <div>
-            <span className="label"><span className="num">{p.label?.en?.split('·')[0]}·</span> {p.label?.en?.split('·')[1]}</span>
-            <h2
+            <span className="label"><span className="num">{p.label?.en?.split('·')[0]}·</span> <EditableText value={(p.label?.en?.split('·')[1] || '').trim()} isEditable={isEditable} onSave={(val) => handle('props.label.en')(`${(p.label?.en?.split('·')[0] || '').trim()} · ${val}`)} tag="span" /></span>
+            <EditableText
+              value={p.heading?.en || ""}
+              isEditable={isEditable}
+              onSave={handle('props.heading.en')}
               className="display"
-              dangerouslySetInnerHTML={{ __html: p.heading?.en || "" }}
+              tag="h2"
+              dangerouslySetInnerHTML
             />
-            <p className="lede">{p.description?.en}</p>
+            <EditableText
+              value={p.description?.en || ""}
+              isEditable={isEditable}
+              onSave={handle('props.description.en')}
+              className="lede"
+              tag="p"
+            />
             <div className="core-spec" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
               {content.map((item: any) => (
                 <div className="spec-cell" key={item.id}>
-                  <div className="k">{item.props?.key?.en}</div>
-                  <div className="v">{item.props?.value?.en}</div>
+                  <EditableText value={item.props?.key?.en || ''} isEditable={isEditable} onSave={handle(`content.${content.indexOf(item)}.props.key.en`)} className="k" tag="div" />
+                  <EditableText value={item.props?.value?.en || ''} isEditable={isEditable} onSave={handle(`content.${content.indexOf(item)}.props.value.en`)} className="v" tag="div" />
                 </div>
               ))}
             </div>
@@ -51,7 +63,7 @@ export default function Technologies() {
                 data-desc={n.props?.desc?.en}
                 data-endpoint={n.props?.endpoint}
               >
-                <i /> {n.props?.label?.en}
+                <i /> <EditableText value={n.props?.label?.en || ''} isEditable={isEditable} onSave={handle(`nodes.${nodes.indexOf(n)}.props.label.en`)} tag="span" />
               </div>
             ))}
 

@@ -4,8 +4,9 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
-import { useAppSelector } from '@/redux/hooks';
-import { defaultAIWorkflowData } from './AIWorkflowData';
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import EditableText from '@/components/shared/EditableText';
+import { saveField } from '@/lib/editorUtils';
 import { Brain, Bot, TrendingUp, RefreshCw, MessageSquare } from 'lucide-react';
 
 const AI_ICONS: Record<string, React.ReactNode> = {
@@ -17,26 +18,20 @@ const AI_ICONS: Record<string, React.ReactNode> = {
 };
 
 export default function AIWorkflow() {
-  const currentPages = useAppSelector((state) => state.app.currentPages);
+  const dispatch = useAppDispatch();
+  const currentPages = useAppSelector((state) => state.pages.currentPages);
+  const isEditable = useAppSelector((state) => state.pages.isEditablePage);
+
+  const sectionRef = useRef<HTMLElement>(null);
 
   const section = useMemo(() => {
     if (!currentPages) return null;
     return currentPages.content?.find((s: any) => s?.adminTitle === 'AI Workflow');
   }, [currentPages]);
 
-  const { p, content, metrics } = useMemo(() => {
-    return {
-      p: (section as any)?.props || defaultAIWorkflowData.props,
-      content: (section as any)?.content || defaultAIWorkflowData.content,
-      metrics: (section as any)?.metrics || defaultAIWorkflowData.metrics,
-    };
-  }, [section]);
-
-  const sectionRef = useRef<HTMLElement>(null);
-
   useEffect(() => {
+    if (!section) return;
     const ctx = gsap.context(() => {
-      // 1. Pipeline Progress Bar (Scrubbed with Scroll)
       gsap.fromTo('#pipeProgress', 
         { width: '0%' },
         {
@@ -53,24 +48,41 @@ export default function AIWorkflow() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [content]);
+  }, [section]);
+
+  if (!section) return null;
+
+  const p = section.props;
+  const content = section.content;
+  const metrics = section.metrics;
+  const handle = (fieldPath: string) => (value: string) => saveField(dispatch, currentPages, section.id, fieldPath, value);
 
   return (
     <section ref={sectionRef} className="section" id="ai" data-mood="ai" style={{ padding: 0 }} data-annotate-id={`${currentPages?.slug || 'home'}-aiworkflow-section`}>
       <div className="ai-stage">
         <div className="head">
           <div style={{ maxWidth: '800px' }}>
-            <span className="label"><span className="num">{p.label?.en?.split('·')[0]}·</span> {p.label?.en?.split('·')[1]}</span>
-            <h2
+            <span className="label"><span className="num">{p.label?.en?.split('·')[0]}·</span> <EditableText value={(p.label?.en?.split('·')[1] || '').trim()} isEditable={isEditable} onSave={(val) => handle('props.label.en')(`${(p.label?.en?.split('·')[0] || '').trim()} · ${val}`)} tag="span" /></span>
+            <EditableText
+              value={p.heading?.en || ""}
+              isEditable={isEditable}
+              onSave={handle('props.heading.en')}
               className="display"
-              dangerouslySetInnerHTML={{ __html: p.heading?.en || "" }}
+              tag="h2"
+              dangerouslySetInnerHTML
             />
-            <p className="lede">{p.description?.en}</p>
+            <EditableText
+              value={p.description?.en || ""}
+              isEditable={isEditable}
+              onSave={handle('props.description.en')}
+              className="lede"
+              tag="p"
+            />
           </div>
           <div className="status-bar">
             {p.metaItems?.map((item: any, i: number) => (
               <span key={i} className={`pill ${item.type !== 'default' ? item.type : ''}`}>
-                <i /> {item.text?.en}
+                <i /> <EditableText value={item.text?.en || ''} isEditable={isEditable} onSave={handle(`props.metaItems.${i}.text.en`)} tag="span" />
               </span>
             ))}
           </div>
@@ -84,7 +96,7 @@ export default function AIWorkflow() {
             <div className="pipe-step reveal" data-step={i} key={step.id}>
               <div className="top">
                 <span className="num">S · {String(i + 1).padStart(2, '0')}</span>
-                <span className="badge">{step.props?.badge || 'Active'}</span>
+                <span className="badge"><EditableText value={step.props?.badge || ''} isEditable={isEditable} onSave={handle(`content.${content.indexOf(step)}.props.badge`)} tag="span" /></span>
               </div>
               <div>
                 {/* Lucide icon inside the existing .ico container */}
@@ -103,8 +115,8 @@ export default function AIWorkflow() {
                 }}>
                   {AI_ICONS[step.id] ?? <Brain size={22} strokeWidth={1.5} />}
                 </div>
-                <h4>{step.props?.title?.en}</h4>
-                <p>{step.props?.desc?.en}</p>
+                <EditableText value={step.props?.title?.en || ''} isEditable={isEditable} onSave={handle(`content.${content.indexOf(step)}.props.title.en`)} tag="h4" />
+                <EditableText value={step.props?.desc?.en || ''} isEditable={isEditable} onSave={handle(`content.${content.indexOf(step)}.props.desc.en`)} tag="p" />
               </div>
             </div>
           ))}
@@ -113,8 +125,8 @@ export default function AIWorkflow() {
         <div className="ai-readout">
           {metrics?.map((m: any, i: number) => (
             <div className="read-cell reveal" key={i}>
-              <span>{m.label?.en}</span>
-              <span className="v" id={m.id}>{m.value?.en}</span>
+              <EditableText value={m.label?.en || ''} isEditable={isEditable} onSave={handle(`metrics.${i}.label.en`)} tag="span" />
+              <EditableText value={m.value?.en || ''} isEditable={isEditable} onSave={handle(`metrics.${i}.value.en`)} className="v" tag="span" />
             </div>
           ))}
         </div>

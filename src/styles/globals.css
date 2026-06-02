@@ -1841,7 +1841,7 @@ h3.display {
 
 /* Reveal helpers */
 .reveal {
-  opacity: 0;
+  opacity: 1;
   transform: translateY(20px)
 }
 
@@ -2469,4 +2469,28 @@ h3.display {
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.editable-text {
+  cursor: pointer;
+  transition: outline 0.15s ease;
+  border-radius: 2px;
+}
+.editable-text:hover {
+  outline: 2px dashed #1DC3F3;
+  outline-offset: 2px;
+}
+
+.editable-input {
+  background: rgba(29, 195, 243, 0.08);
+  border: 1px solid rgba(29, 195, 243, 0.4);
+  border-radius: 4px;
+  padding: 2px 6px;
+  min-width: 60px;
+  box-sizing: border-box;
+  outline: none;
+}
+.editable-input:focus {
+  border-color: #1DC3F3;
+  box-shadow: 0 0 0 2px rgba(29, 195, 243, 0.2);
 }

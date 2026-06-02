@@ -3,7 +3,7 @@ import authReducer from './slices/auth/authSlice';
 import productReducer from './slices/product/productSlice';
 import userReducer from './slices/user/userSlice';
 import layoutReducer from './slices/layout/layoutSlice';
-import appReducer from './slices/app/appSlice';
+import pageReducer from './slices/pages/pagesSlice';
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +11,7 @@ export const store = configureStore({
     product: productReducer,
     user: userReducer,
     layout: layoutReducer,
-    app: appReducer,
+     pages: pageReducer,
   },
 });
 

@@ -1,6 +1,7 @@
 'use client';
+import { useAppSelector } from '@/redux/hooks';
 import { useMemo } from 'react';
-import { useAppSelector } from '@/lib/store/hooks';
+
 
 const getText = (value: any, fallback = '') => {
   if (!value) return fallback;
@@ -9,7 +10,7 @@ const getText = (value: any, fallback = '') => {
 };
 
 export default function AboutStorySection() {
-  const currentPages = useAppSelector((state) => state.app.currentPages);
+  const currentPages = useAppSelector((state) => state.pages.currentPages);
   const storyCards = useMemo(() => {
     const section = currentPages?.content?.find((s: any) => s?.adminTitle === 'About Story');
     return section?.content;
