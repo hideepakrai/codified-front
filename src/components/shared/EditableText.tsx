@@ -30,20 +30,22 @@ export default function EditableText({
   onSave,
   className = '',
   tag: Tag = 'span',
-  dangerouslySetInnerHTML: useDangerousHTML = false,
+  dangerouslySetInnerHTML: useDangerousHTML = true,
   placeholder = '',
   style: passedStyle,
 }: Props) {
   const [editing, setEditing] = useState(false);
   const [editValue, setEditValue] = useState(value);
   const [inputStyle, setInputStyle] = useState<Record<string, string>>({});
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   const displayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (editing && inputRef.current) {
       inputRef.current.focus();
       inputRef.current.select();
+      inputRef.current.style.height = 'auto';
+      inputRef.current.style.height = `${inputRef.current.scrollHeight}px`;
     }
   }, [editing]);
 
@@ -72,7 +74,7 @@ export default function EditableText({
   };
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSave();
     }
@@ -84,14 +86,26 @@ export default function EditableText({
 
   if (editing) {
     return (
-      <input
+      <textarea
         ref={inputRef}
         value={editValue}
-        onChange={(e) => setEditValue(e.target.value)}
+        onChange={(e) => {
+          setEditValue(e.target.value);
+          e.target.style.height = 'auto';
+          e.target.style.height = `${e.target.scrollHeight}px`;
+        }}
         onBlur={handleSave}
         onKeyDown={handleKeyDown}
         className="editable-input"
-        style={inputStyle as React.CSSProperties}
+        style={{
+          ...(inputStyle as React.CSSProperties),
+          resize: 'none',
+          overflow: 'hidden',
+          outline: '1px dashed rgba(255, 255, 255, 0.5)',
+          outlineOffset: '4px',
+          borderRadius: '4px',
+        }}
+        rows={1}
       />
     );
   }
