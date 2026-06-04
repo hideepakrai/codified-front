@@ -1,36 +1,31 @@
+@import "./globle_kalp.css";
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
    CODIFIED WEB SOLUTIONS — Cinematic Single Page
+   Design tokens sourced from globle_kalp.css
 ------------------------------------------------------------------- */
+
+/* Backward-compat aliases — map old var names → kalp source of truth */
 :root {
-  /* Backgrounds */
-  --bg-0: #04060d;
-  --bg-1: #070b18;
-  --bg-2: #0a1224;
+  --bg-0: var(--background);
+  --bg-1: var(--surface);
+  --bg-2: var(--card);
   --panel: rgba(12, 18, 34, 0.55);
   --panel-strong: rgba(14, 22, 42, 0.78);
-  --line: rgba(120, 160, 220, 0.10);
-  --line-strong: rgba(140, 180, 240, 0.22);
-
-  /* Brand */
-  --cyan: #1DC3F3;
-  --cyan-soft: #9adcff;
-  --magenta: #F300A6;
-  --violet: #9a7bff;
-  --blue: #5b8cff;
+  --line: var(--border);
+  --line-strong: var(--border);
+  --cyan: var(--primary);
+  --cyan-soft: var(--primary-light);
+  --magenta: var(--accent);
+  --violet: var(--violet);
+  --blue: var(--info);
   --indigo: #6a6cff;
-  --amber: #f1c27a;
-
-  /* Text */
-  --text: #e9eefb;
-  --text-soft: #aebbd6;
-  --text-mute: #6e7c9a;
-
-  /* Type */
-  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --amber: var(--warning);
+  --text-soft: var(--text-secondary);
+  --text-mute: var(--text-muted);
+  --font-display: var(--font-heading);
+  --font-mono: var(--font-mono);
 }
 
 * {
@@ -41,7 +36,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: var(--bg-0);
+  background: var(--background);
   color: var(--text);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
@@ -117,14 +112,14 @@ img {
   backdrop-filter: blur(10px) saturate(1.1);
   -webkit-backdrop-filter: blur(10px) saturate(1.1);
   background: linear-gradient(180deg, rgba(4, 6, 13, 0.55), rgba(4, 6, 13, 0.05));
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
 }
 
 .nav .brand {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-weight: 600;
   letter-spacing: 0.02em;
   font-size: 15px;
@@ -134,7 +129,7 @@ img {
   width: 22px;
   height: 22px;
   border-radius: 6px;
-  background: conic-gradient(from 220deg at 50% 50%, var(--cyan), var(--violet), var(--magenta), var(--cyan));
+  background: conic-gradient(from 220deg at 50% 50%, var(--primary), var(--violet), var(--accent), var(--primary));
   box-shadow: 0 0 18px rgba(29, 195, 243, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
   position: relative;
 }
@@ -153,7 +148,7 @@ img {
   align-items: center;
   gap: 12px;
   font-size: 13px;
-  color: var(--text-soft);
+  color: var(--text-secondary);
   height: 100%
 }
 
@@ -185,8 +180,8 @@ img {
   left: 14px;
   right: 14px;
   height: 2px;
-  background: var(--cyan);
-  box-shadow: 0 0 10px var(--cyan);
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--primary);
 }
 
 .nav .cta {
@@ -194,10 +189,10 @@ img {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 9px 16px;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   border-radius: 999px;
   background: linear-gradient(180deg, rgba(29, 195, 243, 0.10), rgba(29, 195, 243, 0.02));
-  color: var(--cyan-soft);
+  color: var(--primary-light);
   transition: all .25s ease;
   box-shadow: inset 0 0 0 1px rgba(29, 195, 243, 0.10), 0 0 0 0 rgba(29, 195, 243, 0.0);
 }
@@ -216,7 +211,7 @@ img {
 
 /* "Web Solutions" sub-label — hide on mobile */
 .nav-sub {
-  color: var(--text-mute);
+  color: var(--text-muted);
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.14em;
@@ -232,7 +227,7 @@ img {
   gap: 5px;
   width: 36px;
   height: 36px;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   border-radius: 8px;
   background: rgba(29, 195, 243, 0.04);
   cursor: pointer;
@@ -250,14 +245,14 @@ img {
   width: 16px;
   height: 1.5px;
   border-radius: 2px;
-  background: var(--text-soft);
+  background: var(--text-secondary);
   transition: all .3s ease;
   transform-origin: center;
 }
 
 .ham-line.open:nth-child(1) {
   transform: translateY(6.5px) rotate(45deg);
-  background: var(--cyan)
+  background: var(--primary)
 }
 
 .ham-line.open:nth-child(2) {
@@ -267,7 +262,7 @@ img {
 
 .ham-line.open:nth-child(3) {
   transform: translateY(-6.5px) rotate(-45deg);
-  background: var(--cyan)
+  background: var(--primary)
 }
 
 /* Mobile drawer — slides down from nav */
@@ -279,7 +274,7 @@ img {
   z-index: 49;
   background: rgba(4, 6, 13, 0.97);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -296,12 +291,12 @@ img {
 }
 
 .mobile-drawer a {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 16px;
   font-weight: 500;
-  color: var(--text-soft);
+  color: var(--text-secondary);
   padding: 16px 22px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
   transition: color .2s ease, background .2s ease;
 }
 
@@ -316,7 +311,7 @@ img {
   text-align: center;
   background: linear-gradient(180deg, rgba(29, 195, 243, 0.16), rgba(29, 195, 243, 0.04));
   border: 1px solid rgba(29, 195, 243, 0.3) !important;
-  color: var(--cyan-soft) !important;
+  color: var(--primary-light) !important;
   font-size: 14px;
   letter-spacing: 0.04em;
 }
@@ -342,7 +337,7 @@ img {
   /* Solid background to prevent bleed through */
   backdrop-filter: blur(40px) saturate(1.8);
   -webkit-backdrop-filter: blur(40px) saturate(1.8);
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   border-radius: 24px;
   z-index: 100;
   padding: 48px;
@@ -365,7 +360,7 @@ img {
 }
 
 .mega-sidebar {
-  border-right: 1px solid var(--line);
+  border-right: 1px solid var(--border);
   padding-right: 40px;
 }
 
@@ -375,9 +370,9 @@ img {
   text-align: left;
   padding: 12px 16px;
   border-radius: 10px;
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 15px;
-  color: var(--text-soft);
+  color: var(--text-secondary);
   transition: all 0.2s ease;
   margin-bottom: 4px;
 }
@@ -385,18 +380,18 @@ img {
 .mega-sidebar .cat-btn:hover,
 .mega-sidebar .cat-btn.active {
   background: rgba(29, 195, 243, 0.1);
-  color: var(--cyan);
+  color: var(--primary);
 }
 
 .mega-content h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 24px;
   margin-bottom: 8px;
   color: var(--text);
 }
 
 .mega-content p {
-  color: var(--text-mute);
+  color: var(--text-muted);
   font-size: 14px;
   margin-bottom: 24px;
 }
@@ -418,7 +413,7 @@ img {
 
 .mega-item:hover {
   background: rgba(255, 255, 255, 0.03);
-  border-color: var(--line);
+  border-color: var(--border);
   transform: translateY(-2px);
 }
 
@@ -431,14 +426,14 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--cyan);
+  color: var(--primary);
   font-family: var(--font-mono);
   font-size: 14px;
   flex-shrink: 0;
 }
 
 .mega-item .info h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 15px;
   margin-bottom: 4px;
   color: var(--text);
@@ -472,7 +467,7 @@ img {
   aspect-ratio: 1;
   border-radius: 30px;
   overflow: hidden;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
 }
 
@@ -493,7 +488,7 @@ img {
 .glow-card {
   background: rgba(10, 18, 36, 0.4);
   backdrop-filter: blur(20px);
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
   padding: 44px;
@@ -534,7 +529,7 @@ img {
   justify-content: center;
   background: rgba(29, 195, 243, 0.08);
   border: 1px solid rgba(29, 195, 243, 0.2);
-  color: var(--cyan);
+  color: var(--primary);
   margin-bottom: 24px;
   transition: all 0.3s ease;
 }
@@ -573,10 +568,10 @@ img {
   position: absolute;
   width: 4px;
   height: 4px;
-  background: var(--cyan);
+  background: var(--primary);
   border-radius: 50%;
   filter: blur(2px);
-  box-shadow: 0 0 10px var(--cyan);
+  box-shadow: 0 0 10px var(--primary);
   animation: spark-float 4s infinite ease-in-out;
 }
 
@@ -617,7 +612,7 @@ img {
   width: 26px;
   height: 42px;
   border-radius: 13px;
-  border: 2px solid var(--line-strong);
+  border: 2px solid var(--border);
   margin: 0 auto;
   position: relative;
 }
@@ -625,7 +620,7 @@ img {
 .wheel {
   width: 2px;
   height: 6px;
-  background: var(--cyan);
+  background: var(--primary);
   position: absolute;
   top: 6px;
   left: 50%;
@@ -653,7 +648,7 @@ img {
 /* About variation */
 .mega-about-box {
   background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 32px;
   display: flex;
@@ -664,7 +659,7 @@ img {
 
 .mega-about-box .btn-explore {
   background: var(--text);
-  color: var(--bg-0);
+  color: var(--background);
   padding: 10px 24px;
   border-radius: 99px;
   font-weight: 600;
@@ -687,7 +682,7 @@ img {
   right: 0;
   height: 1px;
   z-index: 60;
-  background: linear-gradient(90deg, var(--cyan), var(--magenta));
+  background: linear-gradient(90deg, var(--primary), var(--accent));
   transform-origin: 0 50%;
   transform: scaleX(0);
 }
@@ -707,7 +702,7 @@ img {
   font-size: 10.5px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-mute);
+  color: var(--text-muted);
 }
 
 .rail .item {
@@ -726,13 +721,13 @@ img {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--text-mute);
+  background: var(--text-muted);
   transition: all .3s ease;
   box-shadow: 0 0 0 0 rgba(29, 195, 243, 0)
 }
 
 .rail .item.active .dot {
-  background: var(--cyan);
+  background: var(--primary);
   box-shadow: 0 0 0 5px rgba(29, 195, 243, 0.15), 0 0 18px rgba(29, 195, 243, 0.7)
 }
 
@@ -765,29 +760,29 @@ img {
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--cyan-soft);
+  color: var(--primary-light);
   padding: 6px 12px;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   border-radius: 999px;
   background: rgba(29, 195, 243, 0.04);
 }
 
 .label .num {
-  color: var(--text-mute)
+  color: var(--text-muted)
 }
 
 .eyebrow-line {
   display: inline-block;
   width: 36px;
   height: 1px;
-  background: linear-gradient(90deg, var(--cyan), transparent);
+  background: linear-gradient(90deg, var(--primary), transparent);
   vertical-align: middle;
   margin-right: 10px
 }
 
 h1.display,
 h2.display {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-weight: 500;
   letter-spacing: -0.025em;
   line-height: 1.02;
@@ -804,7 +799,7 @@ h2.display {
 }
 
 h3.display {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-weight: 500;
   font-size: clamp(22px, 2.4vw, 32px);
   letter-spacing: -0.015em;
@@ -813,12 +808,12 @@ h3.display {
 
 .lede {
   font-size: clamp(15px, 1.15vw, 18px);
-  color: var(--text-soft);
+  color: var(--text-secondary);
   max-width: 62ch
 }
 
 .accent {
-  color: var(--cyan-soft)
+  color: var(--primary-light)
 }
 
 .grad-text {
@@ -831,7 +826,7 @@ h3.display {
 /* Glass card */
 .card {
   position: relative;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   border-radius: 14px;
   background: linear-gradient(180deg, rgba(14, 22, 42, 0.66), rgba(8, 12, 24, 0.55));
   backdrop-filter: blur(8px) saturate(1.05);
@@ -852,7 +847,7 @@ h3.display {
   position: absolute;
   width: 10px;
   height: 10px;
-  border: 1px solid var(--cyan);
+  border: 1px solid var(--primary);
   opacity: .5
 }
 
@@ -901,7 +896,7 @@ h3.display {
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-mute);
+  color: var(--text-muted);
   display: flex;
   gap: 18px;
   margin-top: 30px
@@ -917,9 +912,9 @@ h3.display {
   display: inline-block;
   width: 6px;
   height: 6px;
-  background: var(--cyan);
+  background: var(--primary);
   border-radius: 50%;
-  box-shadow: 0 0 10px var(--cyan);
+  box-shadow: 0 0 10px var(--primary);
   animation: pulse 2.4s infinite
 }
 
@@ -943,12 +938,12 @@ h3.display {
 }
 
 .btn {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 13px;
   letter-spacing: 0.04em;
   padding: 13px 22px;
   border-radius: 999px;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   background: linear-gradient(180deg, rgba(29, 195, 243, 0.16), rgba(29, 195, 243, 0.02));
   color: #dff5ff;
   cursor: pointer;
@@ -965,7 +960,7 @@ h3.display {
 
 .btn.ghost {
   background: transparent;
-  color: var(--text-soft)
+  color: var(--text-secondary)
 }
 
 .btn .arr {
@@ -982,13 +977,13 @@ h3.display {
   font-family: var(--font-mono);
   font-size: 12px;
   line-height: 1.6;
-  color: var(--text-soft);
+  color: var(--text-secondary);
 }
 
 #signal .panel-readout .row {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px dashed var(--line);
+  border-bottom: 1px dashed var(--border);
   padding: 8px 0
 }
 
@@ -997,14 +992,14 @@ h3.display {
 }
 
 #signal .panel-readout .k {
-  color: var(--text-mute);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 10.5px
 }
 
 #signal .panel-readout .v {
-  color: var(--cyan-soft)
+  color: var(--primary-light)
 }
 
 .scroll-hint {
@@ -1016,7 +1011,7 @@ h3.display {
   font-size: 10.5px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--text-mute);
+  color: var(--text-muted);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1026,7 +1021,7 @@ h3.display {
 .scroll-hint .bar {
   width: 1px;
   height: 36px;
-  background: linear-gradient(180deg, var(--cyan), transparent);
+  background: linear-gradient(180deg, var(--primary), transparent);
   animation: scrollPulse 1.8s ease-in-out infinite
 }
 
@@ -1099,9 +1094,9 @@ h3.display {
   font-size: 10.5px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-soft);
+  color: var(--text-secondary);
   padding: 6px 10px;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   border-radius: 999px;
   background: rgba(8, 14, 28, 0.7);
   backdrop-filter: blur(6px);
@@ -1111,8 +1106,8 @@ h3.display {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 8px var(--cyan)
+  background: var(--primary);
+  box-shadow: 0 0 8px var(--primary)
 }
 
 .core-tag.t1 {
@@ -1154,7 +1149,7 @@ h3.display {
 
 .spec-cell {
   padding: 14px 16px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   border-radius: 10px;
   background: rgba(10, 16, 32, 0.4)
 }
@@ -1164,11 +1159,11 @@ h3.display {
   font-size: 10.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-mute)
+  color: var(--text-muted)
 }
 
 .spec-cell .v {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 18px;
   color: var(--text);
   margin-top: 4px
@@ -1180,7 +1175,7 @@ h3.display {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.12em;
-  color: var(--cyan-soft);
+  color: var(--primary-light);
   padding: 5px 10px;
   border: 1px solid rgba(29, 195, 243, 0.25);
   border-radius: 999px;
@@ -1237,7 +1232,7 @@ h3.display {
   position: relative;
   padding: 22px 20px;
   min-height: 160px;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   border-radius: 12px;
   background: linear-gradient(180deg, rgba(14, 22, 42, 0.78), rgba(8, 12, 24, 0.6));
   overflow: hidden;
@@ -1249,7 +1244,7 @@ h3.display {
   position: absolute;
   inset: auto 0 0 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
   opacity: .4
 }
 
@@ -1261,14 +1256,14 @@ h3.display {
   place-items: center;
   background: rgba(29, 195, 243, 0.10);
   border: 1px solid rgba(29, 195, 243, 0.18);
-  color: var(--cyan-soft);
+  color: var(--primary-light);
   font-family: var(--font-mono);
   font-size: 13px;
 }
 
 .module h4 {
   margin: 14px 0 6px;
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-weight: 500;
   font-size: 16px;
   color: var(--text)
@@ -1277,7 +1272,7 @@ h3.display {
 .module p {
   margin: 0;
   font-size: 12.5px;
-  color: var(--text-mute);
+  color: var(--text-muted);
   line-height: 1.5
 }
 
@@ -1288,7 +1283,7 @@ h3.display {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.14em;
-  color: var(--text-mute);
+  color: var(--text-muted);
   text-transform: uppercase
 }
 
@@ -1311,7 +1306,7 @@ h3.display {
 .net-stage {
   position: relative;
   height: 600px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   border-radius: 16px;
   background: radial-gradient(ellipse at center, rgba(95, 140, 255, 0.06) 0%, transparent 70%), linear-gradient(180deg, rgba(8, 12, 24, 0.5), rgba(4, 6, 13, 0.5));
   overflow: hidden;
@@ -1329,14 +1324,14 @@ h3.display {
   width: auto;
   padding: 8px 14px;
   border-radius: 999px;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   background: rgba(10, 16, 32, 0.85);
   backdrop-filter: blur(6px);
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-soft);
+  color: var(--text-secondary);
   transform: translate(-50%, -50%);
   cursor: pointer;
   transition: all .25s ease;
@@ -1350,8 +1345,8 @@ h3.display {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 8px var(--cyan)
+  background: var(--primary);
+  box-shadow: 0 0 8px var(--primary)
 }
 
 .net-node:hover,
@@ -1363,7 +1358,7 @@ h3.display {
 
 .net-node.center {
   padding: 14px 22px;
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 13px;
   letter-spacing: 0.06em;
   text-transform: none;
@@ -1372,7 +1367,7 @@ h3.display {
 }
 
 .packet {
-  fill: var(--cyan);
+  fill: var(--primary);
   filter: drop-shadow(0 0 6px rgba(29, 195, 243, 0.8))
 }
 
@@ -1385,7 +1380,7 @@ h3.display {
   padding: 24px;
   border-radius: 14px;
   background: linear-gradient(180deg, rgba(10, 18, 38, 0.92), rgba(6, 10, 22, 0.92));
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   backdrop-filter: blur(10px);
   opacity: 0;
   pointer-events: none;
@@ -1401,20 +1396,20 @@ h3.display {
 
 .node-modal h4 {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 18px
 }
 
 .node-modal p {
   font-size: 13px;
-  color: var(--text-soft)
+  color: var(--text-secondary)
 }
 
 .node-modal .close {
   position: absolute;
   top: 10px;
   right: 12px;
-  color: var(--text-mute);
+  color: var(--text-muted);
   cursor: pointer;
   font-family: var(--font-mono);
   font-size: 14px
@@ -1423,7 +1418,7 @@ h3.display {
 .node-modal .endpoint {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--cyan-soft);
+  color: var(--primary-light);
   background: rgba(29, 195, 243, 0.06);
   padding: 6px 10px;
   border-radius: 6px;
@@ -1465,7 +1460,7 @@ h3.display {
   padding: 0;
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   background: #08121e;
   display: flex;
   flex-direction: column;
@@ -1488,12 +1483,12 @@ h3.display {
 .engine-card .num {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--text-mute);
+  color: var(--text-muted);
   letter-spacing: 0.18em
 }
 
 .engine-card h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 22px;
   font-weight: 500;
   margin: 14px 0 10px;
@@ -1502,7 +1497,7 @@ h3.display {
 
 .engine-card p {
   font-size: 13px;
-  color: var(--text-mute);
+  color: var(--text-muted);
   margin: 0
 }
 
@@ -1522,7 +1517,7 @@ h3.display {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.16em;
-  color: var(--cyan-soft);
+  color: var(--primary-light);
   text-transform: uppercase
 }
 
@@ -1573,7 +1568,7 @@ h3.display {
   z-index: 1;
   padding: 22px 18px;
   border-radius: 14px;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   background: linear-gradient(180deg, rgba(14, 22, 42, 0.85), rgba(8, 12, 24, 0.7));
   min-height: 200px;
   display: flex;
@@ -1591,7 +1586,7 @@ h3.display {
 .pipe-step .num {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--text-mute);
+  color: var(--text-muted);
   letter-spacing: 0.18em
 }
 
@@ -1602,14 +1597,14 @@ h3.display {
   text-transform: uppercase;
   padding: 4px 8px;
   border-radius: 999px;
-  color: var(--text-mute);
+  color: var(--text-muted);
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   transition: all .35s ease;
 }
 
 .pipe-step h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 20px;
   font-weight: 500;
   margin: 18px 0 6px;
@@ -1618,7 +1613,7 @@ h3.display {
 
 .pipe-step p {
   font-size: 12.5px;
-  color: var(--text-mute);
+  color: var(--text-muted);
   margin: 0
 }
 
@@ -1629,10 +1624,10 @@ h3.display {
   display: grid;
   place-items: center;
   background: rgba(29, 195, 243, 0.06);
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--cyan-soft);
+  color: var(--primary-light);
 }
 
 .pipe-step.active {
@@ -1642,7 +1637,7 @@ h3.display {
 
 .pipe-step.active .badge {
   background: rgba(29, 195, 243, 0.12);
-  color: var(--cyan-soft);
+  color: var(--primary-light);
   border-color: rgba(29, 195, 243, 0.3)
 }
 
@@ -1657,7 +1652,7 @@ h3.display {
   top: 50%;
   left: 0;
   height: 1px;
-  background: linear-gradient(90deg, var(--cyan), var(--magenta));
+  background: linear-gradient(90deg, var(--primary), var(--accent));
   transform: translateY(-50%);
   width: 0%;
   z-index: 0;
@@ -1674,18 +1669,18 @@ h3.display {
 .read-cell {
   padding: 12px 14px;
   border-radius: 10px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   background: rgba(10, 16, 32, 0.5);
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--text-soft);
+  color: var(--text-secondary);
   display: flex;
   justify-content: space-between;
   letter-spacing: 0.06em
 }
 
 .read-cell .v {
-  color: var(--cyan-soft)
+  color: var(--primary-light)
 }
 
 /* ------------------- 7. COMMAND CENTER ------------------- */
@@ -1702,7 +1697,7 @@ h3.display {
 }
 
 .cc-tile {
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   border-radius: 12px;
   background: linear-gradient(180deg, rgba(14, 22, 42, 0.78), rgba(8, 12, 24, 0.7));
   padding: 18px;
@@ -1714,12 +1709,12 @@ h3.display {
   font-family: var(--font-mono);
   font-size: 10.5px;
   letter-spacing: 0.16em;
-  color: var(--text-mute);
+  color: var(--text-muted);
   text-transform: uppercase
 }
 
 .cc-tile .num {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 42px;
   font-weight: 500;
   margin-top: 6px;
@@ -1729,13 +1724,13 @@ h3.display {
 
 .cc-tile .num small {
   font-size: 18px;
-  color: var(--text-mute);
+  color: var(--text-muted);
   margin-left: 6px
 }
 
 .cc-tile .sub {
   font-size: 12px;
-  color: var(--text-mute);
+  color: var(--text-muted);
   margin-top: 2px
 }
 
@@ -1780,7 +1775,7 @@ h3.display {
 
 .spark path.l {
   fill: none;
-  stroke: var(--cyan);
+  stroke: var(--primary);
   stroke-width: 1.4;
   opacity: .85;
   filter: drop-shadow(0 0 4px rgba(29, 195, 243, 0.6))
@@ -1802,10 +1797,10 @@ h3.display {
 .status-bar .pill {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--text-soft);
+  color: var(--text-secondary);
   padding: 6px 12px;
   border-radius: 999px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.02);
   display: flex;
   align-items: center;
@@ -1816,13 +1811,13 @@ h3.display {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 8px var(--cyan)
+  background: var(--primary);
+  box-shadow: 0 0 8px var(--primary)
 }
 
 .status-bar .pill.warn i {
-  background: var(--amber);
-  box-shadow: 0 0 8px var(--amber)
+  background: var(--warning);
+  box-shadow: 0 0 8px var(--warning)
 }
 
 .status-bar .pill.violet i {
@@ -2397,7 +2392,7 @@ h3.display {
 }/* ------------------- TERMINAL COMPONENT ------------------- */
 .cmd-interface {
   background: rgba(10, 15, 25, 0.8);
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
   font-family: var(--font-mono);
@@ -2411,9 +2406,9 @@ h3.display {
   align-items: center;
   padding: 12px 20px;
   background: rgba(255, 255, 255, 0.03);
-  border-bottom: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--border);
   font-size: 13px;
-  color: var(--text-soft);
+  color: var(--text-secondary);
 }
 
 .cmd-controls {
@@ -2456,7 +2451,7 @@ h3.display {
 }
 
 .cmd-output .success {
-  color: var(--cyan);
+  color: var(--primary);
   margin-top: 12px;
   font-weight: bold;
 }
