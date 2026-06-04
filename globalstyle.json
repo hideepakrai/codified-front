@@ -1,0 +1,26 @@
+{
+    "colors": {
+        "core": {
+            "primary": "#1DC3F3",
+            "secondary": "#F300A6",
+            "accent": "#f1c27a",
+            "background": "#04060d",
+            "surface": "#070b18",
+            "text": "#e9eefb",
+            "muted": "#6e7c9a",
+            "border": "rgba(120, 160, 220, 0.10)",
+            "dark": "#000000"
+        },
+        "buttons": {
+            "primary": "#1DC3F3",
+            "primaryText": "#dff5ff",
+            "secondary": "#0a1224",
+            "secondaryText": "#aebbd6"
+        }
+    },
+    "typography": {
+        "bodyFont": "Inter",
+        "headingFont": "Space Grotesk",
+        "customFonts": ["JetBrains Mono"]
+    }
+}
