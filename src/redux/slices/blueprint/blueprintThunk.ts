@@ -6,7 +6,7 @@ const TENANT_HEADER = process.env.NEXT_PUBLIC_TENANT_DB        // e.g. "kp_codif
   ?? process.env.TENANT_DB_NAME
   ?? 'kp_codified_web_solution';
 
-const BLUEPRINT_ENDPOINT = `${API_BASE_URL}/platform/business-blueprint`;
+const BLUEPRINT_ENDPOINT = `/api/platform/business-blueprint`;
 
 // ============================================================
 // FETCH — GET /api/platform/business-blueprint

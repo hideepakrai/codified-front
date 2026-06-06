@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import '../../styles/globals.css';
 import ReduxProvider from '@/providers/ReduxProvider';
+import SessionProvider from '@/providers/SessionProvider';
 import { SupportedLocale } from '@/lib/i18n';
 import UpdateCurrentPage from '@/components/getallData/pageData/UpdateCurrentPage';
 import { BlueprintProvider } from '@/components/providers/BlueprintProvider';

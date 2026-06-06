@@ -36,18 +36,11 @@ const blueprintSlice = createSlice({
   name: 'blueprint',
   initialState,
   reducers: {
-    /**
-     * Switch the active theme context between 'public' and 'admin'.
-     * The CSS injector (applyTheme util) listens to this.
-     */
+  
     setThemeContext: (state, action: PayloadAction<ThemeContext>) => {
       state.activeThemeContext = action.payload;
     },
 
-    /**
-     * Optimistically apply color overrides in local state
-     * without hitting the API (useful for live preview in settings).
-     */
     applyColorOverride: (
       state,
       action: PayloadAction<{ context: ThemeContext; colors: Partial<Theme['colors']> }>
@@ -68,12 +61,9 @@ const blueprintSlice = createSlice({
       }
     },
 
-    /** Clear any error state */
     clearBlueprintError: (state) => {
       state.error = null;
     },
-
-    /** Reset the entire blueprint state (e.g., on tenant switch) */
     resetBlueprint: () => initialState,
   },
 
