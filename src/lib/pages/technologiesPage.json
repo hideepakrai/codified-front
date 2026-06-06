@@ -1,26 +1,549 @@
 {
-  "title": { "en": "Technologies" },
+  "title": {
+    "en": "Technologies",
+    "hi": "Technologies"
+  },
   "slug": "technologies",
   "isPublished": true,
-  "metaTitle": { "en": "Technologies | Codified Web Solutions" },
-  "metaDescription": { "en": "Discover the modern tech stacks and architecture patterns we use to build scalable systems." },
+  "metaTitle": {
+    "en": "Technologies We Use | Codified Web Solutions",
+    "hi": "Technologies We Use | Codified Web Solutions"
+  },
+  "metaDescription": {
+    "en": "One unified tech stack across every system — frontend, backend, cloud, AI/ML, and mobile.",
+    "hi": "One unified tech stack across every system — frontend, backend, cloud, AI/ML, and mobile."
+  },
   "content": [
     {
-      "id": "technologies-section",
+      "id": "tech-hero-section",
+      "type": "section",
+      "layout": "full",
+      "adminTitle": "Tech Hero",
+      "props": {
+        "label": {
+          "en": "05 · Technologies",
+          "hi": "05 · Technologies"
+        },
+        "heading": {
+          "en": "One <span class=\"grad-text\">unified stack</span> across every system.",
+          "hi": "One <span class=\"grad-text\">unified stack</span> across every system."
+        },
+        "description": {
+          "en": "We connect frontend, backend, cloud, and AI layers into one efficient, production-grade platform.",
+          "hi": "We connect frontend, backend, cloud, and AI layers into one efficient, production-grade platform."
+        },
+        "metaItems": [
+          {
+            "text": {
+              "en": "99.99% Uptime SLA",
+              "hi": "99.99% Uptime SLA"
+            },
+            "hasDot": true
+          },
+          {
+            "text": {
+              "en": "2,860+ Integrations",
+              "hi": "2,860+ Integrations"
+            }
+          },
+          {
+            "text": {
+              "en": "MERN · JAM · LAMP",
+              "hi": "MERN · JAM · LAMP"
+            }
+          }
+        ]
+      },
+      "content": [
+        {
+          "id": "ts1",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Uptime SLA",
+              "hi": "Uptime SLA"
+            },
+            "value": {
+              "en": "99.99%",
+              "hi": "99.99%"
+            }
+          }
+        },
+        {
+          "id": "ts2",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Integrations",
+              "hi": "Integrations"
+            },
+            "value": {
+              "en": "2,860+",
+              "hi": "2,860+"
+            }
+          }
+        },
+        {
+          "id": "ts3",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Stacks",
+              "hi": "Stacks"
+            },
+            "value": {
+              "en": "MERN · JAM · LAMP",
+              "hi": "MERN · JAM · LAMP"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tech-logos-section",
+      "type": "section",
+      "layout": "strip",
+      "adminTitle": "Tech Logos",
+      "props": {},
+      "content": [
+        {
+          "id": "tl1",
+          "type": "item",
+          "props": {
+            "name": {
+              "en": "React",
+              "hi": "React"
+            },
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+          }
+        },
+        {
+          "id": "tl2",
+          "type": "item",
+          "props": {
+            "name": {
+              "en": "Next.js",
+              "hi": "Next.js"
+            },
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
+          }
+        },
+        {
+          "id": "tl3",
+          "type": "item",
+          "props": {
+            "name": {
+              "en": "Node.js",
+              "hi": "Node.js"
+            },
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+          }
+        },
+        {
+          "id": "tl4",
+          "type": "item",
+          "props": {
+            "name": {
+              "en": "Python",
+              "hi": "Python"
+            },
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+          }
+        },
+        {
+          "id": "tl5",
+          "type": "item",
+          "props": {
+            "name": {
+              "en": "TypeScript",
+              "hi": "TypeScript"
+            },
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+          }
+        },
+        {
+          "id": "tl6",
+          "type": "item",
+          "props": {
+            "name": {
+              "en": "MongoDB",
+              "hi": "MongoDB"
+            },
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg"
+          }
+        },
+        {
+          "id": "tl7",
+          "type": "item",
+          "props": {
+            "name": {
+              "en": "PostgreSQL",
+              "hi": "PostgreSQL"
+            },
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+          }
+        },
+        {
+          "id": "tl8",
+          "type": "item",
+          "props": {
+            "name": {
+              "en": "Docker",
+              "hi": "Docker"
+            },
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tech-network-section",
       "type": "section",
       "layout": "network",
       "adminTitle": "Technologies",
       "props": {
-        "label": { "en": "01 · Technologies" },
-        "heading": { "en": "One <span class=\"grad-text\">unified stack</span> across every system." },
-        "description": { "en": "We connect frontend, backend, cloud, and AI layers into one efficient platform." }
+        "label": {
+          "en": "05 · Technologies",
+          "hi": "05 · Technologies"
+        },
+        "heading": {
+          "en": "One <span class=\"grad-text\">unified stack</span> across every system.",
+          "hi": "One <span class=\"grad-text\">unified stack</span> across every system."
+        },
+        "description": {
+          "en": "We connect frontend, backend, cloud, and AI layers into one efficient platform.",
+          "hi": "We connect frontend, backend, cloud, and AI layers into one efficient platform."
+        }
       },
       "content": [
-        { "id": "t1", "type": "item", "props": { "key": { "en": "Uptime SLA" }, "value": { "en": "99.99%" } } },
-        { "id": "t2", "type": "item", "props": { "key": { "en": "Integrations" }, "value": { "en": "2,860+" } } },
-        { "id": "t3", "type": "item", "props": { "key": { "en": "Stacks" }, "value": { "en": "MERN · JAM · LAMP" } } },
-        { "id": "core", "type": "node", "props": { "left": "50%", "top": "50%", "isCenter": true, "endpoint": "APP CORE", "label": { "en": "Operations Core" } } }
+        {
+          "id": "tn1",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Uptime SLA",
+              "hi": "Uptime SLA"
+            },
+            "value": {
+              "en": "99.99%",
+              "hi": "99.99%"
+            }
+          }
+        },
+        {
+          "id": "tn2",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Integrations",
+              "hi": "Integrations"
+            },
+            "value": {
+              "en": "2,860+",
+              "hi": "2,860+"
+            }
+          }
+        },
+        {
+          "id": "tn3",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Stacks",
+              "hi": "Stacks"
+            },
+            "value": {
+              "en": "MERN · JAM · LAMP",
+              "hi": "MERN · JAM · LAMP"
+            }
+          }
+        },
+        {
+          "id": "core",
+          "type": "node",
+          "props": {
+            "left": "50%",
+            "top": "50%",
+            "isCenter": true,
+            "endpoint": "APP CORE",
+            "label": {
+              "en": "Operations Core",
+              "hi": "Operations Core"
+            }
+          }
+        }
       ]
+    },
+    {
+      "id": "tech-stack-grid-section",
+      "type": "section",
+      "layout": "grid",
+      "adminTitle": "Tech Stack Grid",
+      "props": {
+        "label": {
+          "en": "FULL STACK",
+          "hi": "FULL STACK"
+        },
+        "heading": {
+          "en": "Every layer, <span class=\"grad-text\">mastered.</span>",
+          "hi": "Every layer, <span class=\"grad-text\">mastered.</span>"
+        }
+      },
+      "content": [
+        {
+          "id": "sg1",
+          "type": "item",
+          "props": {
+            "category": {
+              "en": "Frontend",
+              "hi": "Frontend"
+            },
+            "items": [
+              {
+                "name": {
+                  "en": "React",
+                  "hi": "React"
+                }
+              },
+              {
+                "name": {
+                  "en": "Next.js",
+                  "hi": "Next.js"
+                }
+              },
+              {
+                "name": {
+                  "en": "TypeScript",
+                  "hi": "TypeScript"
+                }
+              },
+              {
+                "name": {
+                  "en": "Tailwind CSS",
+                  "hi": "Tailwind CSS"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "sg2",
+          "type": "item",
+          "props": {
+            "category": {
+              "en": "Backend",
+              "hi": "Backend"
+            },
+            "items": [
+              {
+                "name": {
+                  "en": "Node.js",
+                  "hi": "Node.js"
+                }
+              },
+              {
+                "name": {
+                  "en": "Python",
+                  "hi": "Python"
+                }
+              },
+              {
+                "name": {
+                  "en": "FastAPI",
+                  "hi": "FastAPI"
+                }
+              },
+              {
+                "name": {
+                  "en": "Express",
+                  "hi": "Express"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "sg3",
+          "type": "item",
+          "props": {
+            "category": {
+              "en": "Cloud & DevOps",
+              "hi": "Cloud & DevOps"
+            },
+            "items": [
+              {
+                "name": {
+                  "en": "AWS",
+                  "hi": "AWS"
+                }
+              },
+              {
+                "name": {
+                  "en": "GCP",
+                  "hi": "GCP"
+                }
+              },
+              {
+                "name": {
+                  "en": "Docker",
+                  "hi": "Docker"
+                }
+              },
+              {
+                "name": {
+                  "en": "Kubernetes",
+                  "hi": "Kubernetes"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "sg4",
+          "type": "item",
+          "props": {
+            "category": {
+              "en": "AI / ML",
+              "hi": "AI / ML"
+            },
+            "items": [
+              {
+                "name": {
+                  "en": "TensorFlow",
+                  "hi": "TensorFlow"
+                }
+              },
+              {
+                "name": {
+                  "en": "PyTorch",
+                  "hi": "PyTorch"
+                }
+              },
+              {
+                "name": {
+                  "en": "OpenAI API",
+                  "hi": "OpenAI API"
+                }
+              },
+              {
+                "name": {
+                  "en": "LangChain",
+                  "hi": "LangChain"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tech-workflow-section",
+      "type": "section",
+      "layout": "timeline",
+      "adminTitle": "Tech Workflow",
+      "props": {
+        "label": {
+          "en": "DEVELOPMENT WORKFLOW",
+          "hi": "DEVELOPMENT WORKFLOW"
+        },
+        "heading": {
+          "en": "How we <span class=\"grad-text\">ship at scale.</span>",
+          "hi": "How we <span class=\"grad-text\">ship at scale.</span>"
+        }
+      },
+      "content": [
+        {
+          "id": "tw1",
+          "type": "item",
+          "props": {
+            "step": "01",
+            "title": {
+              "en": "Discovery & Architecture",
+              "hi": "Discovery & Architecture"
+            },
+            "desc": {
+              "en": "System design, tech selection, and scalability planning.",
+              "hi": "System design, tech selection, and scalability planning."
+            }
+          }
+        },
+        {
+          "id": "tw2",
+          "type": "item",
+          "props": {
+            "step": "02",
+            "title": {
+              "en": "Agile Development",
+              "hi": "Agile Development"
+            },
+            "desc": {
+              "en": "Sprint-based delivery with weekly demos and CI/CD pipelines.",
+              "hi": "Sprint-based delivery with weekly demos and CI/CD pipelines."
+            }
+          }
+        },
+        {
+          "id": "tw3",
+          "type": "item",
+          "props": {
+            "step": "03",
+            "title": {
+              "en": "QA & Security Audit",
+              "hi": "QA & Security Audit"
+            },
+            "desc": {
+              "en": "Automated testing, penetration testing, and performance benchmarks.",
+              "hi": "Automated testing, penetration testing, and performance benchmarks."
+            }
+          }
+        },
+        {
+          "id": "tw4",
+          "type": "item",
+          "props": {
+            "step": "04",
+            "title": {
+              "en": "Deploy & Monitor",
+              "hi": "Deploy & Monitor"
+            },
+            "desc": {
+              "en": "Blue-green deployments, observability, and 24/7 SLA support.",
+              "hi": "Blue-green deployments, observability, and 24/7 SLA support."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tech-command-section",
+      "type": "section",
+      "layout": "cta",
+      "adminTitle": "Tech Command",
+      "props": {
+        "label": {
+          "en": "READY TO BUILD",
+          "hi": "READY TO BUILD"
+        },
+        "heading": {
+          "en": "Let's architect your <span class=\"grad-text\">next system.</span>",
+          "hi": "Let's architect your <span class=\"grad-text\">next system.</span>"
+        },
+        "description": {
+          "en": "From stack selection to production deployment — our architects are ready to scope your project.",
+          "hi": "From stack selection to production deployment — our architects are ready to scope your project."
+        },
+        "primaryButton": {
+          "en": "Start a Project",
+          "hi": "Start a Project"
+        },
+        "primaryButtonLink": "/en/contact",
+        "secondaryButton": {
+          "en": "View Our Work",
+          "hi": "View Our Work"
+        },
+        "secondaryButtonLink": "/en/about"
+      },
+      "content": []
     }
   ]
 }

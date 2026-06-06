@@ -1,24 +1,159 @@
 {
-  "title": { "en": "Industries" },
+  "title": {
+    "en": "Industries",
+    "hi": "Industries"
+  },
   "slug": "industries",
   "isPublished": true,
-  "metaTitle": { "en": "Industries | Codified Web Solutions" },
-  "metaDescription": { "en": "Explore industries where we deploy custom software and AI-driven digital products." },
+  "metaTitle": {
+    "en": "Industries We Serve | Codified Web Solutions",
+    "hi": "Industries We Serve | Codified Web Solutions"
+  },
+  "metaDescription": {
+    "en": "From food & hospitality to healthcare and education — Codified builds intelligent, scalable digital products for every sector.",
+    "hi": "From food & hospitality to healthcare and education — Codified builds intelligent, scalable digital products for every sector."
+  },
   "content": [
     {
-      "id": "industries-section",
+      "id": "industry-marquee-section",
       "type": "section",
       "layout": "marquee",
-      "adminTitle": "Industries",
+      "adminTitle": "Industry Marquee",
       "props": {
-        "label": { "en": "01 · Industry Expertise" },
-        "heading": { "en": "Tailored for <span class=\"grad-text\">every sector.</span>" },
-        "description": { "en": "We serve diverse sectors with intelligent, scalable, and user-first solutions." }
+        "label": {
+          "en": "06 · Industry Expertise",
+          "hi": "06 · Industry Expertise"
+        },
+        "heading": {
+          "en": "Tailored for <span class=\"grad-text\">every sector.</span>",
+          "hi": "Tailored for <span class=\"grad-text\">every sector.</span>"
+        },
+        "description": {
+          "en": "We serve diverse sectors with intelligent, scalable, and user-first solutions.",
+          "hi": "We serve diverse sectors with intelligent, scalable, and user-first solutions."
+        }
       },
       "content": [
-        { "id": "i1", "type": "item", "props": { "tag": "F-01", "title": { "en": "Food and Restaurant" }, "desc": { "en": "Delivery apps, QR menus, POS systems, and kitchen tools." } } },
-        { "id": "i2", "type": "item", "props": { "tag": "E-02", "title": { "en": "Education and E-Learning" }, "desc": { "en": "Interactive learning platforms, live classes, and LMS." } } },
-        { "id": "i3", "type": "item", "props": { "tag": "G-03", "title": { "en": "Gaming and Sports" }, "desc": { "en": "Game development, fantasy leagues, and real-time stats." } } }
+        {
+          "id": "i1",
+          "type": "item",
+          "props": {
+            "tag": "F-01",
+            "title": {
+              "en": "Food & Restaurant",
+              "hi": "Food & Restaurant"
+            },
+            "desc": {
+              "en": "Delivery apps, QR menus, POS systems, and kitchen management tools.",
+              "hi": "Delivery apps, QR menus, POS systems, and kitchen management tools."
+            }
+          }
+        },
+        {
+          "id": "i2",
+          "type": "item",
+          "props": {
+            "tag": "E-02",
+            "title": {
+              "en": "Education & E-Learning",
+              "hi": "Education & E-Learning"
+            },
+            "desc": {
+              "en": "Interactive learning platforms, live classes, LMS, and virtual classrooms.",
+              "hi": "Interactive learning platforms, live classes, LMS, and virtual classrooms."
+            }
+          }
+        },
+        {
+          "id": "i3",
+          "type": "item",
+          "props": {
+            "tag": "G-03",
+            "title": {
+              "en": "Gaming & Sports",
+              "hi": "Gaming & Sports"
+            },
+            "desc": {
+              "en": "Game development, fantasy leagues, live score engines, and real-time stats.",
+              "hi": "Game development, fantasy leagues, live score engines, and real-time stats."
+            }
+          }
+        },
+        {
+          "id": "i4",
+          "type": "item",
+          "props": {
+            "tag": "H-04",
+            "title": {
+              "en": "Healthcare & MedTech",
+              "hi": "Healthcare & MedTech"
+            },
+            "desc": {
+              "en": "Patient portals, telemedicine apps, appointment systems, and HIPAA-compliant platforms.",
+              "hi": "Patient portals, telemedicine apps, appointment systems, and HIPAA-compliant platforms."
+            }
+          }
+        },
+        {
+          "id": "i5",
+          "type": "item",
+          "props": {
+            "tag": "R-05",
+            "title": {
+              "en": "Real Estate & PropTech",
+              "hi": "Real Estate & PropTech"
+            },
+            "desc": {
+              "en": "Property listings, virtual tours, CRM platforms, and smart building dashboards.",
+              "hi": "Property listings, virtual tours, CRM platforms, and smart building dashboards."
+            }
+          }
+        },
+        {
+          "id": "i6",
+          "type": "item",
+          "props": {
+            "tag": "L-06",
+            "title": {
+              "en": "Logistics & Supply Chain",
+              "hi": "Logistics & Supply Chain"
+            },
+            "desc": {
+              "en": "Fleet management, route optimization, warehouse ops, and live tracking systems.",
+              "hi": "Fleet management, route optimization, warehouse ops, and live tracking systems."
+            }
+          }
+        },
+        {
+          "id": "i7",
+          "type": "item",
+          "props": {
+            "tag": "B-07",
+            "title": {
+              "en": "Banking & FinTech",
+              "hi": "Banking & FinTech"
+            },
+            "desc": {
+              "en": "Digital wallets, payment gateways, loan platforms, and fraud detection engines.",
+              "hi": "Digital wallets, payment gateways, loan platforms, and fraud detection engines."
+            }
+          }
+        },
+        {
+          "id": "i8",
+          "type": "item",
+          "props": {
+            "tag": "T-08",
+            "title": {
+              "en": "Travel & Hospitality",
+              "hi": "Travel & Hospitality"
+            },
+            "desc": {
+              "en": "Booking engines, loyalty programs, concierge apps, and OTA integrations.",
+              "hi": "Booking engines, loyalty programs, concierge apps, and OTA integrations."
+            }
+          }
+        }
       ]
     }
   ]

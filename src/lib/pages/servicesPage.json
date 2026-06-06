@@ -1,9 +1,18 @@
 {
-  "title": { "en": "Services" },
+  "title": {
+    "en": "Services",
+    "hi": "Services"
+  },
   "slug": "services",
   "isPublished": true,
-  "metaTitle": { "en": "Services | Codified Web Solutions" },
-  "metaDescription": { "en": "Explore our full-stack software, AI/ML, mobile, and growth engineering services." },
+  "metaTitle": {
+    "en": "Services | Codified Web Solutions",
+    "hi": "Services | Codified Web Solutions"
+  },
+  "metaDescription": {
+    "en": "Explore our full-stack software, AI/ML, mobile, and growth engineering services.",
+    "hi": "Explore our full-stack software, AI/ML, mobile, and growth engineering services."
+  },
   "content": [
     {
       "id": "services-section",
@@ -11,15 +20,80 @@
       "layout": "grid",
       "adminTitle": "Services",
       "props": {
-        "label": { "en": "01 · Services" },
-        "heading": { "en": "Empowering your <span class=\"grad-text\">digital transformation.</span>" },
-        "description": { "en": "Full-stack services from mobile apps and web platforms to analytics and ML automation." }
+        "label": {
+          "en": "01 · Services",
+          "hi": "01 · Services"
+        },
+        "heading": {
+          "en": "Empowering your <span class=\"grad-text\">digital transformation.</span>",
+          "hi": "Empowering your <span class=\"grad-text\">digital transformation.</span>"
+        },
+        "description": {
+          "en": "Full-stack services from mobile apps and web platforms to analytics and ML automation.",
+          "hi": "Full-stack services from mobile apps and web platforms to analytics and ML automation."
+        }
       },
       "content": [
-        { "id": "s1", "type": "item", "props": { "code": "AI", "name": { "en": "AI/ML Development" }, "desc": { "en": "Predictive analytics, intelligent automation, custom models." } } },
-        { "id": "s2", "type": "item", "props": { "code": "SD", "name": { "en": "Software Dev" }, "desc": { "en": "Robust bespoke platforms and ERP systems." } } },
-        { "id": "s3", "type": "item", "props": { "code": "MB", "name": { "en": "Mobile Apps" }, "desc": { "en": "Seamless iOS and Android native experiences." } } },
-        { "id": "s4", "type": "item", "props": { "code": "GR", "name": { "en": "SEO and Growth" }, "desc": { "en": "Data-driven rankings and high-quality conversions." } } }
+        {
+          "id": "s1",
+          "type": "item",
+          "props": {
+            "code": "AI",
+            "name": {
+              "en": "AI/ML Development",
+              "hi": "AI/ML Development"
+            },
+            "desc": {
+              "en": "Predictive analytics, intelligent automation, custom models.",
+              "hi": "Predictive analytics, intelligent automation, custom models."
+            }
+          }
+        },
+        {
+          "id": "s2",
+          "type": "item",
+          "props": {
+            "code": "SD",
+            "name": {
+              "en": "Software Dev",
+              "hi": "Software Dev"
+            },
+            "desc": {
+              "en": "Robust bespoke platforms and ERP systems.",
+              "hi": "Robust bespoke platforms and ERP systems."
+            }
+          }
+        },
+        {
+          "id": "s3",
+          "type": "item",
+          "props": {
+            "code": "MB",
+            "name": {
+              "en": "Mobile Apps",
+              "hi": "Mobile Apps"
+            },
+            "desc": {
+              "en": "Seamless iOS and Android native experiences.",
+              "hi": "Seamless iOS and Android native experiences."
+            }
+          }
+        },
+        {
+          "id": "s4",
+          "type": "item",
+          "props": {
+            "code": "GR",
+            "name": {
+              "en": "SEO and Growth",
+              "hi": "SEO and Growth"
+            },
+            "desc": {
+              "en": "Data-driven rankings and high-quality conversions.",
+              "hi": "Data-driven rankings and high-quality conversions."
+            }
+          }
+        }
       ]
     },
     {
@@ -28,14 +102,65 @@
       "layout": "cards",
       "adminTitle": "AI Workflow",
       "props": {
-        "label": { "en": "02 · AI Workflow" },
-        "heading": { "en": "Smarter systems for a <span class=\"grad-text\">smarter future.</span>" },
-        "description": { "en": "Intelligent workflows that reduce manual bottlenecks and unlock data value." }
+        "label": {
+          "en": "02 · AI Workflow",
+          "hi": "02 · AI Workflow"
+        },
+        "heading": {
+          "en": "Smarter systems for a <span class=\"grad-text\">smarter future.</span>",
+          "hi": "Smarter systems for a <span class=\"grad-text\">smarter future.</span>"
+        },
+        "description": {
+          "en": "Intelligent workflows that reduce manual bottlenecks and unlock data value.",
+          "hi": "Intelligent workflows that reduce manual bottlenecks and unlock data value."
+        }
       },
       "content": [
-        { "id": "w1", "type": "item", "props": { "icon": ">_", "title": { "en": "Cognitive AI" }, "desc": { "en": "Specialized models that reason and solve business challenges." } } },
-        { "id": "w2", "type": "item", "props": { "icon": "~", "title": { "en": "Autonomous" }, "desc": { "en": "End-to-end automation for core operations." } } },
-        { "id": "w3", "type": "item", "props": { "icon": "check", "title": { "en": "Predictive" }, "desc": { "en": "Forecast trends and events with confidence." } } }
+        {
+          "id": "w1",
+          "type": "item",
+          "props": {
+            "icon": ">_",
+            "title": {
+              "en": "Cognitive AI",
+              "hi": "Cognitive AI"
+            },
+            "desc": {
+              "en": "Specialized models that reason and solve business challenges.",
+              "hi": "Specialized models that reason and solve business challenges."
+            }
+          }
+        },
+        {
+          "id": "w2",
+          "type": "item",
+          "props": {
+            "icon": "~",
+            "title": {
+              "en": "Autonomous",
+              "hi": "Autonomous"
+            },
+            "desc": {
+              "en": "End-to-end automation for core operations.",
+              "hi": "End-to-end automation for core operations."
+            }
+          }
+        },
+        {
+          "id": "w3",
+          "type": "item",
+          "props": {
+            "icon": "check",
+            "title": {
+              "en": "Predictive",
+              "hi": "Predictive"
+            },
+            "desc": {
+              "en": "Forecast trends and events with confidence.",
+              "hi": "Forecast trends and events with confidence."
+            }
+          }
+        }
       ]
     }
   ]

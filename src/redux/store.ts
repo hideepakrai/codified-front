@@ -4,6 +4,7 @@ import productReducer from './slices/product/productSlice';
 import userReducer from './slices/user/userSlice';
 import layoutReducer from './slices/layout/layoutSlice';
 import pageReducer from './slices/pages/pagesSlice';
+import blueprintReducer from './slices/blueprint/blueprintSlice';
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
     product: productReducer,
     user: userReducer,
     layout: layoutReducer,
-     pages: pageReducer,
+    pages: pageReducer,
+    blueprint: blueprintReducer,
   },
 });
 

@@ -3,6 +3,7 @@ import '../../styles/globals.css';
 import ReduxProvider from '@/providers/ReduxProvider';
 import { SupportedLocale } from '@/lib/i18n';
 import UpdateCurrentPage from '@/components/getallData/pageData/UpdateCurrentPage';
+import { BlueprintProvider } from '@/components/providers/BlueprintProvider';
 
 export const metadata: Metadata = {
   title: 'Codified Web Solutions — Digital Infrastructure for Modern Businesses',
@@ -32,8 +33,10 @@ export default async function LocaleLayout({
       </head>
       <body>
          <ReduxProvider>
-          <UpdateCurrentPage />
-          {children}
+          <BlueprintProvider context="public">
+            <UpdateCurrentPage />
+            {children}
+          </BlueprintProvider>
         </ReduxProvider>
       </body>
     </html>
