@@ -1,14 +1,17 @@
 {
   "title": {
-    "en": "Home"
+    "en": "Home",
+    "hi": "Home"
   },
   "slug": "home",
   "isPublished": true,
   "metaTitle": {
-    "en": "Codified Solutions | Home"
+    "en": "Codified Solutions | Home",
+    "hi": "Codified Solutions | Home"
   },
   "metaDescription": {
-    "en": "Scalable digital products and AI-driven systems for modern businesses."
+    "en": "Scalable digital products and AI-driven systems for modern businesses.",
+    "hi": "Scalable digital products and AI-driven systems for modern businesses."
   },
   "content": [
     {
@@ -17,25 +20,116 @@
       "layout": "full",
       "adminTitle": "Hero",
       "props": {
-        "label": { "en": "01 · Signal" },
-        "heading": { "en": "We develop tech Manish<br />that helps your<br /><span class=\"grad-text\">business grow.</span>" },
-        "description": { "en": "We build scalable digital products and AI-driven systems that prepare your business for tomorrow." },
-        "primaryButton": { "en": "Get Started" },
+        "label": {
+          "en": "01 · Signal",
+          "hi": "01 · Signal"
+        },
+        "heading": {
+          "en": "We develop tech Manish<br />that helps your<br /><span class=\"grad-text\">business grow.</span>",
+          "hi": "We develop tech Manish<br />that helps your<br /><span class=\"grad-text\">business grow.</span>"
+        },
+        "description": {
+          "en": "We build scalable digital products and AI-driven systems that prepare your business for tomorrow.",
+          "hi": "We build scalable digital products and AI-driven systems that prepare your business for tomorrow."
+        },
+        "primaryButton": {
+          "en": "Get Started",
+          "hi": "Get Started"
+        },
         "primaryButtonLink": "#core",
-        "secondaryButton": { "en": "Read the architecture" },
+        "secondaryButton": {
+          "en": "Read the architecture",
+          "hi": "Read the architecture"
+        },
         "secondaryButtonLink": "#command",
         "metaItems": [
-          { "text": { "en": "Live · Global Deployments" }, "hasDot": true },
-          { "text": { "en": "ISO 27001 Certified" } },
-          { "text": { "en": "SLA uptime 99.99%" } }
+          {
+            "text": {
+              "en": "Live · Global Deployments",
+              "hi": "Live · Global Deployments"
+            },
+            "hasDot": true
+          },
+          {
+            "text": {
+              "en": "ISO 27001 Certified",
+              "hi": "ISO 27001 Certified"
+            }
+          },
+          {
+            "text": {
+              "en": "SLA uptime 99.99%",
+              "hi": "SLA uptime 99.99%"
+            }
+          }
         ],
-        "scrollHint": { "en": "Scroll" }
+        "scrollHint": {
+          "en": "Scroll",
+          "hi": "Scroll"
+        }
       },
       "content": [
-        { "id": "stat-1", "type": "item", "props": { "key": { "en": "Projects Deployed" }, "value": { "en": "512" }, "isCount": true } },
-        { "id": "stat-2", "type": "item", "props": { "key": { "en": "Active Clients" }, "value": { "en": "28" }, "isCount": true } },
-        { "id": "stat-3", "type": "item", "props": { "key": { "en": "Years Experience" }, "value": { "en": "15+" }, "isCount": false } },
-        { "id": "stat-4", "type": "item", "props": { "key": { "en": "Lines of Code" }, "value": { "en": "14.5M" }, "dataCount": "14580000", "isCount": true } }
+        {
+          "id": "stat-1",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Projects Deployed",
+              "hi": "Projects Deployed"
+            },
+            "value": {
+              "en": "512",
+              "hi": "512"
+            },
+            "isCount": true
+          }
+        },
+        {
+          "id": "stat-2",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Active Clients",
+              "hi": "Active Clients"
+            },
+            "value": {
+              "en": "28",
+              "hi": "28"
+            },
+            "isCount": true
+          }
+        },
+        {
+          "id": "stat-3",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Years Experience",
+              "hi": "Years Experience"
+            },
+            "value": {
+              "en": "15+",
+              "hi": "15+"
+            },
+            "isCount": false
+          }
+        },
+        {
+          "id": "stat-4",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Lines of Code",
+              "hi": "Lines of Code"
+            },
+            "value": {
+              "en": "14.5M",
+              "hi": "14.5M"
+            },
+            "dataCount": "14580000",
+            "isCount": true
+          }
+        }
       ]
     },
     {
@@ -45,10 +139,50 @@
       "adminTitle": "Client Logos",
       "props": {},
       "content": [
-        { "id": "tech-1", "type": "item", "props": { "name": { "en": "Express.js" }, "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" } },
-        { "id": "tech-2", "type": "item", "props": { "name": { "en": "Node.js" }, "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" } },
-        { "id": "tech-3", "type": "item", "props": { "name": { "en": "React" }, "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" } },
-        { "id": "tech-4", "type": "item", "props": { "name": { "en": "Next.js" }, "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" } }
+        {
+          "id": "tech-1",
+          "type": "item",
+          "props": {
+            "name": {
+              "en": "Express.js",
+              "hi": "Express.js"
+            },
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg"
+          }
+        },
+        {
+          "id": "tech-2",
+          "type": "item",
+          "props": {
+            "name": {
+              "en": "Node.js",
+              "hi": "Node.js"
+            },
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+          }
+        },
+        {
+          "id": "tech-3",
+          "type": "item",
+          "props": {
+            "name": {
+              "en": "React",
+              "hi": "React"
+            },
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+          }
+        },
+        {
+          "id": "tech-4",
+          "type": "item",
+          "props": {
+            "name": {
+              "en": "Next.js",
+              "hi": "Next.js"
+            },
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
+          }
+        }
       ]
     },
     {
@@ -57,21 +191,102 @@
       "layout": "two-column",
       "adminTitle": "Core",
       "props": {
-        "label": { "en": "02 · Core" },
-        "heading": { "en": "Tech partner  for <span class=\"grad-text\">scalable innovation.</span>" },
-        "description": { "en": "We develop mnaish secure, cloud-ready software to streamline operations and drive growth." },
+        "label": {
+          "en": "02 · Core",
+          "hi": "02 · Core"
+        },
+        "heading": {
+          "en": "Tech partner  for <span class=\"grad-text\">scalable innovation.</span>",
+          "hi": "Tech partner  for <span class=\"grad-text\">scalable innovation.</span>"
+        },
+        "description": {
+          "en": "We develop mnaish secure, cloud-ready software to streamline operations and drive growth.",
+          "hi": "We develop mnaish secure, cloud-ready software to streamline operations and drive growth."
+        },
         "tags": [
-          { "text": { "en": "Mobile" } },
-          { "text": { "en": "Cloud" } },
-          { "text": { "en": "Machine Learning" } },
-          { "text": { "en": "AI" } }
+          {
+            "text": {
+              "en": "Mobile",
+              "hi": "Mobile"
+            }
+          },
+          {
+            "text": {
+              "en": "Cloud",
+              "hi": "Cloud"
+            }
+          },
+          {
+            "text": {
+              "en": "Machine Learning",
+              "hi": "Machine Learning"
+            }
+          },
+          {
+            "text": {
+              "en": "AI",
+              "hi": "AI"
+            }
+          }
         ]
       },
       "content": [
-        { "id": "c1", "type": "item", "props": { "key": { "en": "Frontend" }, "value": { "en": "React, Next.js, Tailwind" } } },
-        { "id": "c2", "type": "item", "props": { "key": { "en": "Backend" }, "value": { "en": "Python, Node, Java" } } },
-        { "id": "c3", "type": "item", "props": { "key": { "en": "AI / ML" }, "value": { "en": "TensorFlow, PyTorch" } } },
-        { "id": "c4", "type": "item", "props": { "key": { "en": "Cloud" }, "value": { "en": "AWS, GCP, Azure" } } }
+        {
+          "id": "c1",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Frontend",
+              "hi": "Frontend"
+            },
+            "value": {
+              "en": "React, Next.js, Tailwind",
+              "hi": "React, Next.js, Tailwind"
+            }
+          }
+        },
+        {
+          "id": "c2",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Backend",
+              "hi": "Backend"
+            },
+            "value": {
+              "en": "Python, Node, Java",
+              "hi": "Python, Node, Java"
+            }
+          }
+        },
+        {
+          "id": "c3",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "AI / ML",
+              "hi": "AI / ML"
+            },
+            "value": {
+              "en": "TensorFlow, PyTorch",
+              "hi": "TensorFlow, PyTorch"
+            }
+          }
+        },
+        {
+          "id": "c4",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Cloud",
+              "hi": "Cloud"
+            },
+            "value": {
+              "en": "AWS, GCP, Azure",
+              "hi": "AWS, GCP, Azure"
+            }
+          }
+        }
       ]
     },
     {
@@ -80,15 +295,80 @@
       "layout": "grid",
       "adminTitle": "Services",
       "props": {
-        "label": { "en": "04 · Services" },
-        "heading": { "en": "Empowering your <span class=\"grad-text\">digital transformation.</span>" },
-        "description": { "en": "Full-stack services from mobile apps and web platforms to analytics and ML automation." }
+        "label": {
+          "en": "04 · Services",
+          "hi": "04 · Services"
+        },
+        "heading": {
+          "en": "Empowering your <span class=\"grad-text\">digital transformation.</span>",
+          "hi": "Empowering your <span class=\"grad-text\">digital transformation.</span>"
+        },
+        "description": {
+          "en": "Full-stack services from mobile apps and web platforms to analytics and ML automation.",
+          "hi": "Full-stack services from mobile apps and web platforms to analytics and ML automation."
+        }
       },
       "content": [
-        { "id": "s1", "type": "item", "props": { "code": "AI", "name": { "en": "AI/ML Development" }, "desc": { "en": "Predictive analytics, intelligent automation, custom models." } } },
-        { "id": "s2", "type": "item", "props": { "code": "SD", "name": { "en": "Software Dev" }, "desc": { "en": "Robust bespoke platforms and ERP systems." } } },
-        { "id": "s3", "type": "item", "props": { "code": "MB", "name": { "en": "Mobile Apps" }, "desc": { "en": "Seamless iOS and Android native experiences." } } },
-        { "id": "s4", "type": "item", "props": { "code": "GR", "name": { "en": "SEO and Growth" }, "desc": { "en": "Data-driven rankings and high-quality conversions." } } }
+        {
+          "id": "s1",
+          "type": "item",
+          "props": {
+            "code": "AI",
+            "name": {
+              "en": "AI/ML Development",
+              "hi": "AI/ML Development"
+            },
+            "desc": {
+              "en": "Predictive analytics, intelligent automation, custom models.",
+              "hi": "Predictive analytics, intelligent automation, custom models."
+            }
+          }
+        },
+        {
+          "id": "s2",
+          "type": "item",
+          "props": {
+            "code": "SD",
+            "name": {
+              "en": "Software Dev",
+              "hi": "Software Dev"
+            },
+            "desc": {
+              "en": "Robust bespoke platforms and ERP systems.",
+              "hi": "Robust bespoke platforms and ERP systems."
+            }
+          }
+        },
+        {
+          "id": "s3",
+          "type": "item",
+          "props": {
+            "code": "MB",
+            "name": {
+              "en": "Mobile Apps",
+              "hi": "Mobile Apps"
+            },
+            "desc": {
+              "en": "Seamless iOS and Android native experiences.",
+              "hi": "Seamless iOS and Android native experiences."
+            }
+          }
+        },
+        {
+          "id": "s4",
+          "type": "item",
+          "props": {
+            "code": "GR",
+            "name": {
+              "en": "SEO and Growth",
+              "hi": "SEO and Growth"
+            },
+            "desc": {
+              "en": "Data-driven rankings and high-quality conversions.",
+              "hi": "Data-driven rankings and high-quality conversions."
+            }
+          }
+        }
       ]
     },
     {
@@ -97,15 +377,76 @@
       "layout": "network",
       "adminTitle": "Technologies",
       "props": {
-        "label": { "en": "05 · Technologies" },
-        "heading": { "en": "One <span class=\"grad-text\">unified stack</span> across every system." },
-        "description": { "en": "We connect frontend, backend, cloud, and AI layers into one efficient platform." }
+        "label": {
+          "en": "05 · Technologies",
+          "hi": "05 · Technologies"
+        },
+        "heading": {
+          "en": "One <span class=\"grad-text\">unified stack</span> across every system.",
+          "hi": "One <span class=\"grad-text\">unified stack</span> across every system."
+        },
+        "description": {
+          "en": "We connect frontend, backend, cloud, and AI layers into one efficient platform.",
+          "hi": "We connect frontend, backend, cloud, and AI layers into one efficient platform."
+        }
       },
       "content": [
-        { "id": "t1", "type": "item", "props": { "key": { "en": "Uptime SLA" }, "value": { "en": "99.99%" } } },
-        { "id": "t2", "type": "item", "props": { "key": { "en": "Integrations" }, "value": { "en": "2,860+" } } },
-        { "id": "t3", "type": "item", "props": { "key": { "en": "Stacks" }, "value": { "en": "MERN · JAM · LAMP" } } },
-        { "id": "core", "type": "node", "props": { "left": "50%", "top": "50%", "isCenter": true, "endpoint": "APP CORE", "label": { "en": "Operations Core" } } }
+        {
+          "id": "t1",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Uptime SLA",
+              "hi": "Uptime SLA"
+            },
+            "value": {
+              "en": "99.99%",
+              "hi": "99.99%"
+            }
+          }
+        },
+        {
+          "id": "t2",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Integrations",
+              "hi": "Integrations"
+            },
+            "value": {
+              "en": "2,860+",
+              "hi": "2,860+"
+            }
+          }
+        },
+        {
+          "id": "t3",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Stacks",
+              "hi": "Stacks"
+            },
+            "value": {
+              "en": "MERN · JAM · LAMP",
+              "hi": "MERN · JAM · LAMP"
+            }
+          }
+        },
+        {
+          "id": "core",
+          "type": "node",
+          "props": {
+            "left": "50%",
+            "top": "50%",
+            "isCenter": true,
+            "endpoint": "APP CORE",
+            "label": {
+              "en": "Operations Core",
+              "hi": "Operations Core"
+            }
+          }
+        }
       ]
     },
     {
@@ -114,14 +455,65 @@
       "layout": "marquee",
       "adminTitle": "Industries",
       "props": {
-        "label": { "en": "06 · Industry Expertise" },
-        "heading": { "en": "Tailored for <span class=\"grad-text\">every sector.</span>" },
-        "description": { "en": "We serve diverse sectors with intelligent, scalable, and user-first solutions." }
+        "label": {
+          "en": "06 · Industry Expertise",
+          "hi": "06 · Industry Expertise"
+        },
+        "heading": {
+          "en": "Tailored for <span class=\"grad-text\">every sector.</span>",
+          "hi": "Tailored for <span class=\"grad-text\">every sector.</span>"
+        },
+        "description": {
+          "en": "We serve diverse sectors with intelligent, scalable, and user-first solutions.",
+          "hi": "We serve diverse sectors with intelligent, scalable, and user-first solutions."
+        }
       },
       "content": [
-        { "id": "i1", "type": "item", "props": { "tag": "F-01", "title": { "en": "Food and Restaurant" }, "desc": { "en": "Delivery apps, QR menus, POS systems, and kitchen tools." } } },
-        { "id": "i2", "type": "item", "props": { "tag": "E-02", "title": { "en": "Education and E-Learning" }, "desc": { "en": "Interactive learning platforms, live classes, and LMS." } } },
-        { "id": "i3", "type": "item", "props": { "tag": "G-03", "title": { "en": "Gaming and Sports" }, "desc": { "en": "Game development, fantasy leagues, and real-time stats." } } }
+        {
+          "id": "i1",
+          "type": "item",
+          "props": {
+            "tag": "F-01",
+            "title": {
+              "en": "Food and Restaurant",
+              "hi": "Food and Restaurant"
+            },
+            "desc": {
+              "en": "Delivery apps, QR menus, POS systems, and kitchen tools.",
+              "hi": "Delivery apps, QR menus, POS systems, and kitchen tools."
+            }
+          }
+        },
+        {
+          "id": "i2",
+          "type": "item",
+          "props": {
+            "tag": "E-02",
+            "title": {
+              "en": "Education and E-Learning",
+              "hi": "Education and E-Learning"
+            },
+            "desc": {
+              "en": "Interactive learning platforms, live classes, and LMS.",
+              "hi": "Interactive learning platforms, live classes, and LMS."
+            }
+          }
+        },
+        {
+          "id": "i3",
+          "type": "item",
+          "props": {
+            "tag": "G-03",
+            "title": {
+              "en": "Gaming and Sports",
+              "hi": "Gaming and Sports"
+            },
+            "desc": {
+              "en": "Game development, fantasy leagues, and real-time stats.",
+              "hi": "Game development, fantasy leagues, and real-time stats."
+            }
+          }
+        }
       ]
     },
     {
@@ -130,14 +522,65 @@
       "layout": "cards",
       "adminTitle": "AI Workflow",
       "props": {
-        "label": { "en": "07 · AI Workflow" },
-        "heading": { "en": "Smarter systems for a <span class=\"grad-text\">smarter future.</span>" },
-        "description": { "en": "Intelligent workflows that reduce manual bottlenecks and unlock data value." }
+        "label": {
+          "en": "07 · AI Workflow",
+          "hi": "07 · AI Workflow"
+        },
+        "heading": {
+          "en": "Smarter systems for a <span class=\"grad-text\">smarter future.</span>",
+          "hi": "Smarter systems for a <span class=\"grad-text\">smarter future.</span>"
+        },
+        "description": {
+          "en": "Intelligent workflows that reduce manual bottlenecks and unlock data value.",
+          "hi": "Intelligent workflows that reduce manual bottlenecks and unlock data value."
+        }
       },
       "content": [
-        { "id": "w1", "type": "item", "props": { "icon": ">_", "title": { "en": "Cognitive AI" }, "desc": { "en": "Specialized models that reason and solve business challenges." } } },
-        { "id": "w2", "type": "item", "props": { "icon": "~", "title": { "en": "Autonomous" }, "desc": { "en": "End-to-end automation for core operations." } } },
-        { "id": "w3", "type": "item", "props": { "icon": "check", "title": { "en": "Predictive" }, "desc": { "en": "Forecast trends and events with confidence." } } }
+        {
+          "id": "w1",
+          "type": "item",
+          "props": {
+            "icon": ">_",
+            "title": {
+              "en": "Cognitive AI",
+              "hi": "Cognitive AI"
+            },
+            "desc": {
+              "en": "Specialized models that reason and solve business challenges.",
+              "hi": "Specialized models that reason and solve business challenges."
+            }
+          }
+        },
+        {
+          "id": "w2",
+          "type": "item",
+          "props": {
+            "icon": "~",
+            "title": {
+              "en": "Autonomous",
+              "hi": "Autonomous"
+            },
+            "desc": {
+              "en": "End-to-end automation for core operations.",
+              "hi": "End-to-end automation for core operations."
+            }
+          }
+        },
+        {
+          "id": "w3",
+          "type": "item",
+          "props": {
+            "icon": "check",
+            "title": {
+              "en": "Predictive",
+              "hi": "Predictive"
+            },
+            "desc": {
+              "en": "Forecast trends and events with confidence.",
+              "hi": "Forecast trends and events with confidence."
+            }
+          }
+        }
       ]
     },
     {
@@ -146,14 +589,68 @@
       "layout": "metrics",
       "adminTitle": "Results",
       "props": {
-        "label": { "en": "09 · Results" },
-        "heading": { "en": "Scale many businesses <span class=\"grad-text\">from our expertise.</span>" },
-        "description": { "en": "Measured outcomes across platforms, products, and business goals." }
+        "label": {
+          "en": "09 · Results",
+          "hi": "09 · Results"
+        },
+        "heading": {
+          "en": "Scale many businesses <span class=\"grad-text\">from our expertise.</span>",
+          "hi": "Scale many businesses <span class=\"grad-text\">from our expertise.</span>"
+        },
+        "description": {
+          "en": "Measured outcomes across platforms, products, and business goals.",
+          "hi": "Measured outcomes across platforms, products, and business goals."
+        }
       },
       "content": [
-        { "id": "r1", "type": "item", "props": { "title": { "en": "Deployed Projects" }, "target": "500", "suffix": "+", "sub": { "en": "Apps, portals and sites" } } },
-        { "id": "r2", "type": "item", "props": { "title": { "en": "Global Clients" }, "target": "25", "suffix": "+", "sub": { "en": "Brands and collaborators" } } },
-        { "id": "r3", "type": "item", "props": { "title": { "en": "Years of Experience" }, "target": "15", "suffix": "+", "sub": { "en": "Decades of combined knowledge" } } }
+        {
+          "id": "r1",
+          "type": "item",
+          "props": {
+            "title": {
+              "en": "Deployed Projects",
+              "hi": "Deployed Projects"
+            },
+            "target": "500",
+            "suffix": "+",
+            "sub": {
+              "en": "Apps, portals and sites",
+              "hi": "Apps, portals and sites"
+            }
+          }
+        },
+        {
+          "id": "r2",
+          "type": "item",
+          "props": {
+            "title": {
+              "en": "Global Clients",
+              "hi": "Global Clients"
+            },
+            "target": "25",
+            "suffix": "+",
+            "sub": {
+              "en": "Brands and collaborators",
+              "hi": "Brands and collaborators"
+            }
+          }
+        },
+        {
+          "id": "r3",
+          "type": "item",
+          "props": {
+            "title": {
+              "en": "Years of Experience",
+              "hi": "Years of Experience"
+            },
+            "target": "15",
+            "suffix": "+",
+            "sub": {
+              "en": "Decades of combined knowledge",
+              "hi": "Decades of combined knowledge"
+            }
+          }
+        }
       ]
     }
   ]

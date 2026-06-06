@@ -1,9 +1,18 @@
 {
-  "title": { "en": "About" },
+  "title": {
+    "en": "About",
+    "hi": "About"
+  },
   "slug": "about",
   "isPublished": true,
-  "metaTitle": { "en": "About Us | Codified Web Solutions" },
-  "metaDescription": { "en": "Learn about Codified Web Solutions, our story, and how we build scalable digital products." },
+  "metaTitle": {
+    "en": "About Us | Codified Web Solutions",
+    "hi": "About Us | Codified Web Solutions"
+  },
+  "metaDescription": {
+    "en": "Learn about Codified Web Solutions, our story, and how we build scalable digital products.",
+    "hi": "Learn about Codified Web Solutions, our story, and how we build scalable digital products."
+  },
   "content": [
     {
       "id": "about-hero-section",
@@ -11,21 +20,106 @@
       "layout": "split",
       "adminTitle": "About Hero",
       "props": {
-        "label": { "en": "01 · Who We Are" },
-        "heading": { "en": "Building <span class=\"grad-text\">World-Class</span> Digital Products." },
-        "description": { "en": "At Codified Web Solutions, we are a collective of developers, designers, and strategists dedicated to building world-class digital products." },
+        "label": {
+          "en": "01 · Who We Are",
+          "hi": "01 · Who We Are"
+        },
+        "heading": {
+          "en": "Building <span class=\"grad-text\">World-Class</span> Digital Products.",
+          "hi": "Building <span class=\"grad-text\">World-Class</span> Digital Products."
+        },
+        "description": {
+          "en": "At Codified Web Solutions, we are a collective of developers, designers, and strategists dedicated to building world-class digital products.",
+          "hi": "At Codified Web Solutions, we are a collective of developers, designers, and strategists dedicated to building world-class digital products."
+        },
         "pills": [
-          { "text": { "en": "Driven by Purpose and Impact" } },
-          { "text": { "en": "User-First Solutions" } },
-          { "text": { "en": "Engineering with Empathy" } },
-          { "text": { "en": "Built to Scale from Day One" } }
+          {
+            "text": {
+              "en": "Driven by Purpose and Impact",
+              "hi": "Driven by Purpose and Impact"
+            }
+          },
+          {
+            "text": {
+              "en": "User-First Solutions",
+              "hi": "User-First Solutions"
+            }
+          },
+          {
+            "text": {
+              "en": "Engineering with Empathy",
+              "hi": "Engineering with Empathy"
+            }
+          },
+          {
+            "text": {
+              "en": "Built to Scale from Day One",
+              "hi": "Built to Scale from Day One"
+            }
+          }
         ]
       },
       "content": [
-        { "id": "about-stat-1", "type": "item", "props": { "value": { "en": "15+" }, "label": { "en": "Expert Developers" }, "accent": "var(--cyan)" } },
-        { "id": "about-stat-2", "type": "item", "props": { "value": { "en": "10+" }, "label": { "en": "Countries Served Global" }, "accent": "var(--pink)" } },
-        { "id": "about-stat-3", "type": "item", "props": { "value": { "en": "100%" }, "label": { "en": "Custom Architecture" }, "accent": "var(--purple)" } },
-        { "id": "about-stat-4", "type": "item", "props": { "value": { "en": "AI / ML" }, "label": { "en": "Specialized Tech Stack" }, "accent": "var(--cyan)" } }
+        {
+          "id": "about-stat-1",
+          "type": "item",
+          "props": {
+            "value": {
+              "en": "15+",
+              "hi": "15+"
+            },
+            "label": {
+              "en": "Expert Developers",
+              "hi": "Expert Developers"
+            },
+            "accent": "var(--cyan)"
+          }
+        },
+        {
+          "id": "about-stat-2",
+          "type": "item",
+          "props": {
+            "value": {
+              "en": "10+",
+              "hi": "10+"
+            },
+            "label": {
+              "en": "Countries Served Global",
+              "hi": "Countries Served Global"
+            },
+            "accent": "var(--pink)"
+          }
+        },
+        {
+          "id": "about-stat-3",
+          "type": "item",
+          "props": {
+            "value": {
+              "en": "100%",
+              "hi": "100%"
+            },
+            "label": {
+              "en": "Custom Architecture",
+              "hi": "Custom Architecture"
+            },
+            "accent": "var(--purple)"
+          }
+        },
+        {
+          "id": "about-stat-4",
+          "type": "item",
+          "props": {
+            "value": {
+              "en": "AI / ML",
+              "hi": "AI / ML"
+            },
+            "label": {
+              "en": "Specialized Tech Stack",
+              "hi": "Specialized Tech Stack"
+            },
+            "accent": "var(--cyan)"
+          }
+        }
       ]
     },
     {
@@ -35,9 +129,48 @@
       "adminTitle": "About Story",
       "props": {},
       "content": [
-        { "id": "story-1", "type": "item", "props": { "title": { "en": "What Drives Us" }, "desc": { "en": "We believe technology should solve real problems, not create new ones." } } },
-        { "id": "story-2", "type": "item", "props": { "title": { "en": "How We Work" }, "desc": { "en": "We follow a transparent, agile, and collaborative development process." } } },
-        { "id": "story-3", "type": "item", "props": { "title": { "en": "What Sets Us Apart" }, "desc": { "en": "We co-create custom-built solutions that align with your business DNA." } } }
+        {
+          "id": "story-1",
+          "type": "item",
+          "props": {
+            "title": {
+              "en": "What Drives Us",
+              "hi": "What Drives Us"
+            },
+            "desc": {
+              "en": "We believe technology should solve real problems, not create new ones.",
+              "hi": "We believe technology should solve real problems, not create new ones."
+            }
+          }
+        },
+        {
+          "id": "story-2",
+          "type": "item",
+          "props": {
+            "title": {
+              "en": "How We Work",
+              "hi": "How We Work"
+            },
+            "desc": {
+              "en": "We follow a transparent, agile, and collaborative development process.",
+              "hi": "We follow a transparent, agile, and collaborative development process."
+            }
+          }
+        },
+        {
+          "id": "story-3",
+          "type": "item",
+          "props": {
+            "title": {
+              "en": "What Sets Us Apart",
+              "hi": "What Sets Us Apart"
+            },
+            "desc": {
+              "en": "We co-create custom-built solutions that align with your business DNA.",
+              "hi": "We co-create custom-built solutions that align with your business DNA."
+            }
+          }
+        }
       ]
     },
     {
@@ -46,21 +179,102 @@
       "layout": "two-column",
       "adminTitle": "Core",
       "props": {
-        "label": { "en": "02 · Core" },
-        "heading": { "en": "Tech partner for <span class=\"grad-text\">scalable innovation.</span>" },
-        "description": { "en": "We develop secure, cloud-ready software to streamline operations and drive growth." },
+        "label": {
+          "en": "02 · Core",
+          "hi": "02 · Core"
+        },
+        "heading": {
+          "en": "Tech partner for <span class=\"grad-text\">scalable innovation.</span>",
+          "hi": "Tech partner for <span class=\"grad-text\">scalable innovation.</span>"
+        },
+        "description": {
+          "en": "We develop secure, cloud-ready software to streamline operations and drive growth.",
+          "hi": "We develop secure, cloud-ready software to streamline operations and drive growth."
+        },
         "tags": [
-          { "text": { "en": "Mobile" } },
-          { "text": { "en": "Cloud" } },
-          { "text": { "en": "Machine Learning" } },
-          { "text": { "en": "AI" } }
+          {
+            "text": {
+              "en": "Mobile",
+              "hi": "Mobile"
+            }
+          },
+          {
+            "text": {
+              "en": "Cloud",
+              "hi": "Cloud"
+            }
+          },
+          {
+            "text": {
+              "en": "Machine Learning",
+              "hi": "Machine Learning"
+            }
+          },
+          {
+            "text": {
+              "en": "AI",
+              "hi": "AI"
+            }
+          }
         ]
       },
       "content": [
-        { "id": "c1", "type": "item", "props": { "key": { "en": "Frontend" }, "value": { "en": "React, Next.js, Tailwind" } } },
-        { "id": "c2", "type": "item", "props": { "key": { "en": "Backend" }, "value": { "en": "Python, Node, Java" } } },
-        { "id": "c3", "type": "item", "props": { "key": { "en": "AI / ML" }, "value": { "en": "TensorFlow, PyTorch" } } },
-        { "id": "c4", "type": "item", "props": { "key": { "en": "Cloud" }, "value": { "en": "AWS, GCP, Azure" } } }
+        {
+          "id": "c1",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Frontend",
+              "hi": "Frontend"
+            },
+            "value": {
+              "en": "React, Next.js, Tailwind",
+              "hi": "React, Next.js, Tailwind"
+            }
+          }
+        },
+        {
+          "id": "c2",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Backend",
+              "hi": "Backend"
+            },
+            "value": {
+              "en": "Python, Node, Java",
+              "hi": "Python, Node, Java"
+            }
+          }
+        },
+        {
+          "id": "c3",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "AI / ML",
+              "hi": "AI / ML"
+            },
+            "value": {
+              "en": "TensorFlow, PyTorch",
+              "hi": "TensorFlow, PyTorch"
+            }
+          }
+        },
+        {
+          "id": "c4",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Cloud",
+              "hi": "Cloud"
+            },
+            "value": {
+              "en": "AWS, GCP, Azure",
+              "hi": "AWS, GCP, Azure"
+            }
+          }
+        }
       ]
     },
     {
@@ -69,19 +283,99 @@
       "layout": "feature",
       "adminTitle": "Why Us",
       "props": {
-        "label": { "en": "03 · Why Us" },
-        "heading": { "en": "Built on <span class=\"grad-text\">trust and quality.</span>" },
-        "description": { "en": "We go beyond coding with a comprehensive approach to long-term scalability and security." }
+        "label": {
+          "en": "03 · Why Us",
+          "hi": "03 · Why Us"
+        },
+        "heading": {
+          "en": "Built on <span class=\"grad-text\">trust and quality.</span>",
+          "hi": "Built on <span class=\"grad-text\">trust and quality.</span>"
+        },
+        "description": {
+          "en": "We go beyond coding with a comprehensive approach to long-term scalability and security.",
+          "hi": "We go beyond coding with a comprehensive approach to long-term scalability and security."
+        }
       },
       "content": [
-        { "id": "why-1", "type": "item", "props": { "key": { "en": "Agile Delivery" }, "value": { "en": "Rapid iterations and transparent milestones." } } },
-        { "id": "why-2", "type": "item", "props": { "key": { "en": "Secure by Design" }, "value": { "en": "Enterprise-grade security embedded into CI/CD." } } },
-        { "id": "why-3", "type": "item", "props": { "key": { "en": "Scalable Architecture" }, "value": { "en": "Microservices and serverless solutions built for growth." } } }
+        {
+          "id": "why-1",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Agile Delivery",
+              "hi": "Agile Delivery"
+            },
+            "value": {
+              "en": "Rapid iterations and transparent milestones.",
+              "hi": "Rapid iterations and transparent milestones."
+            }
+          }
+        },
+        {
+          "id": "why-2",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Secure by Design",
+              "hi": "Secure by Design"
+            },
+            "value": {
+              "en": "Enterprise-grade security embedded into CI/CD.",
+              "hi": "Enterprise-grade security embedded into CI/CD."
+            }
+          }
+        },
+        {
+          "id": "why-3",
+          "type": "item",
+          "props": {
+            "key": {
+              "en": "Scalable Architecture",
+              "hi": "Scalable Architecture"
+            },
+            "value": {
+              "en": "Microservices and serverless solutions built for growth.",
+              "hi": "Microservices and serverless solutions built for growth."
+            }
+          }
+        }
       ],
       "columns": [
         [
-          { "id": "qa-01", "type": "item", "props": { "code": "QA-01", "title": { "en": "Automated Testing" }, "desc": { "en": "Every commit triggers rigorous testing suites ensuring zero downtime." } } },
-          { "id": "de-02", "type": "item", "props": { "code": "DE-02", "tag": { "en": "Proprietary" }, "title": { "en": "DevOps CI/CD" }, "desc": { "en": "Seamless deployments with one-click rollbacks and container orchestration." } } }
+          {
+            "id": "qa-01",
+            "type": "item",
+            "props": {
+              "code": "QA-01",
+              "title": {
+                "en": "Automated Testing",
+                "hi": "Automated Testing"
+              },
+              "desc": {
+                "en": "Every commit triggers rigorous testing suites ensuring zero downtime.",
+                "hi": "Every commit triggers rigorous testing suites ensuring zero downtime."
+              }
+            }
+          },
+          {
+            "id": "de-02",
+            "type": "item",
+            "props": {
+              "code": "DE-02",
+              "tag": {
+                "en": "Proprietary",
+                "hi": "Proprietary"
+              },
+              "title": {
+                "en": "DevOps CI/CD",
+                "hi": "DevOps CI/CD"
+              },
+              "desc": {
+                "en": "Seamless deployments with one-click rollbacks and container orchestration.",
+                "hi": "Seamless deployments with one-click rollbacks and container orchestration."
+              }
+            }
+          }
         ]
       ]
     }

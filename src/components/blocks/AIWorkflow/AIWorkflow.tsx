@@ -14,7 +14,7 @@ const AI_ICONS: Record<string, React.ReactNode> = {
   s2: <Bot       size={22} strokeWidth={1.5} />,   // Autonomous
   s3: <TrendingUp size={22} strokeWidth={1.5} />,  // Predictive
   s4: <RefreshCw  size={22} strokeWidth={1.5} />,  // Self-Learning
-  s5: <MessageSquare size={22} strokeWidth={1.5} />, // Conversational
+  s5: <MessageSquare size={22} strokeWidth={1.5} />, // Conversationalt
 };
 
 export default function AIWorkflow() {
