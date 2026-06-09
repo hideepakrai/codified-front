@@ -59,9 +59,9 @@ export default function TechnicalCapabilitiesSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {capabilities.map((cap: any, i: number) => (
             <div key={cap.id || i} className="reveal glow-card" style={{ padding: '40px', textAlign: 'center' }}>
-              <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--cyan)', marginBottom: '16px', opacity: 0.6 }}>
+              {/* <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--cyan)', marginBottom: '16px', opacity: 0.6 }}>
                 CODE_{t(cap?.props?.icon, String(i + 1).padStart(2, '0'))}
-              </div>
+              </div> */}
               <EditableText
                 value={t(cap?.props?.title, '')}
                 isEditable={isEditable}

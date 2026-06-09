@@ -203,7 +203,7 @@ export default function ContactHeroSection() {
                   marginTop: '12px', fontSize: '15px',
                 }}>
                   <EditableText
-                    value={t(p.submitText, 'TRANSMIT_REQUEST')}
+                    value={t(p.submitText, 'Submit')}
                     isEditable={isEditable}
                     onSave={handle('props.submitText.en')}
                     tag="span"
@@ -211,9 +211,9 @@ export default function ContactHeroSection() {
                   <ArrowRight size={18} style={{ marginLeft: '10px' }} />
                 </button>
 
-                <div style={{ textAlign: 'center', fontSize: '11px', opacity: 0.3, fontFamily: 'var(--font-mono)', marginTop: '16px' }}>
+                {/* <div style={{ textAlign: 'center', fontSize: '11px', opacity: 0.3, fontFamily: 'var(--font-mono)', marginTop: '16px' }}>
                   ENCRYPTED_ENDPOINT_ACTIVE_0x82F
-                </div>
+                </div> */}
               </form>
             </div>
           </div>

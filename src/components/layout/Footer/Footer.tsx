@@ -1,5 +1,6 @@
 'use client';
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter, Zap, Brain, Shield, Globe } from 'lucide-react';
+import DynamicLogoSlider from '@/components/blocks/DynamicLogoSlider/DynamicLogoSlider';
 
 const AI_STACK = [
   { name: 'GPT-4o',       icon: '🧠', color: '#1DC3F3' },
@@ -43,6 +44,9 @@ export default function Footer() {
       <div className="absolute top-0 right-1/4 w-[500px] h-[250px] pointer-events-none" style={{
         background: 'radial-gradient(ellipse at center, rgba(154,123,255,0.05) 0%, transparent 70%)',
       }} />
+
+      {/* ── Client Logos Slider ── */}
+      <DynamicLogoSlider />
 
       <div className="relative max-w-7xl mx-auto pt-8">
 
@@ -222,7 +226,7 @@ export default function Footer() {
                 </a>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '12px', color: 'var(--text-mute)' }}>
                   <MapPin size={13} style={{ color: 'var(--cyan)', flexShrink: 0, marginTop: '2px' }} />
-                  <span>Jagatpura, Jaipur, Rajasthan</span>
+                  <span>#105, Mohan Nagar, Ramnagariya, Jagatpura, Jaipur. Near SKIT College.</span>
                 </div>
               </div>
             </div>
