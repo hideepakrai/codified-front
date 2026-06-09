@@ -10,11 +10,11 @@ import { saveField } from '@/lib/editorUtils';
 import { Brain, Bot, TrendingUp, RefreshCw, MessageSquare } from 'lucide-react';
 
 const AI_ICONS: Record<string, React.ReactNode> = {
-  s1: <Brain     size={22} strokeWidth={1.5} />,   // Cognitive AI
-  s2: <Bot       size={22} strokeWidth={1.5} />,   // Autonomous
-  s3: <TrendingUp size={22} strokeWidth={1.5} />,  // Predictive
-  s4: <RefreshCw  size={22} strokeWidth={1.5} />,  // Self-Learning
-  s5: <MessageSquare size={22} strokeWidth={1.5} />, // Conversationalt
+  w1: <Brain     size={22} strokeWidth={1.5} />,   // Cognitive AI
+  w2: <Bot       size={22} strokeWidth={1.5} />,   // Autonomous
+  w3: <TrendingUp size={22} strokeWidth={1.5} />,  // Predictive
+  w4: <RefreshCw  size={22} strokeWidth={1.5} />,  // Self-Learning
+  w5: <MessageSquare size={22} strokeWidth={1.5} />, // Conversational
 };
 
 export default function AIWorkflow() {

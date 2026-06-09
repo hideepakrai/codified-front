@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, "..");
 const envPath = path.join(rootDir, ".env");
-const pagesDir = path.join(rootDir, "src/lib/store/pages");
+const pagesDir = path.join(rootDir, "src/lib/pages");
 
 const requiredEnvKeys = ["MONGO_URI", "MONGO_DB_NAME", "MONGO_COLLECTION_NAME"];
 

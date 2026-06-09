@@ -116,14 +116,11 @@ export default function Industries() {
   const content = section.content;
   const handle = (fieldPath: string) => (value: string) => saveField(dispatch, currentPages, section.id, fieldPath, value);
 
-  const sequence1 = [...content, ...content];
-  const sequence2 = [...content.slice().reverse(), ...content.slice().reverse()];
-
   return (
     <section className="section" id="engine" data-mood="engine" data-annotate-id={`${currentPages?.slug || 'home'}-industries-section`}>
       <div className="inner" style={{ maxWidth: 'none' }}>
         <div className="head" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '40px' }}>
-          <div style={{ maxWidth: '560px' }}>
+          <div style={{ maxWidth: '900px' }}>
             <span className="label"><span className="num">{p.label?.en?.split('·')[0]}·</span> <EditableText value={(p.label?.en?.split('·')[1] || '').trim()} isEditable={isEditable} onSave={(val) => handle('props.label.en')(`${(p.label?.en?.split('·')[0] || '').trim()} · ${val}`)} tag="span" /></span>
             <EditableText
               value={p.heading?.en || ""}
@@ -150,16 +147,33 @@ export default function Industries() {
           </div>
         </div>
 
-        <div className="engine-track-wrap">
-          <div className="engine-track" id="engineTrack1">
-            {sequence1.map((c: any, i) => (
-              <IndustryCard key={`s1-${i}`} c={c} isEditable={isEditable} onSave={handle} contentIdx={content.indexOf(c)} />
-            ))}
+        <div className="engine-track-wrap overflow-hidden relative" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
+          {/* Row 1 */}
+          <div className="flex animate-marquee hover:[animation-play-state:paused] w-max" style={{ animationDuration: '40s' }}>
+            <div className="flex gap-6 pr-6 shrink-0">
+              {content.map((c: any, i: number) => (
+                <IndustryCard key={`r1-1-${i}`} c={c} isEditable={isEditable} onSave={handle} contentIdx={i} />
+              ))}
+            </div>
+            <div className="flex gap-6 pr-6 shrink-0" aria-hidden="true">
+              {content.map((c: any, i: number) => (
+                <IndustryCard key={`r1-2-${i}`} c={c} isEditable={isEditable} onSave={handle} contentIdx={i} />
+              ))}
+            </div>
           </div>
-          <div className="engine-track row2" id="engineTrack2">
-            {sequence2.map((c: any, i) => (
-              <IndustryCard key={`s2-${i}`} c={c} isEditable={isEditable} onSave={handle} contentIdx={content.indexOf(c)} />
-            ))}
+          
+          {/* Row 2 */}
+          <div className="flex animate-marquee hover:[animation-play-state:paused] w-max mt-6" style={{ animationDuration: '50s', animationDirection: 'reverse' }}>
+            <div className="flex gap-6 pr-6 shrink-0">
+              {content.slice().reverse().map((c: any, i: number) => (
+                <IndustryCard key={`r2-1-${i}`} c={c} isEditable={isEditable} onSave={handle} contentIdx={content.indexOf(c)} />
+              ))}
+            </div>
+            <div className="flex gap-6 pr-6 shrink-0" aria-hidden="true">
+              {content.slice().reverse().map((c: any, i: number) => (
+                <IndustryCard key={`r2-2-${i}`} c={c} isEditable={isEditable} onSave={handle} contentIdx={content.indexOf(c)} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

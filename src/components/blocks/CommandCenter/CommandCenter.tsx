@@ -117,7 +117,7 @@ export default function Results() {
     <section className="section" id="command" data-mood="command" data-annotate-id={`${currentPages?.slug || 'home'}-results-section`}>
       <div className="inner">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '40px', flexWrap: 'wrap' }}>
-          <div style={{ maxWidth: '620px' }}>
+          <div style={{ maxWidth: '1000px' }}>
             <span className="label"><span className="num">{p.label?.en?.split('·')[0]}·</span> <EditableText value={(p.label?.en?.split('·')[1] || '').trim()} isEditable={isEditable} onSave={(val) => handle('props.label.en')(`${(p.label?.en?.split('·')[0] || '').trim()} · ${val}`)} tag="span" /></span>
             <EditableText
               value={p.heading?.en || ""}
