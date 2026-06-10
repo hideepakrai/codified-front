@@ -11,7 +11,11 @@ export const metadata: Metadata = {
   description:
     'Codified Web Solutions turns fragmented business operations into scalable digital infrastructure.',
   icons: {
-    icon: '/img/favicon.svg',
+    icon: [
+      { url: '/img/favicon.svg', type: 'image/svg+xml' }
+    ],
+    shortcut: '/img/favicon.svg',
+    apple: '/img/favicon.svg',
   },
 };
 
