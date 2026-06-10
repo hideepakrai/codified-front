@@ -3,6 +3,7 @@
 import { useEffect } from "react"
 import { useSelector } from "react-redux";
 import { usePathname } from "next/navigation";
+import { SUPPORTED_LOCALES } from "@/lib/i18n";
 import { setCurrentPages, setEditMode } from "@/redux/slices/pages/pagesSlice";
 import GetAllPage from "./GetAllPage";
 import { RootState } from "@/redux/store";
@@ -18,7 +19,8 @@ const UpdateCurrentPage = () => {
   const { allPages } = useSelector((state: RootState) => state.pages)
   const pathname = usePathname();
   const segments = pathname.split('/').filter(Boolean);
-  const slug = segments[1] || "home";
+  const hasLocalePrefix = SUPPORTED_LOCALES.includes(segments[0]);
+  const slug = hasLocalePrefix ? (segments[1] || "home") : (segments[0] || "home");
 
   const dispatch = useAppDispatch()
   useEffect(() => {
