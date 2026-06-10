@@ -240,12 +240,13 @@ export default function Footer() {
         }}>
           {/* Logo + tagline */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <img src="https://www.codifiedweb.com/Image/codified-white-logo.webp" alt="Codified" style={{ height: '38px', objectFit: 'contain' }} />
+            <img src="/img/white-logo.svg" alt="Codified" style={{ height: '38px', objectFit: 'contain' }} />
             <span style={{
               fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.1em',
               color: 'var(--text-mute)', borderLeft: '1px solid var(--line-strong)', paddingLeft: '14px',
             }}>AI · WEB · MOBILE</span>
           </div>
+
 
           {/* Social icons */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>

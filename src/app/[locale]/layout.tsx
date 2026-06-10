@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'Codified Web Solutions — Digital Infrastructure for Modern Businesses',
   description:
     'Codified Web Solutions turns fragmented business operations into scalable digital infrastructure.',
+  icons: {
+    icon: '/img/favicon.svg',
+  },
 };
 
 export default async function LocaleLayout({
