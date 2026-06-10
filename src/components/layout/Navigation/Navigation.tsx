@@ -128,7 +128,7 @@ export default function Navigation() {
 
       <nav className="nav" onMouseLeave={() => setActiveMega(null)}>
         <Link href="/" onClick={closeMenu}>
-          <img src="https://www.codifiedweb.com/Image/codified-white-logo.webp" alt="Logo" className="h-[55px]" />
+          <img src="/img/white-logo.svg" alt="Logo" className="h-[55px]" />
         </Link>
 
         {/* Desktop menu */}
