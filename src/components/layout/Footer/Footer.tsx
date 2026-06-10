@@ -251,12 +251,11 @@ export default function Footer() {
           {/* Social icons */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             {[
-              { Icon: Facebook, hoverColor: 'var(--cyan)' },
-              { Icon: Instagram, hoverColor: 'var(--magenta)' },
-              { Icon: Linkedin, hoverColor: 'var(--cyan)' },
-              { Icon: Twitter, hoverColor: 'var(--text)' },
-            ].map(({ Icon, hoverColor }, i) => (
-              <a key={i} href="#" style={{
+              { Icon: Facebook, hoverColor: 'var(--cyan)', link: 'https://www.facebook.com/codifiedweb/?utm_source=website' },
+              { Icon: Instagram, hoverColor: 'var(--magenta)', link: 'https://www.instagram.com/codified_web/?utm_source=website' },
+              { Icon: Linkedin, hoverColor: 'var(--cyan)', link: 'https://www.linkedin.com/company/codified-web-solutions/?utm_source=website' },
+            ].map(({ Icon, hoverColor, link }, i) => (
+              <a key={i} href={link} target={link !== '#' ? "_blank" : undefined} rel={link !== '#' ? "noopener noreferrer" : undefined} style={{
                 width: '36px', height: '36px', borderRadius: '50%',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 border: '1px solid var(--line)', color: 'var(--text-mute)',
