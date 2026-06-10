@@ -60,9 +60,9 @@ export const defaultHeroData = {
     {
       id: "stat-4",
       props: {
-        key: { en: "Lines of Code", hi: "कोड की पंक्तियाँ" },
-        value: { en: "14.5M", hi: "14.5M" },
-        dataCount: "14580000",
+        key: { en: "Team Members", hi: "टीम के सदस्य" },
+        value: { en: "120+", hi: "120+" },
+        dataCount: "120",
         isCount: true
       }
     },

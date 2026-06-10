@@ -119,14 +119,14 @@
           "type": "item",
           "props": {
             "key": {
-              "en": "Lines of Code",
-              "hi": "Lines of Code"
+              "en": "Team Members",
+              "hi": "Team Members"
             },
             "value": {
-              "en": "14.5M",
-              "hi": "14.5M"
+              "en": "120+",
+              "hi": "120+"
             },
-            "dataCount": "14580000",
+            "dataCount": "120",
             "isCount": true
           }
         }
