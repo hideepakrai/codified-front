@@ -791,7 +791,7 @@ h2.display {
 }
 
 h1.display {
-  font-size: clamp(44px, 7.2vw, 92px)
+  font-size: clamp(44px, 7.2vw, 65px)
 }
 
 h2.display {
@@ -1219,7 +1219,7 @@ h3.display {
 }
 
 #data-grid .head .copy {
-  max-width: 520px
+  max-width: 800px
 }
 
 .module-grid {

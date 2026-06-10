@@ -119,14 +119,14 @@
           "type": "item",
           "props": {
             "key": {
-              "en": "Lines of Code",
-              "hi": "Lines of Code"
+              "en": "Team Members",
+              "hi": "Team Members"
             },
             "value": {
-              "en": "14.5M",
-              "hi": "14.5M"
+              "en": "120+",
+              "hi": "120+"
             },
-            "dataCount": "14580000",
+            "dataCount": "120",
             "isCount": true
           }
         }
@@ -432,21 +432,16 @@
               "hi": "MERN · JAM · LAMP"
             }
           }
-        },
-        {
-          "id": "core",
-          "type": "node",
-          "props": {
-            "left": "50%",
-            "top": "50%",
-            "isCenter": true,
-            "endpoint": "APP CORE",
-            "label": {
-              "en": "Operations Core",
-              "hi": "Operations Core"
-            }
-          }
         }
+      ],
+      "nodes": [
+        { "id": "core", "type": "node", "props": { "left": "50%", "top": "50%", "isCenter": true, "desc": { "en": "Central technology orchestrator linking all layers of your business.", "hi": "केंद्रीय तकनीक." }, "endpoint": "APP CORE", "label": { "en": "Operations Core", "hi": "संचालन कोर" } } },
+        { "id": "admin", "type": "node", "props": { "left": "18%", "top": "18%", "isCenter": false, "desc": { "en": "Web and mobile applications tailored for you.", "hi": "वेब और मोबाइल एप्लिकेशन." }, "endpoint": "FRONTEND", "label": { "en": "Applications", "hi": "एप्लिकेशन" } } },
+        { "id": "storefront", "type": "node", "props": { "left": "80%", "top": "18%", "isCenter": false, "desc": { "en": "Secure cloud environments running smoothly 24/7.", "hi": "सुरक्षित क्लाउड." }, "endpoint": "CLOUD", "label": { "en": "Infrastructure", "hi": "इंफ्रास्ट्रक्चर" } } },
+        { "id": "ai", "type": "node", "props": { "left": "8%", "top": "50%", "isCenter": false, "desc": { "en": "Autonomous AI systems driving predictions and data synthesis.", "hi": "स्वायत्त AI सिस्टम." }, "endpoint": "MACHINE LEARNING", "label": { "en": "Intelligence", "hi": "इंटेलिजेंस" } } },
+        { "id": "analytics", "type": "node", "props": { "left": "92%", "top": "50%", "isCenter": false, "desc": { "en": "Databases and big data processing units.", "hi": "डेटाबेस." }, "endpoint": "POSTGRES / MONGO", "label": { "en": "Data Storage", "hi": "डेटा स्टोरेज" } } },
+        { "id": "payments", "type": "node", "props": { "left": "18%", "top": "82%", "isCenter": false, "desc": { "en": "API, Webhooks and Payment integrations.", "hi": "भुगतान एकीकरण." }, "endpoint": "STRIPE / PAYPAL", "label": { "en": "Gateways", "hi": "गेटवे" } } },
+        { "id": "vendor", "type": "node", "props": { "left": "80%", "top": "82%", "isCenter": false, "desc": { "en": "Third-party vendor synchronizations natively embedded.", "hi": "थर्ड-पार्टी." }, "endpoint": "ENTERPRISE", "label": { "en": "Partners", "hi": "पार्टनर्स" } } }
       ]
     },
     {
@@ -481,7 +476,8 @@
             "desc": {
               "en": "Delivery apps, QR menus, POS systems, and kitchen tools.",
               "hi": "Delivery apps, QR menus, POS systems, and kitchen tools."
-            }
+            },
+            "image": "/images/industries/food-new.png"
           }
         },
         {
@@ -496,7 +492,8 @@
             "desc": {
               "en": "Interactive learning platforms, live classes, and LMS.",
               "hi": "Interactive learning platforms, live classes, and LMS."
-            }
+            },
+            "image": "/images/industries/education-new.png"
           }
         },
         {
@@ -511,7 +508,40 @@
             "desc": {
               "en": "Game development, fantasy leagues, and real-time stats.",
               "hi": "Game development, fantasy leagues, and real-time stats."
-            }
+            },
+            "image": "/images/industries/gaming-new.png"
+          }
+        },
+        {
+          "id": "i4",
+          "type": "item",
+          "props": {
+            "tag": "F-04",
+            "title": {
+              "en": "Fintech and Banking",
+              "hi": "Fintech and Banking"
+            },
+            "desc": {
+              "en": "Payment gateways, digital wallets, and neo-banking solutions.",
+              "hi": "Payment gateways, digital wallets, and neo-banking solutions."
+            },
+            "image": "/images/industries/fintech-new.png"
+          }
+        },
+        {
+          "id": "i5",
+          "type": "item",
+          "props": {
+            "tag": "H-05",
+            "title": {
+              "en": "Healthcare and MedTech",
+              "hi": "Healthcare and MedTech"
+            },
+            "desc": {
+              "en": "Telemedicine, patient portals, and HIPAA-compliant EMR systems.",
+              "hi": "Telemedicine, patient portals, and HIPAA-compliant EMR systems."
+            },
+            "image": "/images/industries/healthcare-new.png"
           }
         }
       ]
@@ -578,6 +608,36 @@
             "desc": {
               "en": "Forecast trends and events with confidence.",
               "hi": "Forecast trends and events with confidence."
+            }
+          }
+        },
+        {
+          "id": "w4",
+          "type": "item",
+          "props": {
+            "icon": "refresh",
+            "title": {
+              "en": "Self-Learning",
+              "hi": "Self-Learning"
+            },
+            "desc": {
+              "en": "Models that adapt and improve from real-time data.",
+              "hi": "Models that adapt and improve from real-time data."
+            }
+          }
+        },
+        {
+          "id": "w5",
+          "type": "item",
+          "props": {
+            "icon": "message",
+            "title": {
+              "en": "Conversational",
+              "hi": "Conversational"
+            },
+            "desc": {
+              "en": "Human-like interactions driving customer success.",
+              "hi": "Human-like interactions driving customer success."
             }
           }
         }

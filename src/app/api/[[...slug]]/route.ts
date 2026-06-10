@@ -1,6 +1,8 @@
 import { proxyRequest } from "@/lib/apiProxy";
 import { NextRequest, NextResponse } from "next/server";
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest, context: { params: Promise<{ slug?: string[] }> }) {
   return handleProxy(req, context);
 }
