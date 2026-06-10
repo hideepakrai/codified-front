@@ -7,6 +7,7 @@ export type LocaleMap = Record<string, string>;
 export type SupportedLocale = 'en' | string;
 
 export const DEFAULT_LOCALE: SupportedLocale = 'en';
+export const SUPPORTED_LOCALES: SupportedLocale[] = ['en', 'hi'];
 
 /**
  * Resolve a localized value — returns the locale string, falls back to defaultLocale, then first available.
