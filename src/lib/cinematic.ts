@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
 let threeInitialized = false;
+let renderer: any = null;
 let lenis: any;
 let scrollProgress = 0;
 let signalConverge = 0;
@@ -37,16 +38,29 @@ export function initCinematic() {
   ScrollTrigger.getAll().forEach((t: any) => t.kill());
   ScrollTrigger.refresh();
 
-  if (!threeInitialized) {
-    const canvas = document.getElementById('webgl') as HTMLCanvasElement;
-    if (!canvas) return; // safety
+  const canvas = document.getElementById('webgl') as HTMLCanvasElement;
+  if (!canvas) return; // safety
 
-    threeInitialized = true;
+  // If renderer exists but canvas changed (client-side navigation), re-attach renderer to the new canvas
+  if (threeInitialized && renderer) {
+    // Update the renderer to use the new canvas element
+    const domElement = renderer.domElement;
+    if (domElement !== canvas) {
+      // Copy the renderer context to the new canvas by re-initializing
+      threeInitialized = false;
+      renderer.dispose();
+      renderer = null;
+    }
+  }
+
+  if (!threeInitialized) {
 
     /* ----------------------------------------------------------
        SMOOTH SCROLL (Lenis)
     ---------------------------------------------------------- */
     if (!REDUCED) {
+      // Destroy previous Lenis instance before re-creating
+      if (lenis) { lenis.destroy(); lenis = null; }
       lenis = new Lenis({
         duration: 1.15,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -67,7 +81,8 @@ export function initCinematic() {
     /* ----------------------------------------------------------
        THREE.JS — fixed background scene
     ---------------------------------------------------------- */
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    threeInitialized = true;
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setClearColor(0x000000, 0);
@@ -391,11 +406,24 @@ export function initCinematic() {
   /* 4. API NETWORK */
   const netSvg = document.getElementById('netSvg');
   const netStage = document.getElementById('netStage');
-  const nodes = Array.from(netStage?.querySelectorAll('.net-node') || []) as HTMLElement[];
-  const center = nodes.find(n => n.dataset.id === 'core');
+
+  // Helper: always get the live list of nodes from DOM (handles async Redux render)
+  const getNodes = () => Array.from(netStage?.querySelectorAll('.net-node') || []) as HTMLElement[];
+  const getCenter = () => getNodes().find((n: HTMLElement) => n.dataset.id === 'core');
+
+  // Modal elements — declared early so buildNet() click handlers can reference them
+  const netModal = document.getElementById('netModal');
+  const netTitle = document.getElementById('netTitle');
+  const netDesc = document.getElementById('netDesc');
+  const netEndpoint = document.getElementById('netEndpoint');
+  const netClose = document.getElementById('netClose');
 
   function buildNet() {
     if (!netSvg) return;
+    const liveNodes = getNodes();
+    const liveCenter = getCenter();
+    if (!liveNodes.length) return; // nodes not rendered yet — MutationObserver will retry
+
     netSvg.innerHTML = '';
     const W = 600, H = 600;
     const cx = 50, cy = 50;
@@ -409,8 +437,8 @@ export function initCinematic() {
     `;
     netSvg.appendChild(defs);
 
-    nodes.forEach(n => {
-      if (n === center) return;
+    liveNodes.forEach((n: HTMLElement) => {
+      if (n === liveCenter) return;
       const x = parseFloat(n.style.left) / 100 * W;
       const y = parseFloat(n.style.top) / 100 * H;
       const ccx = cx / 100 * W, ccy = cy / 100 * H;
@@ -433,8 +461,43 @@ export function initCinematic() {
       c.dataset.target = n.dataset.id;
       netSvg.appendChild(c);
     });
+
+    // Attach click handlers to newly rendered nodes
+    liveNodes.forEach((n: HTMLElement) => {
+      n.addEventListener('click', () => {
+        getNodes().forEach((x: HTMLElement) => x.classList.remove('active'));
+        n.classList.add('active');
+        if (netTitle) netTitle.textContent = n.textContent?.trim() || '';
+        if (netDesc) netDesc.textContent = n.dataset.desc || '';
+        if (netEndpoint) netEndpoint.textContent = n.dataset.endpoint || '';
+        if (netModal) netModal.classList.add('show');
+      });
+    });
   }
+
+  // Watch for React-rendered nodes arriving asynchronously from Redux
+  let netBuilt = false;
+  if (netStage) {
+    const mo = new MutationObserver(() => {
+      if (!netBuilt && getNodes().length > 0) {
+        netBuilt = true;
+        buildNet();
+        mo.disconnect();
+        // Trigger reveal animation if section is already in view
+        ScrollTrigger.refresh();
+        if (netSvg && netPaths().length > 0) {
+          gsap.fromTo(netPaths(), { opacity: 0, strokeDashoffset: 40 }, { opacity: 0.6, strokeDashoffset: 0, duration: 1.2, stagger: 0.08, ease: 'power2.out' });
+          gsap.fromTo(getNodes(), { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.05 });
+          netPaths().forEach((p: any, i: number) => animatePacket(p, i * 0.3));
+        }
+      }
+    });
+    mo.observe(netStage, { childList: true, subtree: true });
+  }
+
+  // Initial build attempt (nodes may already be in DOM on refresh)
   buildNet();
+  if (getNodes().length > 0) netBuilt = true;
   window.addEventListener('resize', buildNet);
 
   const netPaths = () => Array.from(netSvg?.querySelectorAll('path') || []);
@@ -444,9 +507,11 @@ export function initCinematic() {
     trigger: '#api', start: 'top 60%', once: false,
     onEnter: () => {
       apiReveal = 1;
+      // If nodes weren't built yet, build now
+      if (!netBuilt && getNodes().length > 0) { netBuilt = true; buildNet(); }
       gsap.fromTo(netPaths(), { opacity: 0, strokeDashoffset: 40 }, { opacity: 0.6, strokeDashoffset: 0, duration: 1.2, stagger: 0.08, ease: 'power2.out' });
-      gsap.fromTo(nodes, { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.05 });
-      netPaths().forEach((p: any, i) => animatePacket(p, i * 0.3));
+      gsap.fromTo(getNodes(), { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.05 });
+      netPaths().forEach((p: any, i: number) => animatePacket(p, i * 0.3));
     }
   });
 
@@ -473,21 +538,6 @@ export function initCinematic() {
     });
   }
 
-  const netModal = document.getElementById('netModal');
-  const netTitle = document.getElementById('netTitle');
-  const netDesc = document.getElementById('netDesc');
-  const netEndpoint = document.getElementById('netEndpoint');
-  const netClose = document.getElementById('netClose');
-  nodes.forEach(n => {
-    n.addEventListener('click', () => {
-      nodes.forEach(x => x.classList.remove('active'));
-      n.classList.add('active');
-      if (netTitle) netTitle.textContent = n.textContent?.trim() || '';
-      if (netDesc) netDesc.textContent = n.dataset.desc || '';
-      if (netEndpoint) netEndpoint.textContent = n.dataset.endpoint || '';
-      if (netModal) netModal.classList.add('show');
-    });
-  });
   if (netClose) netClose.addEventListener('click', () => netModal?.classList.remove('show'));
   if (netStage) netStage.addEventListener('click', (e) => {
     if (e.target === netStage || e.target === netSvg) netModal?.classList.remove('show');

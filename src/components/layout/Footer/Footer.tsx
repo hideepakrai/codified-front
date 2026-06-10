@@ -48,7 +48,7 @@ export default function Footer() {
       {/* ── Client Logos Slider ── */}
       <DynamicLogoSlider />
 
-      <div className="relative max-w-7xl mx-auto pt-8">
+      <div className="relative px-12 mx-auto pt-8">
 
         {/* ── AI CTA Banner ── */}
         <div style={{
