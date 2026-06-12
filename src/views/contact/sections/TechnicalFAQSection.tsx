@@ -64,7 +64,7 @@ export default function TechnicalFAQSection() {
               style={{ marginTop: '24px' } as React.CSSProperties}
             />
             <div style={{ marginTop: '40px' }}>
-              <a href={p.ctaHref || 'mailto:info@codifiedweb.com'} className="btn btn-outline" style={{ padding: '14px 30px' }}>
+              <a href={p.ctaHref || 'mailto:hello@codifiedweb.com'} className="btn btn-outline" style={{ padding: '14px 30px' }}>
                 <EditableText
                   value={t(p.ctaText, 'Email Support Directly')}
                   isEditable={isEditable}

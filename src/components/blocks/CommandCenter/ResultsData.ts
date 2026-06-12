@@ -42,7 +42,7 @@ export const defaultResultsData = {
     },
     buttons: [
       { text: { en: "Request Proposal", hi: "प्रस्ताव का अनुरोध करें" }, type: "primary", url: "#" },
-      { text: { en: "info@codifiedweb.com", hi: "info@codifiedweb.com" }, type: "secondary", url: "mailto:info@codifiedweb.com" }
+      { text: { en: "hello@codifiedweb.com", hi: "hello@codifiedweb.com" }, type: "secondary", url: "mailto:hello@codifiedweb.com" }
     ]
   }
 };

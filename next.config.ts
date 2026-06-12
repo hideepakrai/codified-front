@@ -9,6 +9,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const nextConfig: NextConfig = {
  
   outputFileTracingRoot: __dirname,
+
+  // Prevent nodemailer from being bundled (it needs native Node.js modules)
+  serverExternalPackages: ['nodemailer'],
  
   images: {
  

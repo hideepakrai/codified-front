@@ -22,8 +22,8 @@ export default function ServiceDetailPage({ service, slug }: { service: any, slu
       <main style={{ paddingTop: '80px' }}>
         <section className="section" id="service-hero" data-mood={service.mood}>
           <div className="inner">
-            <div className="service-hero-split">
-              <div className="copy reveal">
+            <div className="grid lg:grid-cols-2 gap-12 items-stretch">
+              <div className="copy reveal py-8">
                 <span className="label">
                   <span className="num">S_{slug.toUpperCase()} ·</span> {service.title}
                 </span>
@@ -43,11 +43,9 @@ export default function ServiceDetailPage({ service, slug }: { service: any, slu
                 </div>
               </div>
 
-              {service.heroImage && (
-                <div className="service-hero-img reveal">
-                  <img src={service.heroImage} alt={service.title} />
-                </div>
-              )}
+              <div className="service-hero-img reveal relative w-full h-full min-h-[400px]" style={{ borderRadius: '24px', overflow: 'hidden' }}>
+                <img src={service.heroImage || '/images/services/web-hero.png'} alt={service.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
             </div>
           </div>
         </section>

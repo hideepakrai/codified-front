@@ -111,6 +111,14 @@ export default function Navigation() {
             desc: "Expert developers ready to integrate with your existing workflow.",
             link: "/hire-developers"
           }
+        },
+        {
+          name: "Careers",
+          featured: {
+            title: "Join Our Team",
+            desc: "Explore open positions and build the future of digital innovation with us.",
+            link: "/careers"
+          }
         }
       ]
     }
@@ -255,6 +263,7 @@ export default function Navigation() {
         <Link href="/services" onClick={closeMenu}>Services</Link>
         <Link href="/industries" onClick={closeMenu}>Industries</Link>
         <Link href="/technologies" onClick={closeMenu}>Technologies</Link>
+        <Link href="/careers" onClick={closeMenu}>Careers</Link>
         <Link href="/contact" onClick={closeMenu}>Contact</Link>
         <Link href="/contact" className="drawer-cta" onClick={closeMenu}>Free Consultation →</Link>
       </div>
