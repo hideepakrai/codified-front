@@ -1,7 +1,7 @@
 'use client';
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
-import { Mail, MessageSquare, Globe, ArrowRight, ShieldCheck } from 'lucide-react';
-import { useMemo } from 'react';
+import { Mail, MessageSquare, Globe, ArrowRight, ShieldCheck, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import EditableText from '@/components/shared/EditableText';
 import { saveField } from '@/lib/editorUtils';
@@ -16,6 +16,33 @@ export default function ContactHeroSection() {
   const dispatch = useAppDispatch();
   const currentPages = useAppSelector((state) => state.pages.currentPages);
   const isEditable = useAppSelector((state) => state.pages.isEditablePage);
+
+  const [formData, setFormData] = useState({ name: '', email: '', requirement: 'AI / LLM Integration', message: '' });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    setErrorMsg('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.');
+      setStatus('success');
+      setFormData({ name: '', email: '', requirement: 'AI / LLM Integration', message: '' });
+    } catch (err: any) {
+      setStatus('error');
+      setErrorMsg(err.message || 'Failed to send. Please try again.');
+    }
+  };
 
   const section = useMemo(
     () => currentPages?.content?.find((s: any) => s?.adminTitle === 'Contact Hero'),
@@ -37,7 +64,7 @@ export default function ContactHeroSection() {
           valPath: `content.${idx}.props.value.en`,
         }))
       : [
-          { icon: <Mail size={20} />, label: 'Email', val: 'info@codifiedweb.com', labelPath: '', valPath: '' },
+          { icon: <Mail size={20} />, label: 'Email', val: 'hello@codifiedweb.com', labelPath: '', valPath: '' },
           { icon: <MessageSquare size={20} />, label: 'Phone', val: '+91 99 820 001 05', labelPath: '', valPath: '' },
           { icon: <Globe size={20} />, label: 'Address', val: 'Jagatpura, Jaipur. Near SKIT College.', labelPath: '', valPath: '' },
         ];
@@ -157,64 +184,118 @@ export default function ContactHeroSection() {
                 />
               </div>
 
-              <form className="grid gap-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="form-group">
-                    <label style={{ display: 'block', fontSize: '11px', fontFamily: 'var(--font-mono)', opacity: 0.5, marginBottom: '10px' }}>Name</label>
-                    <input type="text" placeholder="John Doe" style={{
-                      width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--line-strong)',
-                      padding: '16px 20px', borderRadius: '12px', color: '#fff', outline: 'none',
-                    }} className="focus:border-cyan-500/50 transition-colors" />
-                  </div>
-                  <div className="form-group">
-                    <label style={{ display: 'block', fontSize: '11px', fontFamily: 'var(--font-mono)', opacity: 0.5, marginBottom: '10px' }}>Email</label>
-                    <input type="email" placeholder="john@company.com" style={{
-                      width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--line-strong)',
-                      padding: '16px 20px', borderRadius: '12px', color: '#fff', outline: 'none',
-                    }} className="focus:border-cyan-500/50 transition-colors" />
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label style={{ display: 'block', fontSize: '11px', fontFamily: 'var(--font-mono)', opacity: 0.5, marginBottom: '10px' }}>Requirement</label>
-                  <select style={{
-                    width: '100%', background: 'var(--bg-1)', border: '1px solid var(--line-strong)',
-                    padding: '16px 20px', borderRadius: '12px', color: '#fff', outline: 'none', appearance: 'none',
-                  }}>
-                    <option style={{ background: '#070b18', color: '#fff' }}>AI / LLM Integration</option>
-                    <option style={{ background: '#070b18', color: '#fff' }}>Enterprise Web Scaling</option>
-                    <option style={{ background: '#070b18', color: '#fff' }}>UI/UX Design Systems</option>
-                    <option style={{ background: '#070b18', color: '#fff' }}>Full-Stack Audit</option>
-                    <option style={{ background: '#070b18', color: '#fff' }}>Other / Not Specified</option>
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label style={{ display: 'block', fontSize: '11px', fontFamily: 'var(--font-mono)', opacity: 0.5, marginBottom: '10px' }}>Message</label>
-                  <textarea rows={4} placeholder="Tell us about your project or technical hurdles..." style={{
-                    width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--line-strong)',
-                    padding: '16px 20px', borderRadius: '12px', color: '#fff', outline: 'none', resize: 'none',
-                  }} />
-                </div>
-
-                <button type="submit" className="btn" style={{
-                  width: '100%', justifyContent: 'center', padding: '18px',
-                  background: 'var(--cyan)', color: '#04060d', fontWeight: 600,
-                  marginTop: '12px', fontSize: '15px',
+              {/* Success state */}
+              {status === 'success' ? (
+                <div style={{
+                  textAlign: 'center', padding: '48px 24px',
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px',
                 }}>
-                  <EditableText
-                    value={t(p.submitText, 'Submit')}
-                    isEditable={isEditable}
-                    onSave={handle('props.submitText.en')}
-                    tag="span"
-                  />
-                  <ArrowRight size={18} style={{ marginLeft: '10px' }} />
-                </button>
+                  <CheckCircle size={48} style={{ color: '#1DC3F3' }} />
+                  <h4 style={{ fontSize: '20px', fontWeight: 600, color: 'var(--text)' }}>Message Sent!</h4>
+                  <p style={{ fontSize: '14px', color: 'var(--text-mute)', lineHeight: 1.6 }}>
+                    Thank you! We&apos;ve received your enquiry and will get back to you within 2 hours.
+                  </p>
+                  <button
+                    onClick={() => setStatus('idle')}
+                    style={{
+                      marginTop: '8px', padding: '10px 24px', borderRadius: '999px',
+                      border: '1px solid rgba(29,195,243,0.4)', background: 'transparent',
+                      color: 'var(--cyan)', cursor: 'pointer', fontSize: '13px',
+                    }}
+                  >
+                    Send Another
+                  </button>
+                </div>
+              ) : (
+                <form className="grid gap-6" onSubmit={handleSubmit}>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="form-group">
+                      <label style={{ display: 'block', fontSize: '11px', fontFamily: 'var(--font-mono)', opacity: 0.5, marginBottom: '10px' }}>Name *</label>
+                      <input
+                        type="text" name="name" value={formData.name} onChange={handleChange}
+                        placeholder="John Doe" required
+                        style={{
+                          width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--line-strong)',
+                          padding: '16px 20px', borderRadius: '12px', color: '#fff', outline: 'none',
+                        }} className="focus:border-cyan-500/50 transition-colors"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label style={{ display: 'block', fontSize: '11px', fontFamily: 'var(--font-mono)', opacity: 0.5, marginBottom: '10px' }}>Email *</label>
+                      <input
+                        type="email" name="email" value={formData.email} onChange={handleChange}
+                        placeholder="john@company.com" required
+                        style={{
+                          width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--line-strong)',
+                          padding: '16px 20px', borderRadius: '12px', color: '#fff', outline: 'none',
+                        }} className="focus:border-cyan-500/50 transition-colors"
+                      />
+                    </div>
+                  </div>
 
-                {/* <div style={{ textAlign: 'center', fontSize: '11px', opacity: 0.3, fontFamily: 'var(--font-mono)', marginTop: '16px' }}>
-                  ENCRYPTED_ENDPOINT_ACTIVE_0x82F
-                </div> */}
-              </form>
+                  <div className="form-group">
+                    <label style={{ display: 'block', fontSize: '11px', fontFamily: 'var(--font-mono)', opacity: 0.5, marginBottom: '10px' }}>Requirement</label>
+                    <select
+                      name="requirement" value={formData.requirement} onChange={handleChange}
+                      style={{
+                        width: '100%', background: 'var(--bg-1)', border: '1px solid var(--line-strong)',
+                        padding: '16px 20px', borderRadius: '12px', color: '#fff', outline: 'none', appearance: 'none',
+                      }}
+                    >
+                      <option style={{ background: '#070b18', color: '#fff' }}>AI / LLM Integration</option>
+                      <option style={{ background: '#070b18', color: '#fff' }}>Enterprise Web Scaling</option>
+                      <option style={{ background: '#070b18', color: '#fff' }}>UI/UX Design Systems</option>
+                      <option style={{ background: '#070b18', color: '#fff' }}>Full-Stack Audit</option>
+                      <option style={{ background: '#070b18', color: '#fff' }}>Other / Not Specified</option>
+                    </select>
+                  </div>
+
+                  <div className="form-group">
+                    <label style={{ display: 'block', fontSize: '11px', fontFamily: 'var(--font-mono)', opacity: 0.5, marginBottom: '10px' }}>Message *</label>
+                    <textarea
+                      rows={4} name="message" value={formData.message} onChange={handleChange}
+                      placeholder="Tell us about your project or technical hurdles..." required
+                      style={{
+                        width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--line-strong)',
+                        padding: '16px 20px', borderRadius: '12px', color: '#fff', outline: 'none', resize: 'none',
+                      }}
+                    />
+                  </div>
+
+                  {/* Error message */}
+                  {status === 'error' && (
+                    <div style={{
+                      display: 'flex', alignItems: 'center', gap: '10px',
+                      padding: '14px 18px', borderRadius: '10px',
+                      background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.3)',
+                      color: '#fca5a5', fontSize: '13px',
+                    }}>
+                      <AlertCircle size={16} style={{ flexShrink: 0 }} />
+                      {errorMsg}
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={status === 'loading'}
+                    className="btn"
+                    style={{
+                      width: '100%', justifyContent: 'center', padding: '18px',
+                      background: status === 'loading' ? 'rgba(29,195,243,0.5)' : 'var(--cyan)',
+                      color: '#04060d', fontWeight: 600,
+                      marginTop: '12px', fontSize: '15px',
+                      cursor: status === 'loading' ? 'not-allowed' : 'pointer',
+                      display: 'flex', alignItems: 'center', gap: '10px',
+                    }}
+                  >
+                    {status === 'loading' ? (
+                      <><Loader2 size={18} style={{ animation: 'spin 1s linear infinite' }} /> Submitting...</>
+                    ) : (
+                      <><span style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.05em', fontSize: '15px' }}>Submit</span><ArrowRight size={18} /></>
+                    )}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
 

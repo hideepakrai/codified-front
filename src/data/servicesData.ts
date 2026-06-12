@@ -77,6 +77,7 @@ export const servicesData: Record<string, ServiceContent> = {
     title: "Cloud & Hosting",
     tagline: "Secure and Scalable Infrastructure",
     description: "From cloud migration to managed hosting, we ensure reliable performance, enhanced security, and operational efficiency. Our solutions are designed for high availability and peak performance under any load.",
+    heroImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
     features: [
       { title: "AWS Management", desc: "Scalable infrastructure deployments on AWS with cost-optimization strategies." },
       { title: "Cloud Migration", desc: "Seamless and secure transition of your legacy systems to modern cloud environments." },
@@ -100,6 +101,7 @@ export const servicesData: Record<string, ServiceContent> = {
     title: "Digital Marketing",
     tagline: "Growth Strategies Backed by Data",
     description: "We combine SEO, paid campaigns, and performance analytics to increase visibility, drive traffic, and maximize ROI. Our growth-first approach ensures every marketing dollar delivers measurable value.",
+    heroImage: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80",
     features: [
       { title: "SEO Strategy", desc: "Technical and content SEO to drive organic traffic and dominate search rankings." },
       { title: "Paid Marketing (PPC)", desc: "High-conversion ad campaigns across Google, Meta, and LinkedIn." },
@@ -123,6 +125,7 @@ export const servicesData: Record<string, ServiceContent> = {
     title: "AI/ML Development",
     tagline: "Predictive Analytics & Custom Models",
     description: "Harness the power of machine learning to automate complex decisions. We build custom models that learn from your data and deliver actionable predictions.",
+    heroImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80",
     features: [
       { title: "Model Training", desc: "Training custom LLMs and ML models on your proprietary datasets." },
       { title: "Predictive Analytics", desc: "Identifying patterns and trends to forecast future business outcomes." },
@@ -137,6 +140,7 @@ export const servicesData: Record<string, ServiceContent> = {
     title: "Software Development",
     tagline: "Enterprise-Grade Bespoke Platforms",
     description: "Robust, scalable, and secure software tailored to your business logic. We build enterprise systems that streamline operations and drive growth.",
+    heroImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
     features: [
       { title: "Custom ERP", desc: "Centralized management systems for your entire business operation." },
       { title: "Microservices", desc: "Building scalable distributed systems that are easy to maintain." }
@@ -150,6 +154,7 @@ export const servicesData: Record<string, ServiceContent> = {
     title: "Mobile Apps",
     tagline: "Seamless iOS & Android Experiences",
     description: "Native and cross-platform mobile apps that users love. We focus on performance, accessibility, and intuitive design.",
+    heroImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
     features: [
       { title: "Native iOS/Android", desc: "High-performance apps built with Swift and Kotlin." },
       { title: "React Native", desc: "Efficient cross-platform development with a single codebase." }
@@ -163,6 +168,7 @@ export const servicesData: Record<string, ServiceContent> = {
     title: "AI Chatbot",
     tagline: "Conversational AI for Smarter Interaction",
     description: "We build intelligent, conversational AI chatbots that engage, assist, and convert - available 24/7 across your website, app, or support channels. Our solutions use advanced LLMs like GPT-4, Claude, and LLaMA to provide human-like customer support.",
+    heroImage: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=80",
     features: [
       { title: "Custom Bot Development", desc: "Tailored to your business needs using advanced LLMs like GPT-4 and Claude." },
       { title: "Multi-Channel", desc: "Deploy across website, mobile app, WhatsApp, Slack, and Messenger." },
@@ -178,6 +184,7 @@ export const servicesData: Record<string, ServiceContent> = {
     title: "AI Agent",
     tagline: "Autonomous Agents for Complex Workflows",
     description: "We design and deploy intelligent AI agents that can analyze data, make decisions, and execute tasks independently to revolutionize your operational efficiency. Our agents simplify complex workflows and bring intelligence to every business process.",
+    heroImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
     features: [
       { title: "Autonomous Workflows", desc: "Agents that execute tasks, manage reporting, and handle approvals independently." },
       { title: "Customer Support Agents", desc: "Resolve tickets and handle complex queries with 24/7 human-like reasoning." },
@@ -193,6 +200,7 @@ export const servicesData: Record<string, ServiceContent> = {
     title: "Generative AI",
     tagline: "Next-Gen Content & Media Generation",
     description: "Unlock the power of Generative AI to create high-quality content, images, and code at scale. We integrate state-of-the-art models into your creative and technical workflows.",
+    heroImage: "https://images.unsplash.com/photo-1675271591211-126ad94e495d?auto=format&fit=crop&w=800&q=80",
     features: [
       { title: "LLM Customization", desc: "Fine-tuning large language models on your specific domain data." },
       { title: "Image & Media Gen", desc: "Integrating Stable Diffusion and Midjourney for automated asset creation." },
@@ -207,6 +215,7 @@ export const servicesData: Record<string, ServiceContent> = {
     title: "UI/UX Design",
     tagline: "Aesthetic & User-Centric Digital Experiences",
     description: "We craft visually stunning and highly intuitive interfaces that prioritize user experience. Our design process combines research, prototyping, and aesthetic excellence to build products people love.",
+    heroImage: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80",
     features: [
       { title: "User Research", desc: "Deep-dive into user behavior and pain points to inform design strategy." },
       { title: "Interactive Prototyping", desc: "High-fidelity clickable prototypes that validate flows before coding." },
@@ -221,6 +230,7 @@ export const servicesData: Record<string, ServiceContent> = {
     title: "Full Stack Development",
     tagline: "End-to-End Engineering Excellence",
     description: "Comprehensive development services covering both frontend and backend. We build robust, scalable architectures that support complex business logic and high traffic.",
+    heroImage: "https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&w=800&q=80",
     features: [
       { title: "Modern Frontend", desc: "Highly responsive UIs built with React, Next.js, and Vue." },
       { title: "Robust Backend", desc: "Scalable server-side logic using Node.js, Python, or Go." },
@@ -235,6 +245,7 @@ export const servicesData: Record<string, ServiceContent> = {
     title: "CMS Development",
     tagline: "Custom Content Management Solutions",
     description: "Empower your team with intuitive content management. We build custom CMS platforms and integrate headless solutions like Payload and Sanity for maximum flexibility.",
+    heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
     features: [
       { title: "Headless CMS", desc: "Decoupled architectures that allow content delivery across any platform." },
       { title: "Custom Admin Panels", desc: "Tailored dashboards that match your specific data management needs." }
@@ -248,6 +259,7 @@ export const servicesData: Record<string, ServiceContent> = {
     title: "ERP & CRM",
     tagline: "Business Logic & Customer Management",
     description: "Streamline your internal operations and customer relationships with custom-built ERP and CRM systems. We focus on automation, data integrity, and cross-departmental visibility.",
+    heroImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
     features: [
       { title: "Custom ERP", desc: "Unified systems for inventory, finance, and human resource management." },
       { title: "CRM Automation", desc: "Automated sales pipelines, lead tracking, and customer engagement tools." }
@@ -261,6 +273,7 @@ export const servicesData: Record<string, ServiceContent> = {
     title: "Mobile App Development",
     tagline: "Native & Cross-Platform Mobile Solutions",
     description: "High-performance mobile applications that deliver seamless experiences on iOS and Android. We leverage the latest frameworks to build apps that are fast, secure, and intuitive.",
+    heroImage: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=800&q=80",
     features: [
       { title: "iOS Development", desc: "Native apps built with Swift and SwiftUI for the Apple ecosystem." },
       { title: "Android Development", desc: "Modern Android apps using Kotlin and Jetpack Compose." },
@@ -296,7 +309,7 @@ export const servicesData: Record<string, ServiceContent> = {
     title: "Paid Marketing",
     tagline: "Targeted Ad Campaigns for Maximum ROI",
     description: "Drive instant traffic and high-quality leads with performance-focused ad campaigns. We manage your entire paid advertising lifecycle from audience selection to budget optimization.",
-    heroImage: "/images/services/marketing-hero.png",
+    heroImage: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=800&q=80",
     features: [
       { title: "Google Ads (PPC)", desc: "Search and Display campaigns that capture high-intent users at the right time." },
       { title: "Social Ads", desc: "Highly targeted campaigns on Meta, LinkedIn, and TikTok to drive engagement." },
@@ -311,7 +324,7 @@ export const servicesData: Record<string, ServiceContent> = {
     title: "Analytics & Reporting",
     tagline: "Data-Driven Insights & ROI Tracking",
     description: "Transparency is at the heart of our marketing. We provide deep-dive analytics and real-time reporting to ensure every marketing dollar is delivering measurable value.",
-    heroImage: "/images/services/marketing-hero.png",
+    heroImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80",
     features: [
       { title: "Conversion Tracking", desc: "Setting up precise tracking for leads, sales, and user behavior events." },
       { title: "Custom Dashboards", desc: "Real-time visual reporting that gives you clear visibility into campaign health." },

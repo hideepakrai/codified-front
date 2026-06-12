@@ -1,5 +1,6 @@
 'use client';
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter, Zap, Brain, Shield, Globe } from 'lucide-react';
+import Link from 'next/link';
+import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Zap, Brain, Shield, Globe } from 'lucide-react';
 import DynamicLogoSlider from '@/components/blocks/DynamicLogoSlider/DynamicLogoSlider';
 
 const AI_STACK = [
@@ -45,10 +46,7 @@ export default function Footer() {
         background: 'radial-gradient(ellipse at center, rgba(154,123,255,0.05) 0%, transparent 70%)',
       }} />
 
-      {/* ── Client Logos Slider ── */}
-      <DynamicLogoSlider />
-
-      <div className="relative px-12 mx-auto pt-8">
+      <div className="relative px-12 mx-auto pt-16">
 
         {/* ── AI CTA Banner ── */}
         <div style={{
@@ -110,7 +108,7 @@ export default function Footer() {
               >
                 Start a Project <span>→</span>
               </a>
-              <a href="mailto:info@codifiedweb.com" style={{
+              <a href="mailto:hello@codifiedweb.com" style={{
                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
                 fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.08em',
                 padding: '10px 22px', borderRadius: '999px',
@@ -118,7 +116,7 @@ export default function Footer() {
                 color: 'var(--text-soft)', transition: 'color .2s',
                 textDecoration: 'none',
               }}>
-                <Mail size={13} /> info@codifiedweb.com
+                <Mail size={13} /> hello@codifiedweb.com
               </a>
             </div>
           </div>
@@ -168,69 +166,169 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* ── Links Grid ── */}
-        <div style={{ borderTop: '1px solid var(--line)', paddingTop: '48px', marginBottom: '48px' }}>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+        {/* ── Links & Contact Grid (New Design) ── */}
+        <div style={{ borderTop: '1px solid var(--line)', paddingTop: '60px', paddingBottom: '60px' }}>
+          
+          {/* Top row: Logo & Socials */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-16">
             <div>
-              <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '13px', color: 'var(--text)', marginBottom: '20px', letterSpacing: '0.04em' }}>About</h4>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                {['Our Company', 'Core Team', 'Career', 'CSR', 'How We Work'].map(l => (
-                  <li key={l}><a href="#" style={{ fontSize: '13px', color: 'var(--text-mute)', textDecoration: 'none', transition: 'color .2s' }}
-                    onMouseEnter={e => (e.currentTarget.style.color = 'var(--cyan-soft)')}
-                    onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-mute)')}>{l}</a></li>
-                ))}
-              </ul>
+              <img src="/img/white-logo.svg" alt="Codified Web" style={{ height: '62px', marginBottom: '16px' }} />
+              <p style={{ color: '#a0aab8', fontSize: '15px', maxWidth: '500px' }}>
+                Build Smarter. Better. Faster. We build world-class digital products that empower innovation and growth.
+              </p>
             </div>
-            <div>
-              <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '13px', color: 'var(--text)', marginBottom: '20px', letterSpacing: '0.04em' }}>Services</h4>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                {['iOS App Dev', 'Android App Dev', 'AI Solutions', 'Web Development', 'Cloud & DevOps', 'Digital Transform'].map(l => (
-                  <li key={l}><a href="#" style={{ fontSize: '13px', color: 'var(--text-mute)', textDecoration: 'none', transition: 'color .2s' }}
-                    onMouseEnter={e => (e.currentTarget.style.color = 'var(--cyan-soft)')}
-                    onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-mute)')}>{l}</a></li>
+            
+            <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+              <span style={{ fontSize: '16px', color: '#fff', fontWeight: 500 }}>Follow us:</span>
+              <div style={{ display: 'flex', gap: '12px' }}>
+                {[
+                  { Icon: Linkedin, link: 'https://www.linkedin.com/company/codified-web-solutions/?utm_source=website' },
+                  { Icon: Facebook, link: 'https://www.facebook.com/codifiedweb/?utm_source=website' },
+                  { Icon: Instagram, link: 'https://www.instagram.com/codified_web/?utm_source=website' },
+                ].map(({ Icon, link }, i) => (
+                  <a key={i} href={link} target={link !== '#' ? "_blank" : undefined} rel={link !== '#' ? "noopener noreferrer" : undefined} style={{
+                    width: '38px', height: '38px', borderRadius: '8px',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    background: 'rgba(255,255,255,0.05)', color: '#fff', transition: 'all .2s ease',
+                  }}
+                    onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.1)')}
+                    onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.05)')}
+                  >
+                    <Icon size={18} />
+                  </a>
                 ))}
-              </ul>
-            </div>
-            <div>
-              <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '13px', color: 'var(--text)', marginBottom: '20px', letterSpacing: '0.04em' }}>AI &amp; Tech</h4>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                {['Generative AI', 'Computer Vision', 'NLP & LLMs', 'ML Pipelines', 'Edge AI', 'IoT & Sensors'].map(l => (
-                  <li key={l}><a href="#" style={{ fontSize: '13px', color: 'var(--text-mute)', textDecoration: 'none', transition: 'color .2s' }}
-                    onMouseEnter={e => (e.currentTarget.style.color = 'var(--cyan-soft)')}
-                    onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-mute)')}>{l}</a></li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '13px', color: 'var(--text)', marginBottom: '20px', letterSpacing: '0.04em' }}>Industries</h4>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                {['Fintech', 'Healthcare AI', 'E-Commerce', 'EdTech', 'Real Estate'].map(l => (
-                  <li key={l}><a href="#" style={{ fontSize: '13px', color: 'var(--text-mute)', textDecoration: 'none', transition: 'color .2s' }}
-                    onMouseEnter={e => (e.currentTarget.style.color = 'var(--cyan-soft)')}
-                    onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-mute)')}>{l}</a></li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '13px', color: 'var(--text)', marginBottom: '20px', letterSpacing: '0.04em' }}>Contact</h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                <a href="mailto:info@codifiedweb.com" style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: 'var(--text-mute)', textDecoration: 'none', transition: 'color .2s' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--cyan-soft)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-mute)')}>
-                  <Mail size={13} style={{ color: 'var(--cyan)', flexShrink: 0 }} /> info@codifiedweb.com
-                </a>
-                <a href="tel:+919982000105" style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: 'var(--text-mute)', textDecoration: 'none', transition: 'color .2s' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--cyan-soft)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-mute)')}>
-                  <Phone size={13} style={{ color: 'var(--cyan)', flexShrink: 0 }} /> (+91) 99 820 001 05
-                </a>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '12px', color: 'var(--text-mute)' }}>
-                  <MapPin size={13} style={{ color: 'var(--cyan)', flexShrink: 0, marginTop: '2px' }} />
-                  <span>#105, Mohan Nagar, Ramnagariya, Jagatpura, Jaipur. Near SKIT College.</span>
-                </div>
               </div>
             </div>
           </div>
+
+          <div className="flex flex-col lg:flex-row gap-16">
+            
+            {/* Left: Contact Boxes */}
+            <div style={{ flex: '0 0 380px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '18px', padding: '18px 24px', background: 'rgba(255,255,255,0.02)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <div style={{ flexShrink: 0, width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ff5c5c' }}>
+                  <Mail size={22} />
+                </div>
+                <div>
+                  <div style={{ color: '#f1c27a', fontSize: '13px', marginBottom: '4px' }}>Our email</div>
+                  <a href="mailto:hello@codifiedweb.com" style={{ color: '#fff', fontSize: '15px', textDecoration: 'none' }}>hello@codifiedweb.com</a>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '18px', padding: '18px 24px', background: 'rgba(255,255,255,0.02)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <div style={{ flexShrink: 0, width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f1c27a' }}>
+                  <Phone size={22} />
+                </div>
+                <div>
+                  <div style={{ color: '#f1c27a', fontSize: '13px', marginBottom: '4px' }}>Call to our sales department</div>
+                  <a href="tel:+919982000105" style={{ color: '#fff', fontSize: '15px', textDecoration: 'none' }}>+91 99 820 001 05</a>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '18px', padding: '18px 24px', background: 'rgba(255,255,255,0.02)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <div style={{ flexShrink: 0, width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1DC3F3' }}>
+                  <MapPin size={22} />
+                </div>
+                <div>
+                  <div style={{ color: '#f1c27a', fontSize: '13px', marginBottom: '4px' }}>Head Office</div>
+                  <div style={{ color: '#fff', fontSize: '14px', lineHeight: 1.5 }}>
+                    #105, Mohan Nagar, Ramnagariya,<br/>
+                    Jagatpura, Jaipur, Rajasthan 302017
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Links Columns */}
+            <div style={{ flex: 1, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '40px' }}>
+              
+              <div>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '16px', color: '#fff', marginBottom: '24px' }}>About</h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  {[
+                    { label: 'About Us',         href: '/about' },
+                    { label: 'Hire Developers',  href: '/hire-developers' },
+                    { label: 'Technologies',     href: '/technologies' },
+                    { label: 'Internship',       href: '/internship' },
+                    { label: 'Careers',          href: '/careers' },
+                    { label: 'Contact',          href: '/contact' },
+                  ].map(({ label, href }) => (
+                    <li key={label}>
+                      <Link href={href} style={{ fontSize: '14px', color: '#a0aab8', textDecoration: 'none', transition: 'color .2s' }}
+                        onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
+                        onMouseLeave={e => (e.currentTarget.style.color = '#a0aab8')}>{label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '16px', color: '#fff', marginBottom: '24px' }}>Services</h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  {[
+                    { label: 'AI Consulting',     href: '/services/ai-consulting' },
+                    { label: 'AI Chatbot',        href: '/services/ai-chatbot' },
+                    { label: 'Generative AI',     href: '/services/gen-ai' },
+                    { label: 'UI/UX Design',      href: '/services/ui-ux-design' },
+                    { label: 'Full Stack Dev',    href: '/services/full-stack-development' },
+                    { label: 'Mobile App Dev',    href: '/services/mobile-app-development' },
+                    { label: 'SEO / SMM / PPC',   href: '/services/seo-smm-amo-ppc' },
+                  ].map(({ label, href }) => (
+                    <li key={label}>
+                      <Link href={href} style={{ fontSize: '14px', color: '#a0aab8', textDecoration: 'none', transition: 'color .2s' }}
+                        onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
+                        onMouseLeave={e => (e.currentTarget.style.color = '#a0aab8')}>{label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '16px', color: '#fff', marginBottom: '24px' }}>AI &amp; Tech</h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  {[
+                    { label: 'AI Agent',          href: '/services/ai-agent' },
+                    { label: 'CMS Development',   href: '/services/cms-development' },
+                    { label: 'ERP & CRM',         href: '/services/erp-crm' },
+                    { label: 'iOS Development',   href: '/services/mobile-app-development' },
+                    { label: 'Paid Marketing',    href: '/services/paid-marketing' },
+                    { label: 'Analytics',         href: '/services/analytics-reporting' },
+                  ].map(({ label, href }) => (
+                    <li key={label}>
+                      <Link href={href} style={{ fontSize: '14px', color: '#a0aab8', textDecoration: 'none', transition: 'color .2s' }}
+                        onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
+                        onMouseLeave={e => (e.currentTarget.style.color = '#a0aab8')}>{label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '16px', color: '#fff', marginBottom: '24px' }}>Industries</h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  {[
+                    { label: 'Fintech',           href: '/industries/fintech' },
+                    { label: 'Healthcare',        href: '/industries/healthcare' },
+                    { label: 'E-Commerce',        href: '/industries/e-commerce' },
+                    { label: 'Education',         href: '/industries/edtech' },
+                    { label: 'Real Estate',       href: '/industries/realestate' },
+                  ].map(({ label, href }) => (
+                    <li key={label}>
+                      <Link href={href} style={{ fontSize: '14px', color: '#a0aab8', textDecoration: 'none', transition: 'color .2s' }}
+                        onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
+                        onMouseLeave={e => (e.currentTarget.style.color = '#a0aab8')}>{label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        {/* ── Client Logos Slider (Moved to Bottom) ── */}
+        <div style={{ margin: '20px 0 60px' }}>
+          <DynamicLogoSlider />
         </div>
 
         {/* ── Bottom bar ── */}
@@ -238,41 +336,21 @@ export default function Footer() {
           borderTop: '1px solid var(--line)', paddingTop: '28px', paddingBottom: '28px',
           display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '20px',
         }}>
-          {/* Logo + tagline */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <img src="/img/white-logo.svg" alt="Codified" style={{ height: '38px', objectFit: 'contain' }} />
-            <span style={{
-              fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.1em',
-              color: 'var(--text-mute)', borderLeft: '1px solid var(--line-strong)', paddingLeft: '14px',
-            }}>AI · WEB · MOBILE</span>
-          </div>
-
-
-          {/* Social icons */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            {[
-              { Icon: Facebook, hoverColor: 'var(--cyan)', link: 'https://www.facebook.com/codifiedweb/?utm_source=website' },
-              { Icon: Instagram, hoverColor: 'var(--magenta)', link: 'https://www.instagram.com/codified_web/?utm_source=website' },
-              { Icon: Linkedin, hoverColor: 'var(--cyan)', link: 'https://www.linkedin.com/company/codified-web-solutions/?utm_source=website' },
-            ].map(({ Icon, hoverColor, link }, i) => (
-              <a key={i} href={link} target={link !== '#' ? "_blank" : undefined} rel={link !== '#' ? "noopener noreferrer" : undefined} style={{
-                width: '36px', height: '36px', borderRadius: '50%',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                border: '1px solid var(--line)', color: 'var(--text-mute)',
-                background: 'rgba(255,255,255,0.02)', transition: 'all .2s ease',
-              }}
-                onMouseEnter={e => (e.currentTarget.style.color = hoverColor, e.currentTarget.style.borderColor = 'rgba(29,195,243,0.3)', e.currentTarget.style.background = 'rgba(29,195,243,0.05)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-mute)', e.currentTarget.style.borderColor = 'var(--line)', e.currentTarget.style.background = 'rgba(255,255,255,0.02)')}
-              >
-                <Icon size={15} />
-              </a>
-            ))}
-          </div>
-
           {/* Copyright */}
-          <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.06em', color: 'var(--text-mute)' }}>
-            © 2025–2026 Codified Web Solutions
+          <p style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#a0aab8' }}>
+            Copyright © 2026 Codified Web Solutions. All Rights Reserved.
           </p>
+
+          {/* Policy Links */}
+          <div style={{ display: 'flex', gap: '16px', fontSize: '13px', color: '#a0aab8' }}>
+            <Link href="/terms" style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
+              onMouseLeave={e => (e.currentTarget.style.color = '#a0aab8')}>Terms and privacy</Link>
+            <span>|</span>
+            <Link href="/privacy" style={{ color: 'inherit', textDecoration: 'none', transition: 'color .2s' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
+              onMouseLeave={e => (e.currentTarget.style.color = '#a0aab8')}>Privacy policy</Link>
+          </div>
         </div>
 
       </div>

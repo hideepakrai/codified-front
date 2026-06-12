@@ -49,8 +49,8 @@
           "hi": "Estimated response time: < 2 hours"
         },
         "submitText": {
-          "en": "TRANSMIT_REQUEST",
-          "hi": "TRANSMIT_REQUEST"
+          "en": "Submit",
+          "hi": "Submit"
         }
       },
       "content": [
@@ -63,8 +63,8 @@
               "hi": "Email"
             },
             "value": {
-              "en": "info@codifiedweb.com",
-              "hi": "info@codifiedweb.com"
+              "en": "hello@codifiedweb.com",
+              "hi": "hello@codifiedweb.com"
             }
           }
         },
@@ -276,7 +276,7 @@
           "en": "Email Support Directly",
           "hi": "Email Support Directly"
         },
-        "ctaHref": "mailto:info@codifiedweb.com"
+        "ctaHref": "mailto:hello@codifiedweb.com"
       },
       "content": [
         {
