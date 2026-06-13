@@ -18,7 +18,7 @@ const IndustryCard = ({ c, isEditable, onSave, contentIdx }: { c: any; isEditabl
     {/* Full-bleed image — top 55% of card */}
     <div style={{ position: 'relative', width: '100%', height: '170px', overflow: 'hidden', flexShrink: 0 }}>
       <img
-        src={c.props?.image}
+        src={c.props?.image || '/images/industries/general-premium.png'}
         alt={c.props?.title?.en}
         style={{
           width: '100%',
@@ -107,7 +107,7 @@ export default function Industries() {
 
   const section = useMemo(() => {
     if (!currentPages) return null;
-    return currentPages.content?.find((s: any) => s?.adminTitle === 'Industries');
+    return currentPages.content?.find((s: any) => s?.adminTitle === 'Industries' || s?.adminTitle === 'Industry Marquee');
   }, [currentPages]);
 
   if (!section) return null;
