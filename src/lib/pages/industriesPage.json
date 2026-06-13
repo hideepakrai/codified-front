@@ -10,28 +10,40 @@
     "hi": "Industries We Serve | Codified Web Solutions"
   },
   "metaDescription": {
-    "en": "From food & hospitality to healthcare and education — Codified builds intelligent, scalable digital products for every sector.",
-    "hi": "From food & hospitality to healthcare and education — Codified builds intelligent, scalable digital products for every sector."
+    "en": "From food & hospitality to healthcare and education \u2014 Codified builds intelligent, scalable digital products for every sector.",
+    "hi": "From food & hospitality to healthcare and education \u2014 Codified builds intelligent, scalable digital products for every sector."
   },
   "content": [
     {
-      "id": "industry-marquee-section",
+      "id": "industry-hero",
       "type": "section",
-      "layout": "marquee",
-      "adminTitle": "Industry Marquee",
+      "adminTitle": "Industry Hero",
       "props": {
         "label": {
-          "en": "06 · Industry Expertise",
-          "hi": "06 · Industry Expertise"
+          "en": "INDUSTRY EXPERTISE",
+          "hi": "INDUSTRY EXPERTISE"
         },
         "heading": {
-          "en": "Tailored for <span class=\"grad-text\">every sector.</span>",
-          "hi": "Tailored for <span class=\"grad-text\">every sector.</span>"
+          "en": "Transforming sectors through <span class=\"grad-text\">intelligence.</span>",
+          "hi": "Transforming sectors through <span class=\"grad-text\">intelligence.</span>"
         },
         "description": {
-          "en": "We serve diverse sectors with intelligent, scalable, and user-first solutions.",
-          "hi": "We serve diverse sectors with intelligent, scalable, and user-first solutions."
-        }
+          "en": "We build scalable, enterprise-grade digital products tailored to the unique challenges of your industry.",
+          "hi": "We build scalable, enterprise-grade digital products tailored to the unique challenges of your industry."
+        },
+        "metaItems": [
+          { "text": { "en": "8+ Sectors" }, "type": "default" },
+          { "text": { "en": "Enterprise Scale" }, "type": "violet" }
+        ]
+      }
+    },
+    {
+      "id": "industry-grid",
+      "type": "section",
+      "adminTitle": "Industry Grid",
+      "props": {
+        "heading": { "en": "Explore our focus areas." },
+        "hi": "Explore our focus areas."
       },
       "content": [
         {
@@ -39,14 +51,9 @@
           "type": "item",
           "props": {
             "tag": "F-01",
-            "title": {
-              "en": "Food & Restaurant",
-              "hi": "Food & Restaurant"
-            },
-            "desc": {
-              "en": "Delivery apps, QR menus, POS systems, and kitchen management tools.",
-              "hi": "Delivery apps, QR menus, POS systems, and kitchen management tools."
-            }
+            "title": { "en": "Food & Restaurant" },
+            "desc": { "en": "Delivery apps, QR menus, POS systems, and kitchen management tools." },
+            "image": "/images/industries/food-new.png"
           }
         },
         {
@@ -54,14 +61,9 @@
           "type": "item",
           "props": {
             "tag": "E-02",
-            "title": {
-              "en": "Education & E-Learning",
-              "hi": "Education & E-Learning"
-            },
-            "desc": {
-              "en": "Interactive learning platforms, live classes, LMS, and virtual classrooms.",
-              "hi": "Interactive learning platforms, live classes, LMS, and virtual classrooms."
-            }
+            "title": { "en": "Education & E-Learning" },
+            "desc": { "en": "Interactive learning platforms, live classes, LMS, and virtual classrooms." },
+            "image": "/images/industries/education-new.png"
           }
         },
         {
@@ -69,14 +71,9 @@
           "type": "item",
           "props": {
             "tag": "G-03",
-            "title": {
-              "en": "Gaming & Sports",
-              "hi": "Gaming & Sports"
-            },
-            "desc": {
-              "en": "Game development, fantasy leagues, live score engines, and real-time stats.",
-              "hi": "Game development, fantasy leagues, live score engines, and real-time stats."
-            }
+            "title": { "en": "Gaming & Sports" },
+            "desc": { "en": "Game development, fantasy leagues, live score engines, and real-time stats." },
+            "image": "/images/industries/gaming-new.png"
           }
         },
         {
@@ -84,14 +81,9 @@
           "type": "item",
           "props": {
             "tag": "H-04",
-            "title": {
-              "en": "Healthcare & MedTech",
-              "hi": "Healthcare & MedTech"
-            },
-            "desc": {
-              "en": "Patient portals, telemedicine apps, appointment systems, and HIPAA-compliant platforms.",
-              "hi": "Patient portals, telemedicine apps, appointment systems, and HIPAA-compliant platforms."
-            }
+            "title": { "en": "Healthcare & MedTech" },
+            "desc": { "en": "Patient portals, telemedicine apps, appointment systems, and HIPAA platforms." },
+            "image": "/images/industries/healthcare-new.png"
           }
         },
         {
@@ -99,14 +91,9 @@
           "type": "item",
           "props": {
             "tag": "R-05",
-            "title": {
-              "en": "Real Estate & PropTech",
-              "hi": "Real Estate & PropTech"
-            },
-            "desc": {
-              "en": "Property listings, virtual tours, CRM platforms, and smart building dashboards.",
-              "hi": "Property listings, virtual tours, CRM platforms, and smart building dashboards."
-            }
+            "title": { "en": "Real Estate & PropTech" },
+            "desc": { "en": "Property listings, virtual tours, CRM platforms, and smart building dashboards." },
+            "image": "/images/industries/general-premium.png"
           }
         },
         {
@@ -114,14 +101,9 @@
           "type": "item",
           "props": {
             "tag": "L-06",
-            "title": {
-              "en": "Logistics & Supply Chain",
-              "hi": "Logistics & Supply Chain"
-            },
-            "desc": {
-              "en": "Fleet management, route optimization, warehouse ops, and live tracking systems.",
-              "hi": "Fleet management, route optimization, warehouse ops, and live tracking systems."
-            }
+            "title": { "en": "Logistics & Supply Chain" },
+            "desc": { "en": "Fleet management, route optimization, warehouse ops, and live tracking." },
+            "image": "/images/industries/blueprint.png"
           }
         },
         {
@@ -129,14 +111,9 @@
           "type": "item",
           "props": {
             "tag": "B-07",
-            "title": {
-              "en": "Banking & FinTech",
-              "hi": "Banking & FinTech"
-            },
-            "desc": {
-              "en": "Digital wallets, payment gateways, loan platforms, and fraud detection engines.",
-              "hi": "Digital wallets, payment gateways, loan platforms, and fraud detection engines."
-            }
+            "title": { "en": "Banking & FinTech" },
+            "desc": { "en": "Digital wallets, payment gateways, loan platforms, and fraud detection engines." },
+            "image": "/images/industries/fintech-new.png"
           }
         },
         {
@@ -144,17 +121,22 @@
           "type": "item",
           "props": {
             "tag": "T-08",
-            "title": {
-              "en": "Travel & Hospitality",
-              "hi": "Travel & Hospitality"
-            },
-            "desc": {
-              "en": "Booking engines, loyalty programs, concierge apps, and OTA integrations.",
-              "hi": "Booking engines, loyalty programs, concierge apps, and OTA integrations."
-            }
+            "title": { "en": "Travel & Hospitality" },
+            "desc": { "en": "Booking engines, loyalty programs, concierge apps, and OTA integrations." },
+            "image": "/images/industries/global-map.png"
           }
         }
       ]
+    },
+    {
+      "id": "command-center-section",
+      "type": "section",
+      "adminTitle": "Command Center",
+      "props": {
+        "title": { "en": "Ready to build your industry solution?", "hi": "Ready to build your industry solution?" },
+        "subtitle": { "en": "Contact our experts today.", "hi": "Contact our experts today." },
+        "buttonText": { "en": "START A PROJECT", "hi": "START A PROJECT" }
+      }
     }
   ]
 }

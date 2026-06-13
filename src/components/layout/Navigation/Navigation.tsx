@@ -30,6 +30,7 @@ export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState('AI Services');
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
 
   useEffect(() => {
     initCinematic();
@@ -38,6 +39,11 @@ export default function Navigation() {
   const closeMenu = () => {
     setMenuOpen(false);
     setActiveMega(null);
+    setMobileExpanded(null);
+  };
+
+  const toggleMobileExpanded = (item: string) => {
+    setMobileExpanded(m => m === item ? null : item);
   };
 
   const megaData: any = {
@@ -257,13 +263,78 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile drawer */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .mobile-item { border-bottom: 1px solid var(--border); }
+        .mobile-item-head {
+          display: flex; justify-content: space-between; align-items: center;
+          padding: 16px 22px; font-family: var(--font-heading); font-size: 16px; font-weight: 500;
+          color: var(--text-secondary); cursor: pointer; transition: color 0.2s ease, background 0.2s ease;
+        }
+        .mobile-item-head:hover { color: var(--text); background: rgba(29, 195, 243, 0.04); }
+        .mobile-sub {
+          max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          background: rgba(0, 0, 0, 0.2);
+        }
+        .mobile-sub.open { max-height: 1200px; }
+        .mobile-sub a {
+          display: block; padding: 12px 22px 12px 36px; font-size: 14.5px;
+          border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        .mobile-sub-cat-title {
+          padding: 14px 22px 4px 28px; font-family: var(--font-mono); font-size: 10px;
+          color: var(--cyan-soft); letter-spacing: 0.1em; text-transform: uppercase;
+        }
+      `}} />
 
-      <div className={`mobile-drawer ${menuOpen ? 'open' : ''}`}>
-        <Link href="/about" onClick={closeMenu}>About</Link>
-        <Link href="/services" onClick={closeMenu}>Services</Link>
-        <Link href="/industries" onClick={closeMenu}>Industries</Link>
+      <div className={`mobile-drawer ${menuOpen ? 'open' : ''}`} style={{ maxHeight: 'calc(100vh - 57px)', overflowY: 'auto' }}>
+        
+        {/* About Submenu */}
+        <div className="mobile-item">
+          <div className="mobile-item-head" onClick={() => toggleMobileExpanded('about')}>
+            <span>About</span>
+            <span className="expand-icon">{mobileExpanded === 'about' ? '−' : '+'}</span>
+          </div>
+          <div className={`mobile-sub ${mobileExpanded === 'about' ? 'open' : ''}`}>
+            <Link href="/about" onClick={closeMenu}>About Us</Link>
+            <Link href="/hire-developers" onClick={closeMenu}>Hire Developers</Link>
+            <Link href="/careers" onClick={closeMenu}>Careers</Link>
+          </div>
+        </div>
+
+        {/* Services Submenu */}
+        <div className="mobile-item">
+          <div className="mobile-item-head" onClick={() => toggleMobileExpanded('services')}>
+            <span>Services</span>
+            <span className="expand-icon">{mobileExpanded === 'services' ? '−' : '+'}</span>
+          </div>
+          <div className={`mobile-sub ${mobileExpanded === 'services' ? 'open' : ''}`}>
+            <Link href="/services" onClick={closeMenu} style={{ color: 'var(--primary-light)', fontWeight: 600 }}>All Services →</Link>
+            {megaData.services.categories.map((cat: any) => (
+              <div key={cat.name}>
+                <div className="mobile-sub-cat-title">{cat.name}</div>
+                {cat.items.map((item: any) => (
+                   <Link href={`/services/${item.slug}`} key={item.title} onClick={closeMenu}>{item.title}</Link>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Industries Submenu */}
+        <div className="mobile-item">
+          <div className="mobile-item-head" onClick={() => toggleMobileExpanded('industries')}>
+            <span>Industries</span>
+            <span className="expand-icon">{mobileExpanded === 'industries' ? '−' : '+'}</span>
+          </div>
+          <div className={`mobile-sub ${mobileExpanded === 'industries' ? 'open' : ''}`}>
+            <Link href="/industries" onClick={closeMenu} style={{ color: 'var(--primary-light)', fontWeight: 600 }}>All Industries →</Link>
+            {megaData.industries.items.map((item: any) => (
+               <Link href={`/industries/${item.slug}`} key={item.title} onClick={closeMenu}>{item.title}</Link>
+            ))}
+          </div>
+        </div>
+
         <Link href="/technologies" onClick={closeMenu}>Technologies</Link>
-        <Link href="/careers" onClick={closeMenu}>Careers</Link>
         <Link href="/contact" onClick={closeMenu}>Contact</Link>
         <Link href="/contact" className="drawer-cta" onClick={closeMenu}>Free Consultation →</Link>
       </div>
