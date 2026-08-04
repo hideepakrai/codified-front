@@ -13,7 +13,8 @@ export default function EditModeToggle() {
   const {authUser ,isAuthenticated}= useSelector((state:RootState)=>state.auth)
 
   const handleEdit=()=>{
-    if(authUser?.role !== "tenant_admin" || !isAuthenticated){
+    const allowed = ['admin', 'staff', 'business_admin', 'tenant_admin', 'platform_admin', 'super_admin'];
+    if(!allowed.includes(authUser?.role?.toLowerCase() || '') || !isAuthenticated){
         alert("You are not authorized to edit this page")
         return
     }
@@ -21,10 +22,10 @@ export default function EditModeToggle() {
   }
   return (
     <>
-    {authUser && authUser?.role === "tenant_admin" && (
+    {authUser && ['admin', 'staff', 'business_admin', 'tenant_admin', 'platform_admin', 'super_admin'].includes(authUser.role?.toLowerCase() || '') && (
       <button
       onClick={() => handleEdit()}
-      className={`fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-2 rounded-full text-sm font-mono transition-all duration-200 shadow-lg ${
+      className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-mono transition-all duration-200 ${
         isEditable
           ? 'bg-cyan text-black shadow-cyan/30'
           : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'

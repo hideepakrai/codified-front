@@ -8,9 +8,6 @@ import { setCurrentPages, setEditMode } from "@/redux/slices/pages/pagesSlice";
 import GetAllPage from "./GetAllPage";
 import { RootState } from "@/redux/store";
 import { useAppDispatch } from "@/redux/hooks";
-import dynamic from 'next/dynamic';
-
-const EditModeToggle = dynamic(() => import('@/components/layout/EditModeToggle/EditModeToggle'), { ssr: false });
 
 const UpdateCurrentPage = () => {
 
@@ -49,7 +46,6 @@ const UpdateCurrentPage = () => {
   return (
     <>
       <GetAllPage />
-      <EditModeToggle />
     </>
   )
 }

@@ -6,6 +6,7 @@ import { SupportedLocale } from '@/lib/i18n';
 import UpdateCurrentPage from '@/components/getallData/pageData/UpdateCurrentPage';
 import { BlueprintProvider } from '@/components/providers/BlueprintProvider';
 import GlobalLoader from '@/components/shared/GlobalLoader/GlobalLoader';
+import AdminBar from '@/components/layout/AdminBar/AdminBar';
 
 export const metadata: Metadata = {
   title: 'Codified Web Solutions — Digital Infrastructure for Modern Businesses',
@@ -42,11 +43,14 @@ export default async function LocaleLayout({
       </head>
       <body>
          <ReduxProvider>
-          <BlueprintProvider context="public">
-            <GlobalLoader />
-            <UpdateCurrentPage />
-            {children}
-          </BlueprintProvider>
+          <SessionProvider>
+            <BlueprintProvider context="public">
+              <AdminBar />
+              <GlobalLoader />
+              <UpdateCurrentPage />
+              {children}
+            </BlueprintProvider>
+          </SessionProvider>
         </ReduxProvider>
       </body>
     </html>
